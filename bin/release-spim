@@ -1,0 +1,56 @@
+#!/bin/bash
+#
+# Shell script to create clean tar file under Cygwin.
+#
+# Usage: release-spim
+#
+
+VERSION=8.0
+DIRS="CPU spim xspim Tests Documentation"
+TGT=spim-$VERSION
+
+rm -f */*~
+rm -f Tests/tt.endian.s
+pushd spim
+make very-clean
+popd
+pushd xspim
+make clean
+popd
+
+rm -fr $TGT
+mkdir $TGT
+
+for f in $DIRS ; do
+  cp -R $f $TGT
+done
+
+rm -fr $TGT/Documentation/H_P_AppendixA/
+
+cp ChangeLog README $TGT
+
+
+pushd $TGT
+rm -fr .svn
+for f in * ; do
+  rm -fr */.svn */*/.svn
+  if test -f $f ; then
+    cat $f | tr -d "\r" > $f.xxx;
+    mv $f.xxx $f;
+  else
+    for fs in $f/* ; do
+      if test -f $fs ; then
+        cat $fs | tr -d "\r" > $fs.xxx;
+        mv $fs.xxx $fs;
+      fi;
+    done;
+  fi;
+done
+chmod +x spim/Configure xspim/Configure
+popd
+
+#sleep 65
+
+rm -f spim-$VERSION.tar spim-$VERSION.tar.gz
+tar cvf spim-$VERSION.tar spim-$VERSION
+gzip spim-$VERSION.tar

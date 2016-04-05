@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+ <QHelpCollectionProject version="1.0">
+     <assistant>
+         <title>QtSpim Help</title>
+         <startPage>qthelp://org.larusstone.qtspim.1.0/doc/qtspim_help.html</startPage>
+         <applicationIcon>../windows_images/NewIcon.ico</applicationIcon>
+         <enableFilterFunctionality>false</enableFilterFunctionality>
+         <enableDocumentationManager>false</enableDocumentationManager>
+         <enableAddressBar visible="true">true</enableAddressBar>
+         <cacheDirectory>larusstone/qtspim</cacheDirectory>
+         <aboutMenuText>
+             <text>About QtSpim</text>
+             <text language="en">QtSpim is a self-contained simulator that will run a MIPS32 assembly program and display the processor's registers and memory.</text>
+         </aboutMenuText>
+     </assistant>
+     <docFiles>
+         <generate>
+             <file>
+                 <input>qtspim.qhp</input>
+                 <output>qtspim.qch</output>
+             </file>
+         </generate>
+         <register>
+             <file>qtspim.qch</file>
+         </register>
+     </docFiles>
+ </QHelpCollectionProject>

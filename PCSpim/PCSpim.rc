@@ -1,0 +1,537 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+// Generated Help ID header file
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "resource.hm"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif\r\n"
+    "#include ""res\\PCSpim.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#include ""afxprint.rc""       // printing/print preview resources\r\n"
+    "#endif\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\PCSpim.ico"
+IDI_PCSPIMTYPE          ICON                    "res\\document.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MAINFRAME           BITMAP                  "res\\Toolbar.bmp"
+IDB_BITMAP1             BITMAP                  "res\\bitmap1.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR  16, 15
+BEGIN
+    BUTTON      ID_FILE_OPEN
+    BUTTON      ID_FILE_SAVE_LOG
+    SEPARATOR
+    BUTTON      ID_SIMULATOR_GO
+    BUTTON      ID_SIMULATOR_BREAK
+    SEPARATOR
+    BUTTON      ID_SIMULATOR_BREAKPOINTS
+    SEPARATOR
+    BUTTON      ID_APP_ABOUT
+    BUTTON      ID_CONTEXT_HELP
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
+        MENUITEM "Save &Log File...\tCtrl+S",   ID_FILE_SAVE_LOG
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit\tAlt+F4",               ID_APP_EXIT
+    END
+    POPUP "&Simulator"
+    BEGIN
+        MENUITEM "&Clear Registers",            ID_SIMULATOR_CLEAR_REGISTERS
+        MENUITEM "&Reinitialize",               ID_SIMULATOR_REINITIALIZE
+        MENUITEM "Re&load",                     ID_SIMULATOR_RELOAD
+        MENUITEM SEPARATOR
+        MENUITEM "&Go\tF5",                     ID_SIMULATOR_GO
+        MENUITEM "&Break\tCtrl+Break",          ID_SIMULATOR_BREAK
+        MENUITEM SEPARATOR
+        MENUITEM "Single S&tep\tF10",           ID_SIMULATOR_STEP
+        MENUITEM "&Multiple Step...\tF11",      ID_SIMULATOR_MULTISTEP
+        MENUITEM SEPARATOR
+        MENUITEM "Brea&kpoints...\tCtrl+B",     ID_SIMULATOR_BREAKPOINTS
+        MENUITEM SEPARATOR
+        MENUITEM "Set &Value...",               ID_SIMULATOR_SETVALUE
+        MENUITEM "&Display symbol table",       ID_SIMULATOR_DISPLAYSYMBOLS
+        MENUITEM SEPARATOR
+        MENUITEM "&Settings...",                ID_SIMULATOR_SETTINGS
+        MENUITEM "Set Font",                    ID_SIMULATOR_SETFONT
+    END
+    POPUP "&Window"
+    BEGIN
+        MENUITEM "&Tile",                       ID_WINDOW_TILE
+        MENUITEM SEPARATOR
+        MENUITEM "&1 Messages",                 ID_WINDOW_MESSAGES
+        MENUITEM "&2 Text Segment",             ID_WINDOW_TEXTSEG
+        MENUITEM "&3 Data Segment",             ID_WINDOW_DATASEG
+        MENUITEM "&4 Registers",                ID_WINDOW_REGISTERS
+        MENUITEM "&5 Console",                  ID_WINDOW_CONSOLE
+        MENUITEM SEPARATOR
+        MENUITEM "C&lear Console",              ID_WINDOW_CLEAR_CONSOLE
+        MENUITEM SEPARATOR
+        MENUITEM "Tool&bar",                    ID_VIEW_TOOLBAR
+        MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&Help Topics",                ID_HELP_FINDER
+        MENUITEM SEPARATOR
+        MENUITEM "&About PCSpim...",            ID_APP_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS 
+BEGIN
+    "B",            ID_SIMULATOR_BREAKPOINTS, VIRTKEY, CONTROL, NOINVERT
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
+    "P",            ID_FILE_PRINT,          VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_FILE_SAVE_LOG,       VIRTKEY, CONTROL, NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
+    VK_CANCEL,      ID_SIMULATOR_BREAK,     VIRTKEY, CONTROL, NOINVERT
+    VK_F1,          ID_HELP,                VIRTKEY, NOINVERT
+    VK_F1,          ID_CONTEXT_HELP,        VIRTKEY, SHIFT, NOINVERT
+    VK_F10,         ID_SIMULATOR_STEP,      VIRTKEY, NOINVERT
+    VK_F11,         ID_SIMULATOR_MULTISTEP, VIRTKEY, NOINVERT
+    VK_F5,          ID_SIMULATOR_GO,        VIRTKEY, NOINVERT
+    VK_F6,          ID_WINDOW_NEXT,         VIRTKEY, CONTROL, NOINVERT
+    VK_F6,          ID_WINDOW_PREVIOUS,     VIRTKEY, SHIFT, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
+    VK_TAB,         ID_WINDOW_NEXT,         VIRTKEY, CONTROL, NOINVERT
+    VK_TAB,         ID_WINDOW_PREVIOUS,     VIRTKEY, SHIFT, CONTROL, NOINVERT
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG  0, 0, 251, 89
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About PCSpim"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "PCSpim Version 8.0",IDC_STATIC,40,13,119,8,SS_NOPREFIX
+    LTEXT           "Copyright © 1990-2013 by James R. Larus. Portions © Morgan Kaufmann Publishers.",IDC_COPYRIGHT,40,27,204,55
+    DEFPUSHBUTTON   "OK",IDOK,212,7,32,14,WS_GROUP
+END
+
+IDD_BREAKPOINTS DIALOG  0, 0, 242, 157
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Breakpoints"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "A&ddress: (eg: 0x400000)",IDC_STATIC,7,7,78,8
+    EDITTEXT        IDC_ADDRESS,7,17,166,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "&Add",IDC_ADD,185,7,50,14
+    PUSHBUTTON      "&Remove",IDC_REMOVE,185,24,50,14
+    PUSHBUTTON      "Close",IDCLOSE,185,42,50,14
+    LISTBOX         IDC_BREAKPOINTS,7,42,166,108,LBS_SORT | LBS_USETABSTOPS | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_RUN DIALOGEX 0, 0, 229, 84
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Run Parameters"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    LTEXT           "Starting &Address:",IDC_STATIC,7,7,54,8
+    EDITTEXT        IDC_ADDRESS,7,16,71,14,ES_AUTOHSCROLL
+    LTEXT           "&Command line:",IDC_STATIC,7,36,47,8
+    EDITTEXT        IDC_COMMANDLINE,7,46,146,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,172,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,172,24,50,14
+    CONTROL         "Check for undefined symbols",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,67,102,10,0,HIDC_CHECK1
+END
+
+IDD_SETTINGS DIALOGEX 0, 0, 255, 158
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Settings"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CONTROL         "&Bare machine",IDC_BARE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,87,59,10
+    CONTROL         "Allow &pseudo instructions",IDC_PSEUDO,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,101,85,10
+    CONTROL         "&Load exception file",IDC_LOADEXCEPTION,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,117,102,10
+    EDITTEXT        IDC_EXCEPTIONFILE,30,133,146,14,ES_AUTOHSCROLL
+    CONTROL         "&Mapped I/O",IDC_MAPPED,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,187,87,55,10
+    CONTROL         "&Quiet",IDC_QUIET,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,187,101,33,10
+    DEFPUSHBUTTON   "OK",IDOK,198,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,198,24,50,14
+    PUSHBUTTON      "&Browse...",IDC_BROWSE,185,133,50,14
+    CONTROL         "&General registers in hexadecimal",IDC_GENREG_HEX,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,34,117,10
+    CONTROL         "&Floating point registers in hexadecimal",IDC_FPREG_HEX,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,49,135,10
+    GROUPBOX        "Display",IDC_STATIC,7,7,162,61
+    GROUPBOX        "Execution",IDC_STATIC,7,59,241,92
+    CONTROL         "&Save window positions",IDC_SAVEWINPOS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,19,117,10
+    CONTROL         "&Delayed Branches",IDC_DELAYEDBRANCHES,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,110,87,71,10
+    CONTROL         "&Delayed Loads",IDC_DELAYEDLOADS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,110,101,56,10
+END
+
+IDD_SETVALUE DIALOG  0, 0, 184, 76
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Set Value"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "&Address or Register Name:",IDC_STATIC,7,7,85,8
+    EDITTEXT        IDC_ADDRESS,7,17,102,14,ES_AUTOHSCROLL
+    LTEXT           "&Value:",IDC_STATIC,7,38,21,8
+    EDITTEXT        IDC_VALUE,7,48,102,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,127,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,127,24,50,14
+END
+
+IDD_MULTISTEP DIALOG  0, 0, 145, 46
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Multiple Step"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,88,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,88,24,50,14
+    LTEXT           "&Number of Steps:",IDC_STATIC,7,7,56,8
+    EDITTEXT        IDC_STEPS,7,17,66,14,ES_AUTOHSCROLL | ES_NUMBER
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 8,0,0,0
+ PRODUCTVERSION 8,0,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "000004b0"
+        BEGIN
+            VALUE "CompanyName", "Larus-Stone"
+            VALUE "FileDescription", "pcspim"
+            VALUE "FileVersion", "8, 0, 0, 0"
+            VALUE "InternalName", "pcspim"
+            VALUE "LegalCopyright", "Copyright © 2013 by James R. Larus"
+            VALUE "OriginalFilename", "pcspim.exe"
+            VALUE "ProductName", "Larus-Stone pcspim"
+            VALUE "ProductVersion", "8, 0, 0, 0"
+        END
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "FileDescription", "PCSPIM Application"
+            VALUE "FileVersion", "8.0.0.0"
+            VALUE "InternalName", "PCSPIM"
+            VALUE "LegalCopyright", "Copyright © 1990-2013 by James R. Larus"
+            VALUE "OriginalFilename", "PCSPIM.EXE"
+            VALUE "ProductName", "PCSPIM Application"
+            VALUE "ProductVersion", "8.0.0.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x0, 1200, 0x409, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 244
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 82
+    END
+
+    IDD_BREAKPOINTS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 235
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 150
+    END
+
+    IDD_RUN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 222
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 77
+    END
+
+    IDD_SETTINGS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 248
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 151
+    END
+
+    IDD_SETVALUE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 177
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 69
+    END
+
+    IDD_MULTISTEP, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 138
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 39
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDR_MAINFRAME           "PCSpim\n\nPCSpim\n\n\nPCSpim.Document\nPCSpim Document"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "PCSpim"
+    AFX_IDS_IDLEMESSAGE     "For Help, press F1"
+    AFX_IDS_HELPMODEMESSAGE "Select an object on which to get Help"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_OPEN            "Open an assembly file\nOpen"
+    ID_FILE_PAGE_SETUP      "Change the printing options\nPage Setup"
+    ID_FILE_PRINT           "Print the active document\nPrint"
+    ID_FILE_PRINT_PREVIEW   "Display full pages\nPrint Preview"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_APP_ABOUT            "Display program information, version number and copyright\nAbout"
+    ID_APP_EXIT             "Quit the application; prompts to save documents\nExit"
+    ID_HELP_INDEX           "Opens Help\nHelp Topics"
+    ID_HELP_FINDER          "List Help topics\nHelp Topics"
+    ID_HELP_USING           "Display instructions about how to use help\nHelp"
+    ID_CONTEXT_HELP         "Display help for clicked on buttons, menus and windows\nHelp"
+    ID_HELP                 "Display help for current task or command\nHelp"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_WINDOW_CASCADE       "Cascade Windows\nCascade"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_VIEW_TOOLBAR         "Show or hide the toolbar\nToggle ToolBar"
+    ID_VIEW_STATUS_BAR      "Show or hide the status bar\nToggle StatusBar"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "Change the window size"
+    AFX_IDS_SCMOVE          "Change the window position"
+    AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
+    AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
+    AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
+    AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
+    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "Restore the window to normal size"
+    AFX_IDS_SCTASKLIST      "Activate Task List"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_PREVIEW_CLOSE   "Close print preview mode\nCancel Preview"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_SAVE_LOG        "Save the current state to a log file\nSave"
+    ID_SIMULATOR_CLEAR_REGISTERS "Clear the registers\nClear Registers"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_SIMULATOR_BREAK      "Stop the current program\nBreak"
+    ID_SIMULATOR_BREAKPOINTS "Set breakpoints\nBreakpoints"
+    ID_SIMULATOR_SETTINGS   "Simulator settings\nSettings"
+    ID_SIMULATOR_SETVALUE   "Set a register or memory value\nSet Value"
+    ID_SIMULATOR_STEP       "Step\nStep"
+    ID_SIMULATOR_RELOAD     "Reload the current file\nReload"
+    ID_SIMULATOR_MULTISTEP  "Step multiple instructions\tMulti-Step"
+    ID_SIMULATOR_DISPLAYSYMBOLS "Display all global symbols\nDisplay Symbols"
+    ID_WINDOW_NEXT          "Next Window\nNext Window"
+    ID_WINDOW_PREVIOUS      "Previous Window\nPrevious Window"
+    ID_WINDOW_TILE          "Tile Horizontally\nTile Horizontally"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_SIMULATOR_REINITIALIZE 
+                            "Clear memory and registers\nClear Memory and Registers"
+    ID_WINDOW_CLEAR_CONSOLE "Clear the console window\nClear Console"
+    ID_WINDOW_SHOW_CONSOLE  "Show the console window\nShow Console"
+    ID_SIMULATOR_GO         "Run the program\nGo"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_INDICATOR_BARE       "BARE"
+    ID_INDICATOR_DELAY_BR   "DELAY BR"
+    ID_INDICATOR_DELAY_LD   "DELAY LD"
+    ID_INDICATOR_REGS       "PC=0x00000000  EPC=0x00000000  Cause=0x00000000"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif
+#include "res\PCSpim.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#include "afxprint.rc"       // printing/print preview resources
+#endif
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

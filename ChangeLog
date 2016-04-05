@@ -1,0 +1,3202 @@
+2016-02-27  Larus  <larus@Jim-Macbook-Air>
+
+        *  QtSpim/menu.cpp:
+        Unnecessary refresh of register display.
+
+	* QtSpim/spimview.h, regwin.cpp:
+        Did not highlight changes to double precision registers correctly.
+
+2015-12-29  Larus  <larus@Jim-Macbook-Air>
+
+        * CPU/version.h (SPIM_VERSION):
+        Version 9.1.17
+
+        * summary.rtf:
+        Update installation instructions for latest OS X.
+
+        * QtSpim/QtSpim.pro, menu.cpp [https://sourceforge.net/p/spimsimulator/bugs/71/]:
+        Fix creation of qtspim.qhc file to eliminate embedded paths.
+
+        *  menu.cpp, spimview.cpp, spimview.h:
+        Highlight spim notice with color.
+
+2015-12-28  Larus  <larus@ubuntu>
+
+    * bin/release-debian [https://sourceforge.net/p/spimsimulator/support-requests/9/]:
+    Forgot sqldriver on Linux.
+
+
+2015-12-28  Larus  <larus@Jim-Macbook-Air>
+
+        * CPU/scanner.l [https://sourceforge.net/p/spimsimulator/bugs/66/]:
+        Improvement to previous fix for flex version detection.
+
+2015-12-21  Larus  <larus@Jim-Macbook-Air>
+
+        * QtSpim/state.cpp (writeSettings):
+        Added check box for spim quiet mode.
+
+2015-09-17    <larus@IC-LMC-ICDO-01>
+
+        * QtSpim/regwin.cpp, QtSpim/datawin.cpp [https://sourceforge.net/p/spimsimulator/bugs/60/]
+        Fix of bug 60 did not work on Windows because of difference in
+        treatment of hex literals from Mac.
+
+2015-08-27  Larus  <larus@Jim-Macbook-Air>
+
+        * README, README.rtf;
+        Update build instructions further.
+
+2015-08-25  Larus  <larus@ubuntu>
+
+        * CPU/version.h (SPIM_VERSION):
+        Version 9.1.16
+
+        * README, README.rtf:
+        Update build instructions.
+
+        * QtSpim/spimview.cpp (initialize_world):
+        Update copyright notice for QtSpim to notify that Qt uses LGPL.
+
+        * QtSpim/QtSpim.pro:
+        Configuration name changed from linux-g++ -> linux-g++-32
+
+2015-04-26  Larus  <larus@Jim-MacBook-Air.local>
+
+        * CPU/version.h (SPIM_VERSION):
+        Fix installation on Mac to include all libraries.
+        Version 9.1.15.
+
+2015-03-12  Larus  <larus@icdhcp-1-044.epfl.ch>
+
+        * QtSpim/state.cpp (win_Restore):
+        Add command on Windows menu to restore windows to initial default configuration.
+
+2015-03-11  Larus  <larus@icdhcp-1-044.epfl.ch>
+
+        * QtSpim/datawin.cpp (formatPartialQuadWord) [https://sourceforge.net/p/spimsimulator/bugs/61/]:
+        Problem printing partial word at end of memory space.
+
+        * CPU/scanner.l:
+        Change of 2/18 made a number followed by a comma and space
+        ambiguous. Now FP numbers must have a digit following decimal
+        point (decimal comma).
+
+2015-02-18  Larus  <larus@ubuntu>
+
+        * QtSpim/regwin.cpp, QtSpim/datawin.cpp [https://sourceforge.net/p/spimsimulator/bugs/60/]
+        Setting register and memory contents in QtSpim did not allow
+        negative hex numbers (0xf....).
+
+2015-02-18  Larus  <larus@icdhcp-1-196.epfl.ch>
+
+        * spim/spim.c (top_level):
+        Fixed spim's handling of stdin to allow it to read commands from
+        redirected input.
+
+        * CPU/scanner.l:
+        Allow comma (,) and apostraphe (') as decimal separator in
+        floating point numbers.
+
+        * QtSpim/menu.cpp (help_ViewHelp):
+        Fix Mac help.
+
+2015-02-17  Larus  <larus@icdhcp-1-196.epfl.ch>
+
+        * QtSpim/textwin.cpp (DisplayTextSegments):
+        Force redisplay of text segment when font changes.
+
+        * QtSpim/console.cpp (WriteOutput) [https://sourceforge.net/p/spimsimulator/patches/3/]:
+        Ensure console output stays visible.
+
+2015-02-17    <larus@IC-LMC-ICDO-01>
+
+        * CPU/syscall.c (myInvalidParameterHandler) [https://sourceforge.net/p/spimsimulator/bugs/46/]:
+        Bad parameter to system call invoked Windows Error Reporting and
+        crashed spim. Instead, report error in spim.
+
+2014-08-21  Larus  <larus@Jim-MacBook-Air.local>
+
+        * Documentation/SourceForge/index.html:
+        Update links to Qt source.
+
+2014-05-31  Larus  <larus@Jim-MacBook-Air.local>
+
+        * spim/spim.c [Jorge Garcia Aguilar <jorgegarag@gmail.com>]:
+        Add -dump and -full_dump flags to write data and text segments
+        to a file.
+
+2014-02-02  Larus  <larus@Jim-MacBook-Air.local>
+
+        * Setup/QtSpim_Mac_Deployment/QtSpim_Mac_pkproj:
+        Fixed Mac install to include instructions how to work around
+        Gatekeeper rejection of unsigned apps.
+
+2014-01-26  Larus  <larus@Jim-MacBook-Air.local>
+
+        * CPU/version.h (SPIM_VERSION):
+        Version 9.1.13
+
+        * QtSpim/macinfo.plist, QtSpim/QtSpim.pro, NewIcon.icns:
+        Added application icon for MacOS.
+
+        * bin/release-osx
+        [Philip James, https://sourceforge.net/p/spimsimulator/bugs/54]:
+        Need to package Frameworks and plugs with Mac release and change
+        file paths so they can be found.
+
+2014-01-22  Larus  <larus@Jim-MacBook-Air.local>
+
+        * CPU/op.h [Philip Machanick <p.machanick@ru.ac.za>]:
+        Break instruction does not take any arguments.
+
+2013-12-28    <larus@IC-LMC-ICDO-01>
+
+        * Documentation/SourceForge/index.html:
+        Bad path to files on SourceForge.
+
+2013-12-17    <larus@IC-LMC-ICDO-01>
+
+        * New release of QtSpim for Windows to include msvcp110.dll.
+
+2013-12-14  Larus  <larus@Jim-MacBook-Air.local>
+
+        * CPU/version.h (SPIM_VERSION):
+        Version 9.1.12
+
+        * QtSpim/menu.cpp (help_ViewHelp):
+        Further adjustment of file positions on Mac OS.
+
+2013-12-13  Larus  <larus@Jim-MacBook-Air.local>
+
+        * QtSpim/help/qtspim.qhcp, QtSpim/help/qtspim.qhp:
+        Fix naming issues in QtSpim help. Open at top of page.
+
+        * QtSpim/menu.cpp (help_ViewHelp):
+        Properly launch Qt Assistant on Mac OS.
+
+2013-12-11  Larus  <larus@icdhcp-1-098.epfl.ch>
+
+        * QtSpim/QtSpim.pro:
+        Set flags for clang on Mac OS.
+
+        * CPU/run.c (run_spim):
+        Eliminate nop assignments caught by clang.
+
+2013-12-10    <larus@IC-LMC-ICDO-01>
+
+        * CPU/version.h:
+        Version 9.1.11:
+
+        * CPU/inst.c, CPU/op.h, CPU/parser.y, Tests/tt.core.s:
+        MOVF and MOVT instructions were improperly parsed, stored, and unparsed.
+
+        * CPU/data.c (increment_data_pc):
+        [https://sourceforge.net/p/spimsimulator/bugs/53]:
+        Off-by-one error in computing space when growing data segment.
+
+        * QtSpim/regwin.cpp:
+        Display FP control register index values, not contents.
+
+2013-12-09    <larus@IC-LMC-ICDO-01>
+
+        * Switched to Visual Studio 2012, ported installer to
+        InstallShieldLE since VS installer no longer supported.
+
+2013-12-08    <larus@IC-LMC-ICDO-01>
+
+        * CPU/version.h:
+        Version 9.1.10
+
+2013-11-14    <larus@IC-LMC-ICDO-01>
+
+        * CPU/inst.c (eval_imm_expr):
+        [https://sourceforge.net/p/spimsimulator/bugs/51]:
+        Incorrectly handled indexed offset of extern symbol.
+
+2013-11-10    <larus@IC-LMC-ICDO-01>
+
+        * QtSpim/datawin.cpp (formatWord):
+        [https://sourceforge.net/p/spimsimulator/bugs/52]:
+        Negative decimal should be preceeded by spaces, not zeros, when
+        printing data.
+
+2013-10-27  Larus  <larus@ubuntu>
+
+        * Setup/qtspim_debian_deployment/control.prototype:n
+        Added Installed-Size field in DEBIAN/control file.
+
+2013-10-15    <larus@IC-LMC-ICDO-01>
+
+        * QtSpim/datawin.c QtSpim/spimview.h
+        [https://sourceforge.net/p/spimsimulator/bugs/50]:
+        Did not properly format and print data segments that were not a
+        multiple of 16 bytes.
+
+2013-10-14    <larus@IC-LMC-ICDO-01>
+
+        * CPU/scanner.l [https://sourceforge.net/p/spimsimulator/bugs/49]:
+        Did not properly scan escaped characters (e.g. '\n').
+
+2013-10-13    <larus@IC-LMC-ICDO-01>
+
+        * QtSpim/main.cpp, QtSpim/QtSpim.pro, QtSpim/spim_support.c
+        [https://sourceforge.net/p/spimsimulator/bugs/47]
+        [https://sourceforge.net/p/spimsimulator/bugs/48]:
+        Port QtSpim to Qt 5.1.
+
+2013-07-20    <JIM@LS-RED>
+
+        * QtSpim/help/HP_AppA.html [Matthias Herlich herlich@upb.de]:
+        Definition of caller/callee saved registers reversed!
+
+2013-06-02    <JIM@LS-RED>
+
+        * CPU/inst.c (format_an_inst) [Daniel Chester <chester@mail.eecis.udel.edu>]:
+        FP compare (e.g. c.eq.s) instructions ignored condition flag
+        numbers. The FP move (e.g. movt.s) instructions did not default
+        condition flag.
+
+2013-03-23    <JIM@LS-RED>
+
+        * CPU/data.c (extern_directive) [https://sourceforge.net/p/spimsimulator/bugs/44/]:
+        Multiple instance of extern directive resolved to distinct locations.
+
+        * CPU/inst.c (i_type_inst_full_word) [https://sourceforge.net/p/spimsimulator/feature-requests/11/]:
+        LW/SW of 0x8000..0xffff generated incorrect code.
+
+2013-01-19    <JIM@LS-RED>
+
+        * CPU/version.h:
+        Version 9.1.9
+
+        * helloworld.s [https://sourceforge.net/p/spimsimulator/feature-requests/8/]:
+        Added hello world example
+
+2013-01-06    <JIM@LS-RED>
+
+        * spimview.cpp, console.cpp [http://sourceforge.net/p/spimsimulator/feature-requests/9/]:
+        Use fixed width font for spim output to line up colums properly
+
+2012-12-16    <JIM@LS-RED>
+
+        * QtSpim/QtSpim.pro [sourceforge #37: https://sourceforge.net/u/smeenai/]:
+        Fix flex output file argument specification.
+        Include optional defines for using Win move and del commands.
+
+2012-12-09    <Jim@X64PC>
+
+        * CPU/version.h (SPIM_VERSION):
+        Version 9.1.8
+
+        * CPU/scanner.l [Tom Murphy wolfmurphy@gmail.com]:
+        Overwrote first digit in \ooo escape sequence in string.
+
+        * CPU/inst.c (i_type_inst) [Tom Murphy wolfmurphy@gmail.com]:
+        Crashed at teqi instruction.
+
+2012-10-21    <Jim@X64PC>
+
+        * QtSpim/main.cpp (parseCommandLine):
+        Allow multiple input files on the command line.
+
+        * QtSpim/console.cpp (WriteOutput):
+        Activate console window on input or output to raise it and give it focus.
+
+2012-10-13    <Jim@X64PC>
+
+        * CPU/sym-tbl.c (resolve_a_label_sub):
+        Error message indicates bare machine to explain why memory address
+        is too large.
+
+2012-02-25    <Jim@LS-RED>
+
+        * QtSpim/menu.cpp (file_LoadFile):
+        Allow .a extension for assembly file.
+
+2012-02-12    <Jim@X64PC>
+
+        * CPU/version.h:
+        Version 9.1.7
+
+2012-02-11    <Jim@LS-RED>
+
+        * QtSpim/spimview.h:
+        Include version.h to catch dependence in menu.c on version number.
+
+2012-02-04    <Jim@LS-RED>
+
+        * CPU/version.:
+        Version 9.1.6
+
+        * QtSpim/regwin.cpp (formatInt) [Jeff Gitlin <jeff.gitlin@gmail.com>]:
+        Returned sign-extended 64bit formatted values for negative numbers.
+
+2012-01-07    <Jim@LS-RED>
+
+        * CPU/data.c (increment_data_pc), inst.c, tt.core.s [Artur Golisz <artur_waw@ymail.com>]:
+        Did not grow data segments properly when allocating memory with
+        the .space command.
+
+2012-01-02    <Jim@X64PC>
+
+        * CPU/spim-utils.c (write_startup_message):
+        Updated copyright date.
+
+2012-01-02    <Jim@LS-RED>
+
+        * CPU/version.h:
+        Version 9.1.5
+
+        * Setup/qtspim_debian_deployment/control.prototype:
+        More precise dependencies for qt packages >= 4.7 to fix setup problems.
+
+
+2011-12-03    <Jim@LS-RED>
+
+        * QtSpim/main.cpp (parseCommandLine): [Esteban Stafford (estebanstafford)]:
+        Did not correctly initialize memory with -file argument.
+
+        * QtSpim/menu.cpp, console.cpp, console.h [Esteban Stafford (estebanstafford)]:
+        Got in an infinite loop when single stepping or running
+        interpreter blocked waiting for input.
+
+2011-09-04    <Jim@X64PC>
+
+        * CPU/version.h (SPIM_VERSION):
+        Version 9.1.4
+
+2011-11-25    <Jim@LS-RED>
+
+        * spim/Makefile [W. Michael Petullo ( flyn )]:
+        Inherit flags from environment.
+
+2011-08-14    <Jim@LS-RED>
+
+        * QtSpim/console.cpp, QtSpim/datawin.cpp, QtSpim/regwin.cpp, QtSpim/textwin.cpp [Jordan Thoms (jords12)]:
+        Subwindows can receive events before main window is fully
+        construct if subwindows are undocked, which lead to a null-pointer reference.
+
+        * spim/spim.c (write_assembled_code) [George Prekas (prekgeo)]:
+        Added command line argument to dump contents of text and data segments.
+
+        * spim/spim.c:
+        Clean up code for dumping text segment and comments.
+
+2011-07-30    <Jim@LS-RED>
+
+        * QtSpim/help/HP_AppA.html [Tatpong Katanyukul <tatpong@gmail.com>]:
+        Minor typos in instruction descriptions (bgezal, div.d, sub.d).
+
+2011-07-26    <Jim@LS-RED>
+
+        * spim/Makefile [flyn]:
+        Added $(DESTDIR) to spim/xspim install targets.
+
+2011-07-24  Jim Larus  <jim@linuxPC>
+
+        * Version 9.1.3
+
+        * bin/release-debian:
+        Parameterize for x64 linux.
+
+2011-07-23  Jim Larus  <jim@linux64>
+
+        * xspim/buttons.c:
+        Changes to satisfy C++'s stricter typing rules.
+
+2011-07-23    <Jim@X64PC>
+
+        * QtSpim/menu.cpp (help_AboutSPIM) [Sergio Barrachina Mir <barrachi@icc.uji.es>]:
+        Improve the About QtSpim dialog.
+
+        * QtSpim/regwin.cpp (changeValue):
+        Suppress compiler warning.
+
+        * QtSpim/QtSpim.pro:
+        Generate compressed helpfile and help collection separately to
+        work around bug in buildhelpcollection's -o argument.
+
+2011-07-22    <Jim@X64PC>
+
+        * Version 9.1.2
+
+        * pervasive:
+        Changed C code to use bool instead of int to make things clear,
+        although no longer vanilla C code.
+
+        * QtSpim/datawin.cpp [William A. Barrett wbarrett1076@comcast.net]:
+        Fix data segment display to show ASCII chars on a partial line.
+        Only display printable ASCII chars.
+
+
+2011-07-21    <Jim@X64PC>
+
+        * Version 9.1.1
+
+        * QtSpim/console.cpp,   QtSpim/console.h, QtSpim/datatextedit.h,
+        QtSpim/datawin.cpp, QtSpim/regtextedit.h,       QtSpim/regwin.cpp,
+        QtSpim/spimview.cpp, QtSpim/spimview.ui, QtSpim/texttextedit.h,
+        QtSpim/textwin.cpp [Mario H. Voorsluys m.h.voorsluys@student.tudelft.nl]:
+        Closing a window did not uncheck item on Windows menu.
+        Eliminated empty toolbar.
+
+2011-07-20    <Jim@X64PC>
+
+        * QtSpim/breakpoint.ui QtSpim/menu.cpp, QtSpim/spimview.h, QtSpim/spimview.cpp [William Barrett wbarrett1076@comcast.net]:
+        Provide more usable set of options at a breakpoint.
+
+2011-07-18    <Jim@X64PC>
+
+        * Version 9.1
+
+2011-07-18  Jim Larus  <jim@linuxPC>
+
+        * Setup/qtspim_debian_deployment/postinst:
+        Register QtSpim help file after installation.
+
+2011-07-17    <Jim@X64PC>
+
+        * Setup/QtSpim_Win_Deployment/QtSpim-package.sln:
+        Fixed VS deployment package to register/unregister help file when
+        installing on new machine.
+        Added image rendering plugins for jpegs.
+
+        * main.cpp, menu.cpp, spimview.cpp, spimview.h, state.cpp:
+        Added command line parsing to QtSpim.
+
+        * CPU/spim.h, PCSpim/ConsoleWnd.cpp, PCSpim/SpimSupport.cpp,
+        QtSpim/console.cpp, QtSpim/console.h, QtSpim/spim_support.c,
+        Tests/read.s, spim/spim.c, xspim/xspim.c,
+        QtSpim/help/HP_AppA.html:
+        Better document the behavior of the console window in both
+        memory_mapped and regular mode. None of the simulators, beyond
+        spim, yet allows editing in either mode. Eliminate inconsistently
+        implemented control-c processing, except in spim simulator.
+
+        * QtSpim/spimview.cpp (closeEvent) [Mario H. Voorsluys m.h.voorsluys@student.tudelft.nl]:
+        Close console window when main QtSpim window closes.
+
+2011-07-16    <Jim@X64PC>
+
+        * QtSpim/state.cpp (readSettings):
+        If the size of the restored window exceeds the current screen
+        size, resize the window.
+
+        * CPU/run.c (start_CP0_timer) [Ed Harcourt (edharcourt1)]:
+        Clean up non-Windows timer code to not reset timer until it has
+        expired. This behavior may have caused problems on Linux x64.
+
+        * QtSpim/console.cpp, QtSpim/console.h, QtStpim/spim_support.c [Merlin Hansen (wasteofammo)]:
+        Memory mapped IO was not fully implemented.
+
+        * QtSpim/menu.cpp (sim_Run) [Merlin Hansen (wasteofammo)]:
+        Reduced frequency of updating screen 100-fold to reduce the ~100
+        slowdown relative to the console version.
+
+2011-06-19    <Jim@X64PC>
+
+        * QtSpim/Documentation/SourceForge [kevin.vermeer (kevin.vermeer)]:
+        PDF files not uploaded to SourceForge.
+
+        * QtSpim/datawin.cpp (formatMemoryContents) [Robert K. Moniot (moniot)]:
+        Incorrect html dropped line break after run of zeros.
+
+        * QtSpim/help/Fig7.1.jpg [William Barrett wbarrett1076@comcast.net]:
+        Missing figure in help file: rename file from FIg7.1.jpg to
+        Fig7.1.jpg since help tools are case sensitive.
+
+        * QtSpim/regwin.cpp [William Barrett wbarrett1076@comcast.net]:
+        Only printed out half of double precision FP registers.
+
+        * QtSpim/spimview.ui [William Barrett wbarrett1076@comcast.net]
+        Corrected misspelling in File menu item.
+
+2011-06-19    <Jim@LS-RED>
+
+        * QtSpim/savelogfile.ui: QtSpim/menu.cpp  [Kenneth Lodge klodge@csu.edu.au]:
+        Writing log file failed because of change to class of underlying
+        windows. Eliminated HTML mode and cleaned up dialog box.
+
+2011-02-05    <Jim@LS-RED>
+
+        * CPU/scanner.l, CPU/parser.y [David Hemmendinger hemmendd@union.edu]:
+        Allow full arithmetic expressions in constant definitions.
+
+        * QtSpim/menu.cpp [Dave Reed <dreed@capital.edu>]:
+        Single stepping after hitting a breakpoint started at the
+        beginning of the program.
+
+2011-01-18    <Jim@LS-RED>
+
+        * Documentation/SourceForge/readme.txt [Sergio Barrachina Mir <barrachi@icc.uji.es>]:
+        Installed Mac OS X version of QtSpim.
+
+2011-01-09    <Jim@X64PC>
+
+        * Version 9.0.5 released:
+
+        * QtSpim/README, QtSpim/datawin.cpp, QtSpim/menu.cpp,
+        QtSpim/regtextedit.h, QtSpim/regwin.cpp, QtSpim/settings.ui,
+        QtSpim/spimview.h, QtSpim/spimview.ui, QtSpim/state.cpp:
+        Renamed st_intRegBase -> st_regDisplayBase and used base setting
+        to display FP registers.
+        Changed inconsistent use of QtSPIM -> QtSpim.
+        Dropped octal display format for register and data.
+        FP registers can be displayed in hex or binary.
+        FP registers can be set.
+        Right click to set register display format.
+        Enhancement from setting registers also applied to data segment.
+
+2011-01-08    <Jim@LS-RED>
+
+        * Version 9.0.4 released:
+
+        * QtSpim/QtSpim.pro, QtSpim/regtextedit.h, QtSpim/regwin.cpp,
+        QtSpim/spimview.h, QtSpim/changevalue.ui [Mitko <asdfgga12@gmail.com>]:
+        Set value of register as either a decimal or hexadecimal value.
+        Fixed help file build for Windows.
+
+2011-01-05    <Jim@LS-RED>
+
+        * PCSpim_9.0.2.zip, PCSpim_9.0.3.zip:
+        Icons for shortcut not properly set. Wrong installation banner.
+
+2011-01-04    <Jim@LS-RED>
+
+        * PCSpim_9.0.1.zip:
+        New release to correct a bug in the deployment that included the
+        debug rather than release binary, which conflicted with libraries.
+
+2011-01-02    <Jim@X64PC>
+
+        * Version 9.0.1 released:
+
+        * QtSpim/menu.cpp:
+        Update register display when single stepping.
+
+        * QtSpim/datawin.cpp, QtSpim/menu.cpp, QtSpim/regwin.cpp, QtSpim/textwin.cpp:
+        Scroll windows to top when reinitialized; otherwise leave at same place.
+
+2011-01-01  Jim Larus  <jim@linuxPC>
+
+        * Version 9.0 released:
+
+        * Setup/qtspim_debian/depolyment/qtspim.desktop, bin/release-debain:
+        Added Linux desktop entry and icon.
+
+        * QtSpim/regwin.cpp, QtSpim/datawin.cpp, QtSpim/textwin.cpp,
+        QtSpim/state.cpp:
+        Leave windows scrolled to top as much as possible.
+
+        * spim/Makefile, xspim/IMakefile:
+        Changed directories to install spim and xspim in /usr/bin.
+
+        * Setup/qtspim_debian_deployment, bin/release-debian, QtSpim/menu.cpp:
+        Create debian package.
+
+2010-12-30    <Jim@X64PC>
+
+        * Moved SVN repository to SourceForge in preperation for hosting
+        entire project at that site.
+
+2010-12-30    <Jim@LS-RED>
+
+        * PCSpim/PCSpimView.cpp [Lyosha Blinnikov <nookkin@gmail.com>]:
+        Incorrectly parse file names containing spaces.
+
+2010-12-29    <Jim@LS-RED>
+
+        * PCSpim/pcspim.rc [Hauerwas, Adam <HAUERWAS@providence.edu>]:
+        Field label did not fit string.
+
+2010-11-26    <Jim@LS-RED>
+
+        * QtSpim/help:
+        Added Appendix A of Patterson & Hennessey as help file.
+
+2010-11-21    <Jim@LS-RED>
+
+        * QtSpim/menu.cpp, QtSpim/help:
+        Added help file.
+
+2010-11-05    <Jim@LS-RED>
+
+        * QtSpim/regwin.cpp, QtSpim/QtSpim.pro, QtSpim/regtextedit.h,
+        QtSpim/spimview.cpp, QtSpim/spimview.ui Mitko <asdfgga12@gmail.com>:
+        Add right click to set register values.
+
+2010-10-23    <Jim@LS-RED>
+
+        * CPU/inst.c, CPU/inst.h, CPU/mem.c, CPU/run.c,
+        QtSpim/datatextedit.h, QtSpim/datawin.cpp, QtSpim/menu.cpp,
+        QtSpim/spim_support.c, QtSpim/spimview.cpp, QtSpim/spimview.h,
+        QtSpim/spimview.ui, QtSpim/textwin.cpp, QtSpm/windows_images.qrc:
+        Fixed debugger functionality by adding pause button.
+        Sped up formating of data segments.
+        Improved error messages.
+
+2010-10-10    <Jim@LS-RED>
+
+        * CPU/run.c, QtSpim/QtSpim.pro, QtSpim/README, QtSpim/spim_support.c, QtSpim/textwin.cpp
+        Chris Van Horne <cwvh@email.arizona.edu>:
+        Changes for Mac.
+
+        * xspim/xspim.c, xspim/buttons.c:
+        New internal interface.
+
+        * PCSpim/PCSpimView.cpp:
+        New internal interface.
+
+        * spim/spim.c:
+        New internal interface.
+
+        * QtSpim/menu.cpp, QtSpim/spimview.ui:
+        Improved handling of run/stop/single-step.
+
+        * CPU/spim-utils.c, CPU/spim-utils.h CPU/spim.h:
+        Simplify code for running a program.
+
+2010-10-02    <Jim@LS-RED>
+
+        * QtSpim/menu.cpp (executeProgram) Alexander Williams <proflogic@gmail.com>:
+        Single step go hung up at breakpoint.
+
+2010-09-18    <Jim@LS-RED>
+
+        * CPU/display-utils.c J.P. Mellor <jpmellor@rose-hulman.edu>:
+        Did not display full stack (artificially dropped first 4K).
+
+2010-09-12    <Jim@LS-RED>
+
+        * QtSpim/:
+        Released QtSpim.0.9
+
+2010-09-09    <Jim@X64PC>
+
+        * PCSpim/:
+        Ported PCSpim to Visual Studio 2010.
+        Renamed VS configuration files to reflect version of VS (vs6,
+        vs08, vs10).
+        Compiled PCSpim for x64 processor on Windows.
+
+2010-09-06    <Jim@X64PC>
+
+        * spim/Makefile:
+        Supress coercion chatter when compiling with gcc v4.
+
+2010-09-03    <Jim@LS-RED>
+
+        * spim/, xspim/, CPU:
+        Eliminated the Configure / configuration file. Defaults work for
+        most systems these days, so ports to "unusual" systems can change
+        the parameters by setting the cpp defines manually in Makefiles.
+
+2010-08-31    <Jim@LS-RED>
+
+        * pervasive:
+        Renamed defines LITTLENDIAN -> SPIM_LITTLENDIAN, BIGENDIAN ->
+        SPIM_BIGENDIAN to avoid name classes with system .h files.
+
+2010-07-27    <Jim@LS-RED>
+
+        * CPU/{inst.c, parser.y, run.c, scanner.l, spim-utils.c,
+        sym-tbl.c, syscall.c}, spim/{Makefile, spim.c}:
+        Fix type errors so spim compiles as C++.
+
+2010-07-21    <Jim@LS-RED>
+
+        * CPU/version.h, CPU/spim-utils.c, spim/Makefile, xspim/Makefile,
+        xspim/IMakefile, PCSpim/pcspim.vcproj:
+        Move spim version information from file to CPU/version.h.
+
+2010-01-23    <Jim@LS-RED>
+
+        * CPU/endian.c:
+        Added copyright notice.
+
+2010-01-08    <Jim@LS-RED>
+
+        * Version 8.0 released
+
+2010-01-05    <Jim@LS-RED>
+
+        * xspim/Imakefile, spim/Makefile Jaymie Strecker [JStrecker@wooster.edu]:
+        Change install path from /usr to /usr/local.
+        Removed -D option, which doesn't exists on MacOS.
+
+        * pervasive:
+        Change license to a BSD license, update copyright notices, and
+        eliminated references to my old email address.
+
+2009-12-05    <Jim@LS1>
+
+        * CPU/spim-utils.c (initialize_run_stack) [이법재 bupjae@hotmail.com]:
+        Simplify alignment of data on stack to ensure enough room is left
+        for environment and args at top of stack.
+
+        * PCSpim/PCSpimView.cpp:
+        Initialize stack with arguments when running program from run dialog.
+
+        * spim/spim.c (read_input) [Adam Wolfe Gordon
+        adam.wolfegordon@gmail.com}:
+        read_input filled buffer with last character of file not terminated by
+        newline.
+
+        * Documentation/spim.html [Dave Comer dmcomer@dmcmicro.com]:
+        Links to MIPS documentation were broken.
+
+2009-09-22    <Jim@LS1>
+
+        * spim/spim.c (main) [Ohad Kammar ohad.kammar@ed.ac.uk]:
+        Did not return value from exit syscall.
+
+2009-03-01  James larus  <larus@ubuntu-laptop>
+
+        * xspim/buttons.c [Karl Ljungkvist k.ljungkvist@gmail.com]:
+        Step command reinitialized the stack, which changed registers (argc, argv).
+
+2009-03-01    <Jim@LS1>
+
+        * Documentation/spim.html:
+        Updated web page to remove reference to spim source in PCSpim source distribution.
+
+        * PCSpim/PCSpimView.{cpp, h}, SettingsDlg.cpp, BreakpointDlg.cpp, MainFrm.{cpp, h}:
+        Force redisplay of data segment in situations in which register
+        values may have changed, such as $sp. Some cleanup as well.
+
+        * PCSpim/PCSpimView.cpp:
+        Properly initialize the PC at the first invocation of the step operation.
+
+        * PCSpim/PCSpimView.cpp, spim/spim.c [Pierce, Bill [pierce@hood.edu]:
+        Initialize the stack when initializing the world, so the stack is
+        initialized when single stepping as well as running.
+
+2009-02-13    <Jim@LS1>
+
+        * CPU/mem.c (bad_mem_write) [phong le phongle@nlsim.com]:
+        Major memory leak: instructions overwritten by self-modifying code
+        were not freed!
+
+        * spim/Configure, xspim/Configure [Carlos Pantelides carlos_pantelides@yahoo.com]:
+        Added test for 64 bit Linux systems.
+
+2009-01-22    <Jim@LS1>
+
+        * spim/Makefile:
+        Fix install commands so exceptions.s is installed at /usr/lib/spim.
+        Rerelease of spim.tar.*
+
+2009-01-14    <Jim@LS1>
+
+        * pcspim.zip:
+        Rerelease of pcspim to correct installer problem. Visual Studio
+        9.0 required new crt and mfc libraries.
+
+2009-01-01    <Jim@LS1>
+
+        * Released version 7.4
+
+2009-01-01  James larus  <larus@ubuntu-laptop>
+
+        * xspim/Imakefile, spim/Makefile:
+        Fix install directories for Linux.
+
+2008-11-29    <Jim@LS1>
+
+        * xspim/buttons.c [karl.marklund@gmail.com]:
+        Command line arguments for assembly code not properly set.
+
+2008-11-28    <Jim@LS1>
+
+        * PCSpim/PCSpimView.{cpp,h}:
+        Command line arguments not set properly on second and subsequent runs.
+
+2008-11-01    <Jim@LS1>
+
+        * Version 7.4
+
+        * Tests/tt.core.s (madd_) Miguel Barão [mjsb@di.uevora.pt]:
+        Added test for madd(2, -1) with (hi, lo) = (0, -1).
+
+2008-05-18    <Jim@LS1>
+
+        * CPU/scanner.l [liblit@cs.wisc.edu]:
+        Fix for flex 2.5.33 was too specific for that version and failed
+        on later versions, which propagated the change recoganized by fix
+        of2005-02-05.
+
+2007-05-20    <Jim@LS1>
+
+        * CPU/run.c (run_spim):
+        Fixed handling of borrow from subtract of low-order word in MSUB
+        and MSUBU
+
+2007-05-03    <Jim@LS1>
+
+        * CPU/run.c Tim ODonnell [timodonnell@gmail.com]:
+        Fixed handling of overflow from add of low-order word in MADD and
+        MADDU.
+
+2007-04-15    <Jim@LS1>
+
+        * Documentation/spim.html:
+        Updated MIPS documenation links to reflect new file
+        versions. Included link to Nokia 660 port.
+
+2007-01-14    <Jim@LS1>
+
+        * CPU/inst.c (inst_decode) Cai Hongxu [caihongxu@gmail.com]:
+        Did not correctly decode SPECIAL2 instructions (e.g., madd).
+
+2006-08-28    <Jim@LS1>
+
+        * spim/Makefile:
+        Explicitly include exception handler path for "make test" to
+        eliminate need to install it before running test.
+
+2006-08-26    <Jim@LS1>
+
+        * Version 7.3
+
+        * spim/Makefile, xspim/Imakefile:
+        Fix installation process of man pages and make xspim compile under
+        Cygwin. Do not install man page by default (too many different
+        options).
+
+2006-08-23    <Jim@LS1>
+
+        * CPU/string-stream.c [Jeremy Huddleston
+        jeremyhu@eecs.berkeley.edu]:
+        Segfault in ss_printf caused by incorrect usage of va_ interface
+        when string overflows and needs to be reallocated.
+
+        * xspim/xspim.c, spim/spim.c [Jeremy Huddleston
+        jeremyhu@eecs.berkeley.edu]:
+        Read SPIM_EXCEPTION_HANDLER environment variable.
+
+2006-08-20    <Jim@LS1>
+
+        * CPU/scanner.l [many xspim bugs on Linux]:
+        flex 2.5.33 changed the polarity of the yy_init flag without
+        providing a backwardly compatible way of setting it (sigh).
+
+        * spim-utils.c [Jeremy Huddleston jeremyhu@berkeley.edu]:
+        Allow a semicolon deliminated list of exception files, rather than
+        just a single file.
+
+        * parser.y [Piotr Bieganowski bieganow@wsisiz.edu.pl]:
+        Memory corruption caused spim to crash when a label was defined
+        twice in succession.
+
+2006-08-19    <Jim@LS1>
+
+        * PCSPimView.cpp:
+        Update register and memory display even after a parse error when
+        reading a file.
+
+        * parser.y, scanner.{h, l} [Jordi Ferrer Plana jferrerp@eia.udg.es]:
+        Added unnecessary null character between items in a list of
+        strings from .asciiz.
+
+2005-11-25    <Jim@LS1>
+
+        * xspim/Imakefile, spim/Makefile [Johannes Grassler
+        johannes.grassler@freenet.de]:
+        Fix paths for installing exception.s.
+
+2005-08-28    <Jim@LS1>
+
+        * Documentation/TeX/spim.tex:
+        Change psfig -> epsfig.
+
+        * SPIM 7.2.1 Released
+
+        * spim.c:
+        Translate CR -> NL on console input and echo CR following NL on
+        console output (to make IO consistent across all three platforms).
+
+        * spim.c:
+        Did not properly set console flags when passing console to program.
+
+        * xspim.c:
+        Fixed handling of carriage return and modifier keys in xspim
+        memory mapped IO.
+
+        * xspim.c:
+        Do not ignore trailing filename argument to xspim.
+
+        * {spim,xspim}/Configure:
+        Use the "env" command to invoke bash, so pathname is not hardwired
+        into shell script (eg for Solaris).
+
+2005-08-07    <Jim@LS1>
+
+        * SPIM 7.2 Released
+
+        * README spim/Makfile
+        General cleanup of documentation in README files.
+        Eliminated Makefile.Cygwin in spim directory in favor of single
+        file that worked on Unix and Cygwin.
+
+2005-07-25    <Jim@LS1>
+
+        * CPU/sym-tbl.c (resolve_a_label_sub) [Vegdahl, Steven vegdahl@up.edu]:
+        Did not add 1 to upper 16 bits of LW/SW pair (to compensate for
+        signed add in instruction) when there was an ADDU instruction
+        between the LUI and LW/SW, due to an indexed address compuation.
+
+2005-06-04    <Jim@LS1>
+
+        * spim/spim.c (console_to_program) [Peter Fröhlich phf@cs.ucr.edu]:
+        Eliminated non-POSIX flags IUCLC and IXANY to facilitate port to
+        Mac OS X.
+
+        * spim/spim.c (console_to_program) [Deborah Pickett
+        debbiep@csse.monash.edu.au]:
+        Use termios(3) library calls instead of IOCTLs to fix bug
+        introduced in port from termio to termios struct (did not change
+        TCGETA -> TCGETS and TCSETA -> TCSETS, since the latter does not
+        exist in Cygwin).
+
+        * Tests/tt.core.s (jalr_):
+        Test default case for jalr, without default $rd (=31).
+
+        * Tests/tt.io.s blair bethwaite [blair.bethwaite@gmail.com]:
+        Trap handle in test extracted wrong bits from ExcCode field of
+        Cause register.
+
+2005-05-31    <Jim@LS1>
+
+        * Pervasive restructuring of files to put 3 UIs (spim, xspim,
+        PCSpim) in separate directories and cleanup organization and
+        makefiles.
+
+2005-02-12    <Jim@LS1>
+
+        * PCSpim:
+        Use correct help file in install process.
+
+2005-02-05    <Jim@LS1>
+
+        * scanner.l [Joe Pfeiffer pfeiffer@cs.nmsu.edu]:
+        Added work-around for bug in 2.5.31 that left yytext_ptr undefined.
+
+        * exceptions.s [Herman Harrison herman.harrison@utdallas.edu]:
+        Restore epilogue code restored $at then used pseduo instructions
+        that smashed it.
+
+        * PCSpimView.{cpp,h}
+        Cleared filename when reinitializing simulator, which broke next
+        reload command.
+
+2005-01-10    <Jim@LS1>
+
+        * Repackage and rerelease PCSpim_7.1.zip to include mfc71.dll and
+        msvc71.dll, which weren't originally included.
+
+2005-01-02    <Jim@LS1>
+
+        * Version 7.1 released.
+
+        * Switched Windows installer to Microsoft .msi installer, instead
+        of InstallShield.
+
+        * exceptions.s [Pervin, William J pervin@utdallas.edu]:
+        Masked exception code with 4 bit (not 5 bit) mask.
+
+2004-11-27    <Jim@LS1>
+
+        * mem.c inst.h (check_memory_mapped_IO) [Deborah debbiep@csse.monash.edu.au]:
+        Clearing the transmitter or receiver interrupt enable bits also
+        clear interrupt pending bits in Cause register. Transmitter and
+        receiver interrupt enable bits now operate properly (ie prevent
+        interrupts when cleared).
+
+2004-11-26    <Jim@LS1>
+
+        * xspim.c (console_input_available) [Daniel Stearns dstearns@csc.calpoly.edu]:
+        Code to poll for a console input character in X windows blocked and
+        prevented any output until input occured.
+
+2004-11-23    <Jim@LS1>
+
+        * exceptions.s (__excp) [pwhite@mailhaven.com]:
+        Correct typos in comments
+
+2004-11-13    <Jim@LS1>
+
+        * op.h [lau@det.ua.pt]:
+        Type of "mul" instruction was wrong, which lead to it being
+        printed without destination register.
+
+2004-10-19    <Jim@LS1>
+
+        * inst.c (inst_decode):
+        Do not printf with format string from user input (comment).
+
+2004-10-18    <Jim@LS1>
+
+        * inst.c (format_an_inst):
+        Do not print breakpoint instruction. Instead, print underlying instruction.
+
+        * PCSpimView.cpp:
+        Do not single step when PC = 0;
+
+        * spim-utils.c, spim.c:
+        Clean up stack initialization code.
+
+        * spim-utils.c:
+        Change R[29] -> R[REG_SP].
+
+2004-09-28    <Jim@LS1>
+
+        * op.h:
+        Table had same opcode for beq and beql, which caused unparing
+        error that unparsed beq as beql.
+
+2004-09-26    <Jim@LS1>
+
+        * spim.c, Configure:
+        Eliminated dependence on obsolete termio.h in favor of posix
+        termios.h since Mac OS X doesn't have termio.h any more.
+
+2004-09-21    <Jim@LS1>
+
+        * PCSpimView.cpp:
+        Fix null pointer problem if no entries in registry.
+
+        * spim-utils.c [J.P. Mellor [jpmellor@rose-hulman.edu]]:
+        Turn off EXL bit after break instruction, since break is handled by
+        SPIM, not MIPS, code and the bit was never getting cleared.
+
+        * Move to VC7.0 (Visual Studio.NET).
+
+2004-09-12    <larus@HomeMachine>
+
+        * Released SPIM 7.0b (on Windows) to propagate changes.
+
+        * PCSpimView.cpp:
+        Set default path for exceptions.s to C:\Program Files\PCSpim, the
+        default installation directory.
+
+2004-09-04    <larus@HomeMachine>
+
+        * Tests/tt.core.s:
+        Test for SQRT.S used double constant, which failed on SPARC (but
+        not x86).
+
+2004-08-22    <larus@HomeMachine>
+
+        * Released SPIM 7.0a to propagate changes.
+
+        * Updated spim.html with new COD files.
+
+        * Makefile, Imakefile, Makefile.std:
+        Eliminate dependence in syscall.o on spim-syscall.h.
+
+2004-07-11    <larus@HomeMachine>
+
+        * Makefile [Michael L. Miller [mmiller2@terpalum.umd.edu]]:
+        Regenerated with updated Imakefile, to reflect file name changes.
+
+2004-07-07    <larus@HomeMachine>
+
+        * Released SPIM 7.0
+
+        * string-stream.c:
+        Fix off-by-one errors null terminating strings.
+
+        * data.c (lcomm_directive) Philipp Lucas [phlucas@cs.uni-sb.de]:
+        Fix implementation of .lcomm
+
+2004-06-27    <larus@HomeMachine>
+
+        * parser.y [Philipp Lucas [phlucas@cs.uni-sb.de]]:
+        Freed wrong YACC variable in .comm and .label.
+
+2004-06-05    <larus@HomeMachine>
+
+        * PCSpim:
+        Add Solution for building PCSpim with VC7 (PCSpim.VC7).
+
+        * op.h [Dave]:
+        Modified some FP opcodes to correct values.
+
+2004-05-08    <larus@HomeMachine>
+
+        * spim.c, xspim.c:
+        Removed unused variable cycle_level.
+
+2004-05-02    <larus@HomeMachine>
+
+        * MainFrame.{cpp,h}, PCSpimView.{cpp,h}:
+        Fixed updating of status line in PCSpim to conform to MFC convention
+
+2004-04-24    <larus@HomeMachine>
+
+        * parser.y run.c op.h:
+        Changed MUL instruction from pseduo op to actual instruction.
+        Fixed encoding of several instructions to correspond to hardware.
+
+2004-03-28    <larus@HomeMachine>
+
+        * run.c:
+        Changed CP0 timer to poll on Unix, since signals interrupt system
+        calls and affect SPIM's I/O.
+
+2004-03-25    <larus@HomeMachine>
+
+        * display-utils.c, xspim.c windows.c:
+        Made X interfaces a bit more compact and regular. Works on a
+        1024x768 screen.
+
+2004-03-22    <larus@HomeMachine>
+
+        * parser.y [Margaret M Reek [mmr@cs.rit.edu]]:
+        Add, rather than subtract, in expression: imm - imm.
+
+2004-03-21    <larus@HomeMachine>
+
+        * pervasive:
+        Cleaned up splint warnings.
+        Replaced sprintf calls with str-stream abstraction.
+
+2004-03-12    <larus@HomeMachine>
+
+        * pervasive:
+        Renamed "trap" to "exception" to reflect MIPS terminology.
+        Renamed trap.handler to exceptions.s.
+
+        * inst.c inst.h parser.y run.c:
+        Fix internal representation of instructions by separating FS from
+        RS field and moving it RD and RD to SHAMT.
+
+        * scanner.l [Akim Demaille <akim@epita.fr>]:
+        Improve handling of escape sequence in strings to bring it close
+        to ISO C strings.
+
+        * spim.c:
+        Introduced short command line arguments.
+        Assumed first argument not starting with '-' is file name.
+
+        * inst.h mem.c mem.h reg.h run.c spim-utils.c spim.c spim.h
+        tt.io.s:
+        Fixed implementation of console IO.
+        Ensure that interrupts occur before instruction execution (and
+        other exceptions afterwards), so that EPC points to instruciton to
+        restart.
+
+2004-03-11    <larus@HomeMachine>
+
+        * mips-syscall.{c,h} spim-sycall.h syscall.{c,h}
+        Moved all syscall-related stuff to syscall.{c,h} and eliminated
+        old #ifdef'ed stuff related to syscalls from binary code running
+        on DECstations.
+
+2004-03-10    <larus@HomeMachine>
+
+        * Changed memory access macros to functions.
+
+2004-03-06    <larus@HomeMachine>
+
+        * prevasive:
+        Implemented MIPS32 instruction set.
+        Eliminated coprocessor 3.
+        Made coprocessor 2 operations raise coprocessor unimplemented trap
+        (CpU).
+        Modified exceptions and interrupts to conform to MIPS32 (ex when
+        compiled -DMIPS1).
+        Added CP0 timer.
+        Fixed trap.handler to work with MIPS32 exceptions.
+
+2004-02-19    <larus@HomeMachine>
+
+        * inst.c inst.h spim-utils.c:
+        Sorted instruction tables in advance, rather than on first use.
+
+2004-02-16    <larus@HomeMachine>
+
+        * PCSpimView.cpp [Domenico G. Sorrenti (sorrenti@disco.unimib.it)]:
+        Add prompt to ask user whether to reinitialize on reloading a file.
+
+2004-02-15    <larus@HomeMachine>
+
+        * MainFrm.cpp MainFrm.h PCSpim.cpp PCSpimView.cpp PCSpimView.h
+        [Matthew Low (mlow@imail.EECS.Berkeley.edu)]:
+        Added menu item to set font in PCSpim.
+
+        * Documentation/spim.tex [Deborah Ariel Pickett
+        (debbiep@mail.csse.monash.edu.au)]:
+        Updated documentation to reflect changes to command line options
+        and new syscalls.
+
+        * pervasive:
+        Eliminated #ifdef __STDC__. Everyone must have a non-K&R compiler
+        by now.
+
+        * mem.c [Akim Demaille (akim@epita.fr)]:
+        Word align all segments, in particular, ensure that sbrk returns
+        word-aligned addresses.
+
+        * mips-syscall.c spim-syscall.h spim.c xspim.c spim.h
+        SpimSupport.cpp [Akim Demaille (akim@epita.fr)]:
+        Added new syscall (EXIT2_SYSCALL) that takes argument that is
+        passed to spim's exit() call.
+
+        * sym-tbl.c [Matt Harren (math@cs.berkeley.edu)]:
+        Copied garbage byte after name of undefined symbols.
+
+        * scanner.l [Vishal jain (vishalsj@yahoo.com)]:
+        Old lex does not use yy_hold_char variable, so ifdef out reference.
+
+        * spim.c [Matt Harren (math@cs.berkeley.edu)]:
+        Handle boundary case for -file without name.
+
+2004-02-14    <larus@HomeMachine>
+
+        * run.c [Bob Britton (BBritton@csuchico.edu)]:
+        Correctly implement delayed load instructions. (Nobody ever use
+        them before?)
+
+        * parser.y:
+        Record labels on line with syntax error.
+
+        * scanner.l [P. Augustyniak silvathraec@rpg.pl]:
+        Added \ooo constants to strings.
+
+        * mips-syscall.c [Shaunak Pawagi (shaunak@cs.sunysb.edu)]:
+        Only print 8 digits for single precision floats.
+
+        * spim.html [Shaunak Pawagi (shaunak@cs.sunysb.edu)]:
+        Correct -delayed-branches and -delayed-loads to -delayed_branches
+        and -delayed_loads.
+
+        * spim.c [Jos Hulzink (josh@stack.nl)]:
+        Incorrect ifdef around vprintf.
+
+        * spim.c [Marvin Solomon (solomon@cs.wisc.edu)]:
+        Core dumped when passed one argument.
+
+        * run.c tt.core.s [Marvin Solomon (solomon@cs.wisc.edu)]:
+        Change to test for overflow in integer divide was backwards and
+        nullified all divides by -1.
+
+        * Configure [Russell D. Meier (meier@msoe.edu)]:
+        Removed the -traditional-cpp flag from MacOSX. (It appears that
+        the semantics of this flag have changed and now break spim.)
+
+        * Configure Imakefile Makefile.cygwin Makefile.std Tests/tt.le.s
+        Tests/tt.be.s Tests/tt.core.s Tests/tt.core.OK Tests/tt.endian.OK:
+        Factored torture tests into endian-indpendent and endian-dependent
+        pieces.
+
+2003-01-04    <larus@HomeMachine>
+
+        * Version 6.5 released.
+
+        * spim.c PCSpimView.cpp:
+        If started with only one argument, assume it is a file
+        name. [Armin Mueller [arm.in@web.de]]
+
+        * :
+        Added Alt-F4 shortcut to PCSpim.
+
+        * trap.handler:
+        Return to instruction at EPC on interrupt. Comment code
+        better. [Nuno Lau [lau@det.ua.pt]]
+
+        * spim.c:
+        Partioned print_reg into 3 cases, to avoid casting int to char* on
+        64 bit machine. [Ken Swarner [kswarner@siena.edu]]
+
+        * spim.html:
+        Cleaned up file and added installation instructions.
+
+2003-01-03    <larus@HomeMachine>
+
+        * README:
+        Typo in README. [Ian Langworth [bass@ccs.neu.edu]]
+
+2003-01-01    <larus@HomeMachine>
+
+        * run.c:
+        Got (real!) hardware exception on integer overflow in
+        division. [Deborah Ariel Pickett [debbiep@mail.csse.monash.edu.au]]
+
+        * xspim.c:
+        -trap_file did not properly parse argument in xspim. [From:
+        William Waite [William.Waite@Colorado.EDU]]
+
+        * scanner.l:
+        Fixed printing of error on last line without a carriage
+        return. [Max Hailperin [max@gac.edu]]
+
+        * display-utils.c:
+        Print proper registers when printing hex FP numbers. [Armin
+        Mueller [arm.in@web.de]]
+
+        * mem.c:
+        Properly zero newly allocated memory. [Guillaume Melquiond
+        [gmelquio@ens-lyon.fr], Bill Siever [bsiever@umr.edu, Diego Billi
+        [dbilli@CS.UniBO.IT], Alberto Montresor [montreso@cs.unibo.it],
+        Max Gilbert [max@ebs330.eb.uah.edu]] Konrad Rymuza [zeljko@wp.pl]
+
+        * SettingsDlg.cpp:
+        Set delayed branch & load check box when bare check box is
+        checked. [Marco Cova [mcova@umail.ucsb.edu]]
+
+        * trap.handler:
+        Added nops (addu $0, $0, 0) to trap handler, so that it works
+        properly in bare mode! [Marco Cova [mcova@umail.ucsb.edu]]
+
+        * sym-tbl.c:
+        Avoid null ref when there is no instruction in memory before a
+        load instruction. [Steven Borkman [borkman@cse.Buffalo.EDU]]
+
+        * spim.html:
+        Removed reference to spimwin.ps since file disappeared (.pdf
+        remains) [hemmendd@athena.union.edu]
+
+        * PCSPIM.HLP:
+        File was corrupted.
+
+2002-01-12    <larus@HomeMachine>
+
+        * Release SPIM 6.4a
+
+        * spim.html:
+        Update with latest info.
+
+        * mips-syscall.c:
+        Use unix read/write/open/close not just windows
+        _read/_write/_open/_close.
+
+        * xspim.h xspim.c:
+        Bad function prototypes.
+
+2002-01-01    <larus@HomeMachine>
+
+        * Release SPIM 6.4
+
+        * PCSpimView.cpp:
+        Ensure that register and data segment windows do not shift focus
+        when underlying values change.  [Vollmar, Kenneth R
+        krv133f@smsu.edu]
+
+        * parser.y tt.le.s:
+        Fixed translation of USH to eliminate side-effect and warning.
+
+        * mips-syscall.c:
+        Eliminated compiler warnings at high warning level.
+
+        * mips-syscall.c spim-syscall.h:
+        Added open/close read/write system calls. [Doug Johnson
+        djohnson@cs.washington.edu]
+
+        * Configure:
+        Added entries for Mac OSX. [Jeffrey Naset jeff@naset.net]
+
+2001-12-24    <larus@HomeMachine>
+
+        * parser.y:
+        Translation of USH pseudo-op used register $1 twice, which didn't
+        work. Changed it so it modifies its first argument instead (and
+        issued warning of side effect).
+
+        * PCSpimView.cpp:
+        Report parser warnings distinct from errors.
+
+        * parser.y:
+        REM pseudo-op requires 3 arguments. [Rigel rigelf@angelfire.com]
+
+        * ConsoleWnd.h:
+        Return window's content as a string so it can be dumped to a
+        file. [Bill Siever bsiever@umr.edu]
+
+        * parser.y inst.h tt.le.s tt.be.s:
+        Make LUI's immediate unsigned (since it is not sign
+        extended). [Georgia Grant grantg@pacbell.net]
+
+        * SpimSupport.cpp:
+        Check that buffer in read_input is not null and that size is
+        reasonable. [ webmaster.it@libero.it]
+
+        * scanner.l:
+        Buffer overrun when handling bad input terminated by EOF rather
+        than \nl. [Max Hailperin max@gac.edu]
+
+        * spim-utils.c:
+        Symbol "main" was not marked as global in the symbol table. [From:
+        J. P. Mellor jpmellor@rose-hulman.edu]
+
+        * mem.c:
+        Zero newly allocated data byte-by-byte, to avoid zapping data in
+        last word of non-word aligned data area. [Peter Gammie
+        peteg@cse.unsw.edu.au]
+
+        * scanner.l:
+        Properly handle characters overwritten by null in scanner when
+        looking for the end of the current line.  [From:
+        Cary.G.Gray@wheaton.edu]
+
+        * sym-tbl.c tt.le.s tt.be.s:
+        Did not properly check that high-order 4 bits in jump
+        instruction's PC match corresponding bits in target instruction's
+        PC.
+
+        * parser.y:
+        Eliminated reduce/reduce conflict in div instruction.
+
+        * Makefile.cygwin:
+        Added -g flag. Changed from yacc to bison. Changed "diff" to "diff
+        -w" to ignore cr/lf differences.
+
+2001-02-08    <larus@HomeMachine>
+
+        * parser.y:
+        Did not handle rem pseudo op properly, which caused a fatal error
+        or core dump. [Rigel Freden]
+
+2001-02-01    <larus@HomeMachine>
+
+        * spim.c spim.h trap.handler:
+        Added commands to dump text segment (in binary). [Brian
+        R. Gaeke brg@pasteur.EECS.Berkeley.EDU]
+
+        * buttons.c:
+        Allow character literal in set-value dialog box. [Brian
+        R. Gaeke brg@pasteur.EECS.Berkeley.EDU]
+
+        * mips-syscall.c spim-syscall.h Documentation\spim.tex:
+        Added system call to print a character and read a character.
+        [Brian R. Gaeke brg@pasteur.EECS.Berkeley.EDU]
+
+        * xspim.c xspim.h buttons.c:
+        Add button to clear xspim console. [Brian R. Gaeke
+        brg@pasteur.EECS.Berkeley.EDU].
+
+2001-01-14    <larus@HomeMachine>
+
+        * spim.c:
+        Fix print_all_regs to define the stack allocated buffer's length
+        as a constant, not a variable.  This wasn't ANSI C and upset Sun's
+        compiler. [Matt.Simmons@eng.sun.com]
+
+2000-12-25    <larus@HomeMachine>
+
+        * Release 6.3.
+
+        * IMakefile, Makefile.cygwin Makefile.st:
+        Rename SH to CSH.
+
+2000-12-24    <larus@HomeMachine>
+
+        * Makefile.std:
+        Set defaults to work under Linux.
+
+2000-12-23    <larus@HomeMachine>
+
+        * MainFrm.cpp MainFrm.cpp PCSpim.cpp:
+        When frame resized, resize panes.
+
+2000-12-22    <larus@HomeMachine>
+
+        * PCView.cpp:
+        Refresh all windows before initialization finished when user had
+        to respecify trap handler location through dialog box.
+
+        * Makefile.cygwin:
+        Remove .exe files.
+
+        * scanner.l:
+        Ignore carrage returns in input files.
+
+        * Imakefile:
+        Explicitly set SH=csh, since stderr redirection does not work in sh.
+
+2000-12-10    <larus@HomeMachine>
+
+        * xspim.man:
+        Missing quotes screwed up formatting. [Robert Greenfield
+        (rhg@gpfn.sk.ca)]
+
+        * scanner.l (source_line):
+        Include comments from source in SPIM comments. [John Bruce
+        Zuckerman (johnz@cs.tamu.edu)]
+
+        * mem.c (bad_mem_read):
+        Printing of instruction bits failed when no instruction at
+        address. [John Bruce Zuckerman (johnz@cs.tamu.edu)]
+
+        * spim.h display-utils.c mips-syscall.c run.c:
+        Handle display of stack better when $sp points to non-word
+        boundary. [Matt Simmons, (simmonmt@eng.sun.com)]
+
+        * parser.y:
+        Change generated NOP to sll $0, $0, 0 to be consistent. [From:
+        Robert Greenfield (rhg@gpfn.sk.ca)]
+
+        * inst.c (i_type_inst_full_word and resolve_a_label_sub):
+        Sign-extension fixup code for high 16 bits of lw/sw added fixup
+        twice into instruction immediate field. [Robert Greenfield
+        (rhg@gpfn.sk.ca) and Christian R Ward]
+
+        (produce_immediate):
+        Missed optimization of loading immediate with zero high 16
+        bits. [Robert Greenfield (rhg@gpfn.sk.ca) and Christian R
+        Ward]
+
+2000-12-07    <larus@HomeMachine>
+
+        * sys-table.c (resolve_a_label_sub):
+        Correct binary encoding of negative offsets in branch instructions
+        (high 2 bits were 0). [Jim Frenzel (jfrenzel@uidaho.edu) and
+        others]
+
+        * mips-syscall.c (do_syscall)
+        Print single and double precision registers to up to 18 digits,
+        not default 6 digits of precision. [PIERCE@hood.edu]
+
+2000-12-06    <larus@HomeMachine>
+
+        * spim.c (print_all_regs):
+        Added spim command to print all registers. [Linus Akerlund]
+
+2000-12-05    <larus@HomeMachine>
+
+        * Tests/tt.le.s Tests/tt.be.s:
+        Fix regression tests to work with stricter parser and changes to spim.
+
+        * Makefile.std Imakefile:
+        Change "csh" to an environment variable so shell can be changed.
+
+        * spim.c (console_input_available):
+        Comment out code to compile spim under cygwin on windows.
+
+        * spim-utils.c (read_assembly_file):
+        Open file as text (for windows).
+
+        * run.c (run_spim):
+        LWL failed with gcc (cygwin) because missing parens screwed
+        associativity.
+
+2000-12-04    <larus@HomeMachine>
+
+        * parser.y scanner.l inst.h tt.be.s tt.le.s
+        Validate range of immediate values in non-pseudo instruction and
+        warn if too large. [David Kessner davidk@peakaudio.com]
+
+Mon Jan 11 23:53:33 1999  James Larus  <larus@breeze.cs.wisc.edu>
+
+        * tt.be.s tt.le.s:
+        New tests from PC port.
+
+        * parser.y scanner.l inst.c:
+        New EOF code did not work with bison, which does not allow a
+        non-terminal with the value 0.
+
+1999-01-07  Jim Larus  <larus@drh-alpha.dns.microsoft.com>
+
+        * spim.c xspim.c:
+        Report undefined symbols before running program.
+
+1998-12-16    <larus@HomeMachine>
+
+        * Pervasive:
+        Update copyright.
+
+1998-12-14    <larus@HomeMachine>
+
+        * parser.y:
+        Allow pseudo ops with -pseudo flg.
+
+        * parser.y parser.h sym-tbl.c spim.h spim-utils.c sym-tbl.h
+        Test/tt.be.s:
+        Bogus main undefined error if parser failed before main.
+
+        * mem.c:
+        Shift was incorrect.
+
+        * spim.h:
+        Redefine 1000K as K * K.
+
+1998-12-14    <larus@HomeMachine>
+
+        * mem.c:
+        Force redraw of screen after updating text/data in bad address
+        handler.
+
+        * sym-tbl.c:
+        Did not adjust high 16 bits in forward ref to symbol in LW/ST
+        inststruction.
+
+        * mips-syscal.c:
+        Force redisplay of data segment after readining string or sbrk.
+
+1998-12-14    <larus@HomeMachine>
+
+        * display-utils.c:
+        Change floating point format to increase precision and always
+        print decimal point.
+
+1998-12-13    <larus@HomeMachine>
+
+        * inst.{c,h} spim.h run.c:
+        Negative branch displacements handled inconsistently (shift
+        before/after sign extend).
+
+1998-12-07    <larus@HomeMachine>
+
+        * spim-utils.c sym-tbl.c parser.y:
+        Predefine main as global.  Fix symbol table initialization.
+
+        * spim.c sym-tbl.{c,h} display-utils.c PCSpim.rc PCSpimView.cpp
+        resourc.h RunDlg.cpp RunDlg.h SettingsDlg.cpp SpimReg.h:
+        Print undefined symbols before running program.
+
+1998-12-05    <larus@HomeMachine>
+
+        * parser.y:
+        Last line was not parsed if it did not end with newline.
+
+1998-12-02    <larus@HomeMachine>
+
+        * pcspim.ncb pcspim.dsp pcspim.plg pcspim.opt lex.yy.c parser.y:
+        Invoke yacc and lex from within VS.
+
+1998-12-01    <larus@HomeMachine>
+
+        * pcspim.dsp pcspim.opt PCSpimView.cpp pcspim.plg xspim.c
+        spim-utils.h display-utils.h:
+        Share common code for formating machine contents.
+
+1998-11-22    <larus@HomeMachine>
+
+        * pcspim.dsp PCSpim.clw PCSpim.aps MakeHelp.bat PCSpim.hpj
+        pcspim.plg pcspim.opt pcspim.ncb:
+        Fix helfile compile.
+
+        * pcspim.plg PCSPIMView.cpp:
+        Default printing FP registers to FP format.
+
+        * pcspim.dsp pcspim.plg pcspim.opt mem.c inst.h inst.c sym-tbl.c
+        scanner.l:
+        Eliminated warnings from VC6.0 at level 4.
+
+Wed Jan 14 14:46:10 1998  James Larus  <larus@breeze.cs.wisc.edu>
+
+        * run.c mem.c inst.c data.c:
+        Eliminate warnings from VC5.0.
+
+        * run.c spim-utils.c spim.c:
+        Minor changes from David Curley's DOS port.
+
+Tue Dec 30 12:17:11 1997  James Larus  <larus@breeze.cs.wisc.edu>
+
+        * README:
+        Clarify installation instructions. [Deborah Bennett
+        <deborah@cisco.com>]
+
+        * Imakefile:
+        Make Imakefile and Makefile.std writable before tar'ing. [From:
+        Deborah Bennett <deborah@cisco.com>]
+
+        * Configure:
+        Added CC environment variable to allow selection of
+        compiler. [Deborah Bennett <deborah@cisco.com>]
+
+        * scanner.l:
+        Reverse includes for Debian Linux. [Bennet Yee
+        <bsy@play.ucsd.edu>]
+
+        * parser.y:
+        Fix parser so that label: <syntax error> did not cause parser to
+        skip the rest of input. [Bennet Yee <bsy@play.ucsd.edu>]
+
+        * spim.c (print_reg):
+        Change format for printing FP registers to %g (from %f) so all
+        bits are displayed. ["Jason Baumbach"
+        <baumbajg@flyernet.udayton.edu>]
+
+        * inst.c (i_type_inst):
+        Operands between 2^15 and 2^16 to immediate instructions (eg addi)
+        were treated as negative (signed) numbers. [From:
+        jamie@cs.monash.edu.au (Jamie Scuglia)]
+
+Wed Dec  3 14:15:35 1997  James Larus  <larus@butch.cs.wisc.edu>
+
+        * spim.c (write_output):
+        Could flush wrong file with bad descriptor.
+
+Sat Nov 29 17:16:35 1997  James Larus  <larus@breeze.cs.wisc.edu>
+
+        * mem.h:
+        Fix declarations in MEM_ADDRESS (changed for Alpha) that broke old
+        (pre-ANSI) Sun compiler. [Laura Spoldi <laura@txc.com>]
+
+Mon Nov 10 10:34:53 1997  James Larus  <larus@breeze.cs.wisc.edu>
+
+        * Documentation/spim.tex:
+        Document that registers are 32-bits with. [William Waite  <waite@scotty.cs.colorado.edu>]
+
+Mon Oct 20 15:09:34 1997  James Larus  <larus@breeze.cs.wisc.edu>
+
+        * Makefile.std:
+        Added memory size and other defines back to default makefile.
+
+Mon Jul 21 13:12:00 1997  James Larus  <larus@breeze.cs.wisc.edu>
+
+        * Version 6.0 released.
+
+        * BLURB run.c spim-utils.c sym-tbl.c:
+        Changes by DAC.
+
+Wed Jul  9 09:00:41 1997  James Larus  <larus@breeze.cs.wisc.edu>
+
+        * Imakefile Makefile.std buttons.c inst. hmem.c mips-syscall.c
+        reg.h spim-utils.c spim.c spim.h sym-tbl.c xspim.c xspim.h:
+        Eliminate the cl-spim code since I don't want to support it and it
+        will not run on the PCs.
+
+        * buttons.c data.c inst.c mem.c mips-syscall.c spim-utils.c spim.c
+        sym-tbl.c windows.c xspim.c inst.h mem.h reg.h scanner.h spim.h
+        parser.y scanner.l:
+        Changes for DEC Alpha systems. [Robert Moniot
+        <moniot@dsm.fordham.edu>]
+
+        * spim.c xspim.c:
+        The flag -trap_file implies -trap.
+
+        * Imakefile Makefile.std README buttons.c cl-cycle.c data.c
+        mips-syscall.c run.c spim-utils.c spim.c xspim.c:
+        Eliminate code to read MIPS a.out executable (where can you get
+        them anyways)?
+
+        * buttons.c spim-utils.c spim.c xspim.h Makefile.std Imakefile
+        spim-utils.h:
+        Clean up trap file loading.
+
+        * prevasive:
+        Clean up copyright notices.
+
+        * dosnames.txt makefile.dos:
+        Files to compile SPIM on DOS.
+
+Tue Jul  8 17:32:55 1997  James Larus  <larus@breeze.cs.wisc.edu>
+
+        * mips_syscall.c run.c spim-utils.c spim.c spim.h:
+        Changes to port code to PCs. ["David A. Carley"
+        <dac@cs.wisc.edu>]
+
+        * inst.h:
+        Eliminate redundant declarations of k_text_begins_at_point. [From:
+        "David A. Carley" <dac@cs.wisc.edu>]
+
+
+Wed Feb 12 12:29:03 1997  James Larus  <larus@breeze.cs.wisc.edu (James Larus)>
+
+        * reg.h xspim.c:
+        Allow 32 single precision FP registers.
+
+Fri Jan 17 08:54:44 1997  James Larus  <larus@breeze.cs.wisc.edu (James Larus)>
+
+        * Version 5.9 released.
+
+        * spim.tex:
+        Change document to have $sp point at last word of stack frame,
+        instead of first free word no stack (no code changes).
+
+Wed Jan  8 14:08:44 1997  James Larus  <larus@breeze.cs.wisc.edu (James Larus)>
+
+        * inst.c:
+        Change of 12/16 included NULL in lines.
+
+Tue Jan  7 17:24:32 1997  James Larus  <larus@breeze.cs.wisc.edu (James Larus)>
+
+        * scanner.l spim.c spim-utils.c xspim.c spim.h:
+        Added -pseudo/-nopseudo flag.
+
+Mon Dec 16 13:22:47 1996  James Larus  <larus@breeze.cs.wisc.edu (James Larus)>
+
+        * inst.c:
+        Fix printing of long lines (due to long symbols). [From:
+        "William M. Waite" <waite@snag.cs.colorado.edu>]
+
+Thu Dec  5 15:39:01 1996  James Larus  <larus@breeze.cs.wisc.edu (James Larus)>
+
+        * Documentation/spim.tex:
+        Improved documentation of div/divu to emphasis that divu is
+        unsigned and that overflow testing only occurs with 3 argument
+        pseudo-op. [Susan]
+
+Mon Nov 11 08:47:16 1996  James Larus  <larus@breeze.cs.wisc.edu (James Larus)>
+
+        * xspim.c:
+        Fixed highlighting of selected line while single stepping! [From:
+        "William M. Waite" <waite@snag.cs.colorado.edu>]
+
+Fri Oct  4 14:19:23 1996  James Larus  <larus@breeze.cs.wisc.edu (James Larus)>
+
+        * mem.c (print_mem):
+        Word-align address before printing memory. [From:
+        anderson@spelman.edu (Scott D. Anderson)]
+
+Fri Sep 20 15:40:33 1996  James Larus  <larus@breeze.cs.wisc.edu (James Larus)>
+
+        * spim.c xspim.c:
+        read_input did not consistently or correctly handle input when
+        buffer was of length 1. [Ron Van Cleave
+        <ronvc@hppmorvc.sc.hp.com>]
+
+Thu Apr 11 09:04:51 1996  James Larus  <larus@breeze.cs.wisc.edu (James Larus)>
+
+        * Imakefile:
+        Fix usage of -lm flag. [David Thompson <thomas@cs.wisc.edu>]
+
+Fri Jan  5 12:57:09 1996  James Larus  <larus@breeze.cs.wisc.edu (James Larus)>
+
+        * Version 5.8 released.
+
+        * parser.y:
+        Do not clear the labels at start of a line, only after a line with
+        content, so that parser allows blank line between label and
+        directive. [Fischer & student.]
+
+Fri Oct 13 08:27:53 1995  James Larus  <larus@breeze.cs.wisc.edu>
+
+        * parser.y:
+        Translation of shift immediate (sll) to shift variable (sllv)
+        missed that arguments to constructor are reversed. [From:
+        jepler@herbie.unl.edu]
+
+Tue Oct 10 13:06:09 1995  James Larus  <larus@breeze.cs.wisc.edu>
+
+        * parser.y:
+        la $4,3 produced incorrect code. [jepler@herbie.unl.edu]
+
+Fri Aug 25 09:19:38 1995  James Larus  <larus@breeze.cs.wisc.edu (James Larus)>
+
+        * buttons.c cl-cycle.c cl-except.{c,h} inst.c mem.{c,h} reg.h
+        spim-utils.c spim.c xspim.c:
+        Many cleanups for SGI. ["Peter Jacobson" <jacob@cs.umu.se>]
+
+Thu Aug 17 08:33:19 1995  James Larus  <larus@breeze.cs.wisc.edu (James Larus)>
+
+        * Many changes to spim from: [Piers Lauder, piers@staff.cs.su.oz.au]
+
+        * button.c mem.c:
+        Added reload button.
+
+        * button.c spim-utils.c:
+        Generalized input to accept decimal values as well.
+
+        * inst.c:
+        Cleanup of instruction line disassembly formating.
+
+        * op.h:
+        Instruction format for sllv was wrong.
+
+        * spim.c:
+        Fix terminal set up for raw input.
+
+        * xspim.c:
+        Fixed display format a bit.
+
+Tue Aug 15 11:51:11 1995  James Larus  <larus@breeze.cs.wisc.edu (James Larus)>
+
+        * Version 5.7 released.
+
+Tue Aug 15 11:02:02 1995  James Larus  <larus@fool.cs.wisc.edu>
+
+        * mips-syscall.c:
+        The constant OPEN_MAX is ifdef'ed out of limits.h on Ultrix!
+
+Tue Aug 15 09:47:27 1995  James Larus  <larus@breeze.cs.wisc.edu (James Larus)>
+
+        * trap.handler:
+        Ignore (instead of terminating) unaligned instruction addresses,
+        so that regress test works.
+        * Imakefile Makefile.std:
+        Add additional test that installed trap.handler is current, since
+        torture test fails with old trap handler.
+
+Fri Aug 11 15:29:43 1995  James Larus  <larus@breeze.cs.wisc.edu (James Larus)>
+
+        * mem.c trap.handler:
+        Better error message on jump out of text segment to bogus
+        address. [From: hk@odo.bercos.de]
+
+Tue Feb 21 17:24:49 1995  James Larus  <larus@breeze.cs.wisc.edu>
+
+        * spim.tex:
+        Change the documentation to pop a stack frame by adding to the
+        $sp. [jepler@herbie.unl.edu]
+
+Wed Feb  1 16:58:10 1995  James Larus  <larus@breeze.cs.wisc.edu>
+
+        * Configure mips-syscall.c read-aout.c spim-utils.c:
+        Change ifdef's so SPIM compiles on SGI boxes.  The binary file
+        execution does not work because of system call and executable
+        format differences. [Charles Daniel <manager@cse.unl.edu>]
+
+Fri Jan 27 17:14:43 1995  James Larus  <larus@breeze.cs.wisc.edu>
+
+        * Imakefile:
+        Added second colon to keep GNU make happy on output of
+        xmkmf. [Robert  Wieda <rw42@columbia.edu>]
+
+Wed Jan 18 09:38:29 1995  James Larus  <larus@breeze.cs.wisc.edu>
+
+        * Version 5.6 rereleased.
+
+        * tt.le.s tt.be.s:
+        Eliminated references off $sp to make verification of output
+        easier since change of 11/21 put the environment on the stack so
+        that the initial value of $sp dependend on the user's environment.
+
+Fri Jan 13 12:37:19 1995  James Larus  <larus@breeze.cs.wisc.edu>
+
+        * Version 5.6 released.
+
+        * sym-tbl.c sym-tab.h:
+        Change non-ANSI header.
+
+        * cl-cache.c mem.c cl-mem.h:
+        Changes to CL-SPIM from Anne.
+
+Tue Jan  3 14:14:59 1995  James Larus  <larus@breeze.cs.wisc.edu>
+
+        *
+        Put SPIM manual on the WWW. [David Binger
+        <binger@bingo.centre.edu>]
+
+Wed Dec 14 08:37:59 1994  James Larus  <larus@breeze.cs.wisc.edu>
+
+        * README:
+        Improved description of configuration process and eliminated
+        mention of LINUX patches. [carter@cs.ucsd.edu (Larry Carter)]
+
+Tue Dec 13 16:21:01 1994  James Larus  <larus@breeze.cs.wisc.edu>
+
+        * run.c reg.h:
+        Use reg_word and u_reg_word instead of underlying data
+        types. [Stephen Bloch <sbloch@adl15.adelphi.edu>]
+
+        * parser.y, tt.le.s, tt.be.s:
+        Optimization of mult $rx, $ry, 0 into li $rx, 0 was incorrect.
+        [Massimiliano Poletto <maxp@amsterdam.LCS.MIT.EDU>
+        and andre@ai.mit.edu (Andre' DeHon)]
+
+        * scanner.l:
+        Make scanner accept character constants '\t' and '\n'. [From:
+        hollings@cs.UMD.EDU (Jeff Hollingsworth)]
+
+        * spim.c:
+        Allow spim top-level to handle EOF (control-D) gracefully. [From:
+        hollings@cs.UMD.EDU (Jeff Hollingsworth)]
+
+        * trap.handler:
+        Arguments to instructions to save & restore $at were
+        backwards. [baudon@labri.u-bordeaux.fr (Olivier BAUDON)]
+
+Mon Dec 12 17:12:58 1994  James Larus  <larus@breeze.cs.wisc.edu>
+
+        * parser.y sym-tbl.c sym-tbl.h read-aout.c:
+        Bug in resolving forward references to labels in aligned data
+        statements.  The references were resolved with the unaligned
+        value. [fischer@kaese.cs.wisc.edu (Charles Fischer)]
+
+Sat Nov 26 16:08:26 1994  James Larus  <larus@titanic.cs.wisc.edu>
+
+        * spim-utils.c:
+        Ensure stack is double-word aligned after all arguments to main
+        are pushed.  [Anne]
+
+Mon Nov 21 10:09:22 1994  Jim Larus  <larus@primost.cs.wisc.edu>
+
+        * spim-utils.c spim.c spim.man:
+        Did not set up argv and envp properly when program was
+        -executed. [Anne]
+        Changed -execute/-file to take arguments to program after
+        program's name, so they must be last now.
+
+        * read-aout.c:
+        SPIM routine were freeing non-malloced strings from ld library
+        routines.
+
+Fri Nov 11 16:56:12 1994  James Larus  <larus@breeze.cs.wisc.edu>
+
+        * op.h run.c inst.c cl-cycle.c cl-cycle.h parser.y:
+        Did not implement c.olt.s, c.olt.d, c.ult.s, c.ult.d. [Anne]
+
+Fri Nov  4 16:20:40 1994  Jim Larus  <larus@primost.cs.wisc.edu>
+
+        * inst.c op.h:
+        Did not set SPIM instruction COND field from binary FP compare
+        instructions. [Anne]
+
+Tue Nov  1 14:48:57 1994  James Larus  <larus@breeze.cs.wisc.edu>
+
+        * mem.c:
+        Need to realloc data segment when a new one is created. [Anne]
+
+        * read-aout.c:
+        Forgot to add bss size to data segment when creating data segment
+        for -execute. [Anne]
+
+Tue Aug 30 09:09:08 1994  James Larus  (larus@breeze.cs.wisc.edu)
+
+        * spim.c xspim.c spim-utils.c windows.c spim.h:
+        Changed type of console to be void* to avoid casting pointer to int.
+
+Fri Aug 12 11:18:40 1994  James Larus  (larus@breeze.cs.wisc.edu)
+
+        * Version 5.5 released.
+
+        * mips-syscall.c:
+        Move include of sys/syscall.h into include since this file does
+        not exist under AIX.
+
+        * spim.c:
+        Include termios.h as well.
+
+Thu Aug 11 09:44:00 1994  James Larus  (larus@breeze.cs.wisc.edu)
+
+        * spim.c spim-utils.c Configure:
+        Ifdef if machine has vfprintf and use _doprnt if not [Parag
+        Patel <parag@netcom.com>, for BSDI 1.1].
+
+        * cl-cycle.c cl-tlb.c:
+        Bug fixes to print_pipeline and TLB simulation [From
+        226maint@titanic.mpce.mq.edu.au (Ian Cowell), via Anne].
+
+Fri Jul 15 12:50:27 1994  James Larus  (larus@breeze.cs.wisc.edu)
+
+        * Configure Makefile.std inst.c mips-syscall.c spim.c spim.h:
+        Port to Solaris 2.3.
+
+Thu Jul 14 14:48:36 1994  James Larus  (larus@breeze.cs.wisc.edu)
+
+        * mips-syscall.c spim.c:
+        Changes to port to System V.  [Robert Lipe <robertl@arnet.com>]
+
+        * spim.c:
+        Fixed AIX ifdef.
+
+        * mem.c mips_syscall.c:
+        Eliminate bcopy/bzero calls.
+
+Fri Jun  3 16:50:16 1994  James Larus  (larus@breeze.cs.wisc.edu)
+
+        * reg.h:
+        Eliminate incorrect test for even register number in accessing
+        FGR's.  This didn't cause problems since the only FP instructions
+        that accessed FGR's didn't use this instruction. [From:
+        psa@cs.Princeton.EDU]
+
+Thu May 26 13:37:03 1994  James Larus  (larus@breeze.cs.wisc.edu)
+
+        * mips-syscall.c:
+        Delete unneeded declaration of syscall. [From:
+        rskopitz@st6000.sct.edu (ron skopitz)]
+
+Tue Apr 26 11:34:45 1994  James Larus  (larus@breeze.cs.wisc.edu)
+
+        * xspim.c
+        Use 'g' format for floating pointer values so large numbers don't
+        overflow. fields.
+
+        * inst.c mem.c parser.y run.c spim-utils.c spim.h xspim.h
+        Changes to eliminating ANSI-C related warnings from acc.
+
+        * Configure spim-utils.c
+        Split defines for strtol and strtoul (since SunOS defines the
+        former, but not the latter).
+
+        * Imakefile
+        Ignore the first 5 lines of output file (the start-up message)
+        when comparing test results, so as to be insensitive to version
+        and trap.handler messages.
+
+        * Configure spim.h spim-utils.c mips-syscall.c mem.c inst.c
+        cl-expect.c
+        Use memcpy/memset instead of bcopy/bzero functions to be more
+        portable.
+
+Mon Mar 21 08:23:21 1994  James Larus  (larus@primost.cs.wisc.edu)
+
+        * README:
+        Added information about the Amiga port of SPIM.
+
+Tue Feb  8 15:11:31 1994  James Larus  (larus@primost.cs.wisc.edu)
+
+        * Imakefile
+        Change to scanner.l did not result in lex/flex running!
+
+        * scanner.l
+        Did not properly associate line numbers with lines because parser
+        lookahead at the end of a command read the newline, thereby
+        bumping the line_no counter. [jps@moravian.edu (John P.
+        Stoneback)]
+
+Tue Feb  1 14:41:31 1994  James Larus  (larus@primost.cs.wisc.edu)
+
+        * read-aout.c:
+        Changed declaration for compatibility with Ultrix 4.3 library.
+
+Wed Jan 19 15:40:45 1994  James Larus  (larus@primost.cs.wisc.edu)
+
+        * Version 5.4 released.
+
+Fri Dec 24 06:20:33 1993  James Larus  (larus@primost.cs.wisc.edu)
+
+        * Makefile.std:
+        Added install target.
+
+Tue Nov  9 16:07:08 1993  James Larus  (larus@primost.cs.wisc.edu)
+
+        * mips-syscall.c spim-utils.c spim.c
+        Did not set up argc and argv properly for -execute.  $sp now points
+        to argc, even after double-word aligning stack.  Set up argv[0] for
+        -execute in spim.  Added gethostname.
+        [citron@plague.cs.huji.ac.il (Daniel Citron)]
+
+Fri Nov  5 21:52:05 1993  James Larus  (larus@primost)
+
+        * xspim.c, spim-utils.c:
+        Printed message about loading trap handler.
+
+Fri Nov  5 21:37:50 1993  James Larus  (larus@primost)
+
+        * parser.y, spim-utils.c, Makefile.std, Imakefile:
+        Fix parser so it works with bison as well as yacc.
+
+Tue Oct 19 17:27:44 1993  James Larus  (larus@primost.cs.wisc.edu)
+
+        * spim.tex:
+        Figure showing stack frame format was incorrect: saved arguments
+        listed in wrong order and arguments 1-4 missing [Frans Kaashoek
+        <kaashoek@amsterdam.LCS.MIT.EDU>]
+
+Mon Oct  4 14:27:55 1993  James Larus  (larus@primost.cs.wisc.edu)
+
+        * scanner.l sym_tbl.h sym_tbl.c
+        All top-level input (Y_ID's) entered into symbol table.
+
+        * parser.y
+        Aligning data stored in text segment left label with symbol table
+        address in data segment.
+
+        * spim.c:
+        Accidentally folded cases of symbols printed by "print" command.
+
+Tue Sep 28 16:09:35 1993  James Larus  (larus@breeze.cs.wisc.edu)
+
+        * inst.c spim.c windows.c xspim.c inst.h spim.h parser.y:
+        Purified spim & xspim to eliminate memory leaks!
+
+Mon Aug 30 10:21:14 1993  James Larus  (larus@primost.cs.wisc.edu)
+
+        * :
+        VERSION 5.3 released.
+
+        * Imakefile Makefile.std:
+        Check that trap.handler is installed before running torture test to
+        avoid cryptic error message.
+
+Mon Aug 16 10:00:44 1993  James Larus  (larus@primost.cs.wisc.edu)
+
+        * spim-utils.c:
+        Find correct address to check for breakpoint before first instruction
+        is executed [jcasey@flora.ccs.neu.edu].
+
+Fri Jul  2 10:32:18 1993  James Larus  (larus@primost.cs.wisc.edu)
+
+        * README
+        Added mention of Documentation/cycle.ps (documenation for cl-spim
+        and cl-xspim.
+
+Mon Jun 28 17:27:14 1993  James Larus  (larus@primost.cs.wisc.edu)
+
+        * Changes from Scott Rosenberg to cl-spim:
+
+1.) I fixed some problems with return values in mips-syscall.c
+
+2.) I commented out a line that causes the continue_prompt window
+to pop up when stepping through code in cl-xspim
+
+3.) I've changed some of the help menus so that you can see the
+cl-spim commands and only access them when running in cycle_level
+mode.
+
+
+Mon May 17 15:47:52 1993  James Larus  (larus at primost)
+
+        * mips-syscall.c cl-cache.c cl-cycle.c cl-except.c cl-cache.h
+        cl-expect.h
+        Change from Scott Rosenberg:
+
+there were some problems with the signal handling because somehow an
+old (and incorrect version) of gun's signal stuff was merged with mine.
+fixes to both cl-spim and spim code can be found in cl-except.[ch] and
+mips-syscall.c.  the errors came about due to incorrect management of
+spim's pseudo memory which resulted in seg violations.
+
+i also fixed a one line problem in mips-syscall.c in old spim code so
+that return values on exit when running an assembly file in cycle mode
+would match values expected by cl-spim.  (i hadn't tested this until
+someone sent me mail).
+
+i updated cl-cache.[ch] so that it could print the write back buffer.
+
+
+
+Wed May  5 08:42:11 1993  James Larus  (larus at primost)
+
+        * read-aout.c
+        Clear symbol table before defining symbols from executable file to
+        avoid conflict with trap handler's labels.
+
+        * spim.c
+        Allow multiple files to be load with multiple -file arguments.
+
+Tue Apr 20 10:32:40 1993  James Larus  (larus at primost)
+
+        * spim.c
+        Make quit a synonym for exit.
+
+Fri Mar 26 14:58:53 1993  James Larus  (larus at primost)
+
+        * sym-tbl.c
+        Did not fix branch offset field in encoded instruction after label
+        resolved. [Fischer].
+
+Wed Mar 24 11:25:02 1993  James Larus  (larus at primost)
+
+        * xspim.c
+        Fix printing of stack arguments. [Charles Fischer].
+
+        * button.c
+        Put arg's to main back on stack after reinitialization.
+
+        * parser.y
+        Fix previous change to NOR.
+
+Tue Mar 23 16:26:50 1993  James Larus  (larus at primost)
+
+        * parser.y
+        Fix code generation for SUB/NOR w/ immediate, which generated
+        extra register traffic [Charles Fischer].
+
+Thu Mar  4 08:37:30 1993  James Larus  (larus at primost)
+
+        * run.c tt.le.s
+        Bug in lwr when offset is 0 for little-endian machines [From:
+        kohn@ICSI.Berkeley.EDU (Philip Kohn)]
+
+        * xspim.c
+        Displayed incorrect registers for single precision floats [From:
+        Charles Fischer].
+
+Sat Feb 13 14:05:01 1993  James Larus  (larus at primost)
+
+        * spim.tex
+        Change start of data segment from 0x1000000 to 0x10000000 (correct
+        value).  From smith@harvard.
+
+Tue Jan 26 08:40:45 1993  James Larus  (larus at primost)
+
+        * run.c sym_tbl.c
+        Delayed instructions in bare mode were incorrect: executed 1 too
+        many instructions and didn't calculate backward offset correctly
+        [A.P.Sexton@computer-science.birmingham.ac.uk].
+
+        * Imakefile
+        Change EXTRA_LIBRARIES to LOCAL_LDFLAGS to be compatable with
+        older xmkmfs.
+
+Mon Jan 25 08:38:37 1993  James Larus  (larus at primost)
+
+        * Rerelase 5.2
+
+        * Imakefile
+        Change EXTRA_DEFINES to DEFINES to be compatible with older xmkmfs.
+
+Wed Jan 20 12:58:34 1993  James Larus  (larus at primost)
+
+        * Rerelease 5.2
+
+        * mips-syscall.c
+        Used untranslated value in mapping sigvec system call.
+
+        * mem.c
+        Bug in writing value into stack after it grows.
+
+Mon Jan 18 10:05:58 1993  James Larus  (larus at primost)
+
+        * Release 5.2
+
+        * mem.h mips-syscall.c parser.y spim.c spim.h xspim.c xspim.h
+        Minor changes to port SPIM to RS6000 running AIX.
+
+Fri Jan 15 11:47:31 1993  James Larus  (larus at primost)
+
+        * trap.handler
+        Save and restore $at in the trap handler.
+
+        * parser.y scanner.l sym-tbl.c sym-tbl.h
+        Parse a wide variety of additional constructs produced by cc, gcc,
+        and lcc in .S files.
+
+        * spim.c xspim.c tt.io.s
+        Bugs in mapped IO: be more careful about restoring state in
+        switching between console and program mode.
+        Also, use only RAW mode, not CBREAK mode.
+
+Mon Dec 14 10:10:28 1992  James Larus  (larus at primost)
+
+        * spim.man xspim.man
+        Wrote man page for spim and xspim.
+
+        * buttons.c cl-cycle.c windows.c xspim.c
+        Minor fixes for cl-xspim (hidden buttons, bad decls).
+        [From:A.P.Sexton@computer-science.birmingham.ac.uk]
+
+Tue Nov 24 16:35:12 1992  James Larus  (larus at primost)
+
+        * button.c spim-utils.c
+        Read in memory addresses as unsigned, not signed, numbers.
+
+        * mem.c
+        Raise immediate interrupt after enabling interrupts on ready
+        transmitter.
+
+Mon Nov 23 10:53:48 1992  James Larus  (larus at primost)
+
+        * parser.y op.h
+        .label directive should be .lab and it failed [Scott Kempf].
+
+        * parser.y
+        sllv $r, $r, 4 core dumped [Scott Kempf].
+
+        * inst.c
+        Don't print empty brackets on instruction display line.
+
+        * sym_tbl.c
+        Don't try to change data into instruction encoding of itself.
+
+        * data.c data.h parser.y
+        Unaligned (but auto-aligned) .word with forward reference failed
+        because backpatch data structure did not catch alignment [Scott Kempf].
+
+Mon Nov  9 08:37:54 1992  James Larus  (larus at primost)
+
+        * tt.le.s tt.be.s
+        Overflow test did not work for signed/unsigned add [Scott Kempf].
+
+        * trap.handler
+        Don't change $sp in trap handler [Scott Kempf].
+
+Fri Nov  6 11:45:17 1992  James Larus  (larus at primost)
+
+        * pervasive
+        Brought up SPIM on HP Snakes running HPUX (System V).
+
+Thu Nov  5 13:24:54 1992  James Larus  (larus at primost)
+
+        * Configure Imakefile Makefile.std
+        Extended Configure to determine  -DNEED_VSPRINTF and -DNEED_STRTOL
+        flags.
+
+        * inst.c
+        Breakpoint instruction was being freed by memory clear [Quentin
+        Dunchue].
+
+Fri Oct 30 11:21:25 1992  James Larus  (larus at primost)
+
+        * Released version 5.1
+
+        * mem.c
+        Stack segment not grown correctly.
+
+        * mem.c scanner.l spim-utils.c sym-tbl.c inst.c
+        Didn't correctly zero instructions.  Added xmalloc/zmalloc routines
+        to avoid problems.  [From Scott Kempf.]
+
+        * parser.y tt.le.s tt.be.s
+        NOT pseudo op was incorrect: was bitwise boolean on low bit, not
+        logical negation of whole word {From Scott Kempf.]
+
+Wed Oct 28 11:42:06 1992  James Larus  (larus at primost)
+
+        * Configure Imakefile README
+        Added Configure shell script for endian-ness.
+
+Tue Oct 27 16:21:58 1992  James Larus  (larus at primost)
+
+        * mips-syscall.c
+        Allow 0 as address to mips system call.
+
+        * xspim.c
+        Clean-up printing of single precision floats and of floats as hex
+        numbers.
+
+Wed Oct 21 14:40:38 1992  James Larus  (larus at primost)
+
+        * run.c spim.c spim.h xspim.c
+        Fixed up earlier changes to mapped io (now -mapped_io/-nomapped_io).
+
+Mon Oct 19 11:14:41 1992  James Larus  (larus at primost)
+
+        * scanner.l
+        Allow character constants (e.g., 'a').
+
+        * spim.c
+        Include sys/ioctl.h in spim.c [Flavio DeCastilhos - SONY/SMSC
+        flavio@smsc.sony.com].
+
+        * spim.c xspim.c Imakefile Makefile Tests/tt.le.s Tests/tt.be.s
+        Tests/tt.in
+        Spim IO and mapped IO interact poorly.  Added -mapio/-nomapio flag
+        to distinguish them.
+
+Wed Sep 30 09:19:52 1992  James Larus  (larus at primost)
+
+        * scanner.l
+        Don't pass bare string as format to error [Kempf].
+
+        * spim-utils.c parser.y
+        Added \n to error messages [spim-utils.c from Scott Kempf].
+
+Fri Sep 25 08:17:54 1992  James Larus  (larus at primost)
+
+        * run.c tt.le.s tt.be.s
+        Did not handle carry-out in long multiplication routine correctly.
+        Got wrong answer for -1*-1!  [jjackson@tiger.carl.ua.edu]
+
+Wed Sep 23 09:43:29 1992  James Larus  (larus at primost)
+
+        * Released SPIM v5.0
+
+Fri Sep 18 08:43:18 1992  James Larus
+
+        * xspim.c
+        Reinit world when loading executable into xspim.
+
+Wed Sep 16 15:19:27 1992  James Larus  (larus at primost)
+
+        * spim.c  buttons.c cl-cycle.c cl-cycle.h mips-syscall.c xspim.c
+        Changes from Scott R.
+
+Mon Sep 14 16:16:29 1992  James Larus  (larus at primost)
+
+        * spim.c xspim.c
+        Don't load trap handler with -execute flag.
+
+Thu Sep 10 14:47:52 1992  James Larus  (larus at primost)
+
+        * IMakefile
+        Wrote a IMakefile for the xmkmf program.
+
+Wed Sep  2 11:49:05 1992  James Larus  (larus at primost)
+
+        * Makefile buttons.c cl-cache.c cl-cache.h cl-cycle.c cl-cycle.h
+        cl-except.c cl-except.h cl-tlb.c cl-tlb.h mem.c mips-syscall.c
+        mips-syscall.h spim.c xspim.c xpsim.h
+        Merge in Scott R's changes to cl-spim.
+
+
+Wed Aug 12 16:14:46 1992  James Larus  (larus at primost)
+
+        * buttons.c mem.c mem.h mips-syscall.c reg.h run.c spim.c spim.h
+        xspim.c xspim.h
+        Added memory-mapped IO facility.
+
+Tue Aug 11 09:12:31 1992  James Larus  (larus at primost)
+
+        * pervasive
+        Merged in Anne Roger's cycle-level simulator.
+
+        * inst.c
+        Print sll $0, $0, 0 as nop.
+
+        * run.c
+        Missed carry in partial sum in double word multiply.
+
+Mon Aug 10 15:44:13 1992  James Larus  (larus at primost)
+
+        * read-aout.c
+        Add global symbols from a.out to SPIM symbol table.
+
+        * spim-utils.c
+        Make sure $sp is double-word aligned.
+
+Thu Aug  6 10:44:23 1992  James Larus  (larus at primost)
+
+        * read-aout.c
+        Cleaned up code to read executable by taking advantage of previous
+        change to read a.out header directly into text seg.
+
+        * inst.c inst.h mem.c
+        Made data reads from text segment (eg jump tables) work correctly
+        by saving binary values.
+
+        * inst.c inst.h
+        Changed instruction to be a typedef.
+
+Fri Jul 31 12:09:57 1992  James Larus  (larus at primost)
+
+        * pervasive
+        New copyright notices.
+
+        * read-aout.c
+        Allocate header text memory for OMAGIC files.
+
+        * spim-utils.c
+        Pass envp to main in $a2 [Gun].
+
+        * mips-syscall.h mips-syscall.c run.c
+        Used Gun's modification of syscall code and his exception code in
+        place of old code in run.c.
+
+        * run.c
+        Loads produce value immediately to avoid recursive call on
+        run_spim, which produced incorrect result in recursive call due to
+        a delayed branch. [Gun]
+
+        * run.c, tt.le.s, tt.be.s
+        Sign extension of branch immediate was incorrect (bit 13, not 15).
+        [Gun]
+
+Mon Jul 27 09:36:17 1992  James Larus  (larus at primost)
+
+        * data.c data.h inst.c parser.y scanner.l trap.handler
+        Added optional argument to .text, .data, .sdata, .rdata, .ktext,
+        .kdata to specify address of next items in segment (good idea from
+        mipssim).
+
+        * scanner.l
+        Complain about use of opcode as label.
+
+Tue May 26 09:48:32 1992  James Larus  (larus at primost)
+
+        * mem.c read-aout.c mips-syscalls.
+        Changes from Emin Gun Sirer to fix minor problems with executing
+        a.out files.
+
+        * xspim.c window.c
+        Fixed highlighting of executed instruction while single stepping.
+        It is amazing how difficult X makes this simple task.
+
+        * inst.c inst.h scanner.h scanner.l xspim.c
+        Print the source line along with the disassembled code.
+
+        * xspim.c
+        Only display 16 (not 32!) single precision FP registers.
+
+Thu May 14 14:12:14 1992  James Larus  (larus at primost)
+
+        * pervasive
+        Make spim/xspim ansi-C compatible.  Changed file and declaration
+        structure and added function prototypes.
+
+Thu Apr 30 13:25:45 1992  James Larus  (larus at primost)
+
+        * xspim.c
+        Changed xspim's input to be more like fgets: previously had
+        off-by-1 error on buffer size and return when buffer filled.
+
+        * xspim.c
+        Block of zero-fill data was incorrectly printed one memory
+        location too far.
+
+        * data.c inst.c mem.c parser.y spim-utils.c sym_tbl.c
+        Backpatching of unresolved addresses did not work for code in data
+        segment.
+
+Wed Apr 15 12:06:28 1992  James Larus  (larus at primost)
+
+        * inst.c, xspim.c
+        Bug fixes from Kempf:
+        Floating point registers now output as $f4 instead of F4.
+        print_imm_expr had a small bug that erased part of what it printed.
+        bne and beq printed there registers in the wrong order
+        Allows xspim to use Expose events when it is waiting for input.
+
+Fri Mar 27 11:11:22 1992  James Larus  (larus at primost)
+
+        * spim-utils.c data.c
+        Did not turn off in_kernel flag after loading trap handler so
+        executable code's data segment went into kernel data. [Emin
+        Gun Sirer <egs@cs.Princeton.EDU>]
+
+Wed Mar 25 17:13:49 1992  James Larus  (larus at primost)
+
+        * op.h
+        Bug in encoding of RFE & TLB instructions [vijay@zycad.com
+        (Vijay Vaidyanathan)].
+
+Mon Feb 24 15:49:06 1992  James Larus  (larus at primost)
+
+        * xspim.c
+        Reallocated, but did not free buffer used for displaying register
+        values.
+
+Fri Jan 31 11:54:20 1992  James Larus  (larus at primost)
+
+        * parser.y
+        Syntax shortcomming: needed to add ':' modifier for .ascii and
+        .asciiz directive.  Real bug: needed to set usr/kernel space for
+        .sdata/.rdata directives.
+
+Mon Jan 13 10:22:39 1992  James Larus  (larus at primost)
+
+        * Version 4.4 released.
+
+        * xspim.c
+        Changes for X11R5 libraries.  Got rid of textact.c.
+
+        * xspim.c
+        Extra indirection in arguments to X stuff.
+
+Tue Jan  7 11:31:28 1992  James Larus  (larus at primost)
+
+        * spim.h
+        Increase default number of instructions executed to a huge value.
+
+        * run.c
+        Can't continue after exit syscall.
+
+        * parser.y scanner.l
+        Partially allow opcodes to be used as identifiers.  Still can't
+        use them as labels before colon because of LALR lookahead problem.
+
+Mon Dec 23 12:02:48 1991  James Larus  (larus at primost)
+
+        * spim.c buttons.c spim.tex
+        Set breakpoints at labels as well as memory addresses.
+
+        * inst.c mem.c mem.h run.cc sym_tbl.c spim.tex
+        Added conversion so that reads and writes of instructions work
+        correctly in the text and data segments.  This means that programs
+        can manipulate instructions as data and execute out of the data
+        segment.  Also fixed bug in jumps to addresses with high bits set
+        (ie in data segment). [Suggestion from Eliot Moss.]
+
+        * mem.c spim-utils.c spim.c spim.h xspim.c spim.tex
+        Changed memory expansion code.  Text segments do not expand. The
+        data segments only expand with sbrk.  Stack segments expand
+        automatically. Added new command line options to set segment sizes
+        and limits. [Suggestion from Eliot Moss.]
+
+Fri Dec 20 14:09:23 1991  James Larus  (larus at primost)
+
+        * data.c inst.c mem.h spim-utils.c
+        .extern directive was broken (from Hans Koomen).  Also fixed many
+        bugs in $gp stuff.
+
+Wed Dec 18 14:43:54 1991  James Larus  (larus at primost)
+
+        * spim.c
+        Error in program run under -file caused botched longjmp.
+
+Mon Dec  9 16:04:31 1991  James Larus  (larus at primost)
+
+        * spim-utils.c
+        Added copyright notice.
+
+Thu Oct 31 10:49:30 1991  James Larus  (larus at primost)
+
+        * xspim.c, xutils.c, Makefile
+        Cleanup X stuff a bit and eliminate xutils.c.
+
+        * run.c
+        Computed carry improperly in negating result after multiplication.
+
+        * parser.y
+        Bug in test in mulo (Eliot Moss).
+
+        * inst.h
+        Minor typos (from Eliot Moss).
+
+Mon Oct 21 11:04:53 1991  James Larus  (larus at primost)
+
+        * run.c
+        Carry did not propagate from lo->hi in multiplicaton (from Scott).
+
+Fri Aug 30 09:50:10 1991  James Larus  (larus at primost)
+
+        * Version 4.3 released.
+
+        * tt.*
+        Move all of the tests to the subdirectory Tests/
+
+        * tt.alu.bare.s tt.fpu.bare.s
+        New test of the ALU and FPU instructions in bare mode (from Anne
+        Rogers).
+
+        * run.c
+        Need to force delayed updating in lwl/lwr in bare mode.
+
+Tue Aug 27 13:35:01 1991  James Larus  (larus at primost)
+
+        * run.c
+        Delayed loads of unsigned bytes and halfs did not mask out bits
+        (from Anne Rogers).
+
+Mon Aug 26 10:30:59 1991  James Larus  (larus at primost)
+
+        * data.c
+        Set the variable program_break for assembly-language programs as
+        well as a.out files.
+
+Fri Aug 23 13:09:15 1991  James Larus  (larus at primost)
+
+        * data.c
+        Did not save unaligned data larger than a byte properly (from Jeff
+        Jackson).
+
+        * run.c spim-utils.c spim.c
+        LWC1 did not update the destination register in the bare machine
+        (from Anne Rogers).
+        Load trap.handler in non-bare machine mode.
+
+Fri May 10 10:40:29 1991  James Larus  (larus at primost)
+
+        * Version 4.2 released.
+
+        * spim.tex
+        Improved the documentation in many small ways, including a couple
+        of sections on MIPS conventions.
+
+        * inst.c
+        Print R# as $# in instructions.
+
+        * xspim.c button.c
+        Clear the console window when the machine is reset.
+
+Thu May  9 16:00:56 1991  James Larus  (larus at primost)
+
+        * Makefile, scanner.l
+        Changes to permit use of 8-bit scanners produced by flex.
+
+        * data.c mem.c mem.h op.h parser.y spim-utils.c spim.h
+        trap.handler xspim.c
+        Added kdata segment [From Scott Kemp.]
+
+
+Sun May  5 14:16:39 1991  James Larus  (larus at primost)
+
+        * xspim.c
+        xspim was null-terminating full buffer in read_string.
+
+        * spim-util.c spim.c
+        Handle non-existing file gracefully in spim.
+
+Fri Apr 12 17:01:39 1991  James Larus  (larus at primost)
+
+        * inst.c, tt.le.s, tt.be.s
+        lw with small negative offset did not work.
+
+Thu Apr  4 12:03:35 1991  James Larus  (larus at primost)
+
+        * spim.c
+        Clear redo flag on serious error to prevent single-step loop at
+        error.
+
+Mon Mar 25 14:02:21 1991  James Larus  (larus at primost)
+
+        * Released version 4.1.
+
+Thu Mar 21 09:01:18 1991  James Larus  (larus at primost)
+
+        * parser.y
+        More problems with labels fixed.
+
+        * mem.c
+        Raise exceptions, not fatal errors on out of bounds memory refs.
+
+Tue Mar 19 16:09:15 1991  James Larus  (larus at primost)
+
+        * parser.y
+        Treat hanging labels as if they occured on next non-blank line.
+
+        * mem.c
+        Better error messages for out-of-bounds memory references.
+
+        * run.c, sym_tbl.c
+        j instruction did not work when high 4 bits of PC were non-zero
+        (ie kernel).
+
+Wed Mar 13 17:29:18 1991  James Larus  (larus at primost)
+
+        * xspim.c
+        Corrected eror when $sp is non-word aligned and displaying stack
+        segment.
+
+Mon Mar 11 10:22:18 1991  James Larus  (larus at primost)
+
+        * xspim.c
+        Made ^C work in read_input.
+
+        * mem.c
+        Expand stack had typo that screwed up byte references to stack.
+
+Thu Mar  7 15:39:18 1991  James Larus  (larus at primost)
+
+        * op.h
+        Correct cvt instruction encodings.
+
+        * inst.c
+        Computation of absolute offset was wrong when high bit set because
+        of sign-extension (from Scott Kemp).
+
+Tue Jan 29 13:28:56 1991  James Larus  (larus at primost)
+
+        * scanner.l, parser.y
+        Avoid some spurious parse errors caused by eating newline in error
+        recovery [From Scott Kempf].
+
+Tue Jan 22 08:59:53 1991  James Larus  (larus at primost)
+
+        * xspim.c
+        Printed wrong single precsision FP numbers.
+
+        * parser.y
+        Fixed spurious warning about $f31.
+
+Mon Jan 14 11:50:26 1991  James Larus  (larus at primost)
+
+        * Version 4.0 released.
+
+        * buttons.c inst.c mem.c mem.h windows.c xspim.c xspim.h xutils.c
+        New interface.  Instead of file window, added windows into text
+        and data segments that are dynamically updated.
+
+Fri Jan 11 09:25:26 1991  James Larus  (larus at primost)
+
+        * buttons.c inst.c spim-utils.c
+        A number of bugs in breakpoints eliminated.  Can properly continue
+        from single-stepping at a breakpoint.  Eliminated infinite loop in
+        deleting breakpoints.  Don't allow double breakpoints.
+
+        * xspim.c
+        Added the ability to display single floats.
+        Also can display any register set in natural or hex notation.
+
+Thu Jan 10 13:45:13 1991  James Larus  (larus at primost)
+
+        * sym_tbl.c
+        Needed to sign-extend the short offset field in branches after
+        shifting right.
+
+        * parser.y
+        Some branch instructions had their operands switched.
+
+        * parser.y
+        Accept <offset> + <label> as expression.
+
+        * scanner.l
+        Catch and report unknown characters.
+
+Fri Jan  4 11:26:06 1991  James Larus  (larus at primost)
+
+        * inst.c op.h run.c spim.h
+        Improved printing of offsets in branches and jumps by shifting
+        left 2 places and reducing the symbolic cruft printed.
+
+Tue Dec 18 12:05:38 1990  James Larus  (larus at primost)
+
+        * buttons.c
+        Added continue button to step menu.
+
+Wed Dec 12 11:48:48 1990  James Larus  (larus at primost)
+
+        * mem.c tt.le.s tt.be.s
+        Test to decide which segment to exapnd was broken.
+
+        * mem.h reg.h spim.h mem.c run.c spim.c xspim.c
+        Added new class of errors (run_error) that terminate program, but
+        not spim.
+
+Tue Dec 11 07:15:40 1990  James Larus  (larus at primost)
+
+        * run.c spim-syscall.h
+        Added read_double system call and re-numbered calls.
+
+        * button.c xspim.c spim.c
+        Don't load trap handler when clearing bare machine.
+
+        * trap.handler
+        Exit on IBUS exception to avoid infinite loop.
+
+        * run.c trap.handler
+        Better exception error messages.
+
+        * op.h
+        COP1 opcode was incorrect [Goodman].
+
+        * scanner.l
+        Accept floating point numbers without trailing fraction (e.g. 2.).
+
+        * parser.y
+        Control register specifier in CTCz/CFCz was ignored.
+
+        * data.c op.h parser.y trap.handler tt.?e.s
+        Corrected ".asciz" directive to be ".asciiz".
+
+        * scanner.l
+        Improved syntax error message printing.
+
+        * parser.y op.h
+        Added .livereg decl for cc v2.10 compiler.
+
+        * inst.c
+        Improved printing of immediate expressions by eliminating
+        redundant information.
+
+        * parser.y tt.le.s tt.be.s
+        LI did not work properly on constants > 32K [Canderson].
+
+Mon Dec 10 14:36:39 1990  James Larus  (larus at primost)
+
+        * run.c trap.handler tt.le.s tt.bare.s tt.be.s
+        Simulated syscalls now use correct syscall convention: $v0 to pass
+        code, and $a0,... for args.
+
+        * Pervasive.
+        Can invoke many MIPS system calls from executable files (David W.).
+
+        * buttons.c spim-utils.c
+        Pass command-line arguments to programs.
+
+        * Many small bugs from running executables.
+
+
+Tue Nov 20 15:18:28 1990  James Larus  (larus at primost)
+
+        * spim-util.c
+        Check that source file doesn't begin with magic number.
+
+        * read-aout.c spim-utils.c spim.h
+        Added source_file flag to identify the type of the input file.
+
+Thu Oct 25 11:45:58 1990  James Larus  (larus at primost)
+
+        * parser.y, op.h
+        Eliminated div_i hack by overloading "div" operator.
+
+Wed Oct 24 17:26:49 1990  James Larus  (larus at primost)
+
+        * parser.y
+        Parse div_i instruction!
+
+Tue Sep 25 13:18:43 1990  James Larus  (larus at primost)
+
+        * tt.bare.s
+        Put trap handler in kernel, just as in trap.handler.
+
+Fri Sep 21 10:52:32 1990  James Larus  (larus at primost)
+
+        * button.c xspim.c
+        Used file name from -file for load dialog box.
+
+        * spim-utils.c, inst.c
+        Can now delete breakpoint while stopped at it.
+
+        * Rereleased version 3.0.
+
+        * xspim.c
+        Popup continue dialog even when continuing from breakpoint.
+
+        * mem.c
+        Check that read/write is within bounds after expanding memory.
+
+Wed Sep 19 15:18:00 1990  James Larus  (larus at primost)
+
+        * Rereleased version 3.0.
+
+        * spim-util.c
+        Cleared breakpoints upon reset.
+
+        * button.c xspim.c
+        Fixed continue button so it works properly.  Also, made ^C work
+        better with the new continue button.
+
+Tue Sep 18 11:56:16 1990  James Larus  (larus at primost)
+
+        * Rereleased version 3.0.
+
+        * buttons.c spim-utils.c spim.c xspim.c
+        Added popup to continue from breakpoints.
+
+Thu Sep  6 11:04:00 1990  James Larus  (larus at primost)
+
+        * Rereleased version 3.0.
+
+        * Changed xspim's printing of FP registers to fit better.
+
+        * read_float and read_string did not read from console window.
+
+Tue Sep  4 16:25:46 1990  James Larus  (larus at primost)
+
+        * Released version 3.0.
+
+        * Renamed syscall registers to start at $a0 (not $a1).
+
+Fri Aug 31 10:51:29 1990  James Larus  (larus at primost)
+
+        * Made 2 button dialog work properly on newline.
+
+        * Only permit one instance of each menu.
+
+Wed Aug 29 07:52:41 1990  James Larus  (larus at primost)
+
+        * Rereleased 3.0 beta of Aug. 29.
+
+        * Added dialog box for run.
+
+        * Made entries in most dialog boxes persistent between invocations.
+
+        * Catch and properly handle control C.
+
+        * Clear memory before loading executable to get rid of trap handler.
+
+        * Aborting load trashed saved file name.
+
+        * Released 3.0 beta of Aug. 29.
+
+        * Improved register display to all registers more compactly.
+
+        * Made popups non-exclusive. [wagner@bullwinkle.Colorado.EDU]
+
+        * Beta bug fixes from David Wood:
+        xspim -file started running program right away.
+        Single-stepping cleared Cause register.
+        Can change R0.
+
+        Added -execute flag to xspim.
+        Made memory expansion work properly.
+
+
+Tue Aug 28 11:29:44 1990  James Larus  (larus at primost)
+
+        * Released 3.0 beta of Aug. 28.
+
+        * Makefile buttons.c mem.c spim-utils.c xspim.c xutils.c
+        Beta bug fixes from David Wood:
+        Single stepping N steps failed.
+        Setting breakpoint at bad address killed system.
+        Single stepping through a breakpoint failed.
+        Setting register to value beginning with 0x failed.
+        Removed unnecessary file opens.
+        Improved error checking.
+        Added auxilary routines for vsprintf and strtol.
+
+Mon Aug 27 13:53:22 1990  James Larus  (larus at primost)
+
+        * button.c
+        Improved help message.
+
+        * Makefile
+        Use ./spim, not spim in test.
+
+        * Released 3.0beta.
+
+        * buttons.c parser.y scanner.l spim-util.c windows.c xspim.c
+        Rewrote user interface code.
+
+Fri Aug 24 15:14:19 1990  James Larus  (larus at primost)
+
+        * Pervasive.
+        Added X window interface by Alan Siow.
+
+Tue Aug 21 08:56:04 1990  James Larus  (larus at primost)
+
+        * Makefile inst.c mem.c mem.h op.h parser.y read-aout.c spim.c
+        spim.h trap.handler
+        Added kernel text segment (but not kernel data/stack segments).
+
+Mon Aug 20 14:21:35 1990  James Larus  (larus at primost)
+
+        * spim.c trap.handler tt.le.s
+        Leave Cause register set in single/step mode and clear in trap
+        handler.
+
+Fri Aug 17 14:58:04 1990  James Larus  (larus at primost)
+
+        * spim.c
+        Don't start top-level with executable file.
+        Execute a.out from starting address in file.
+
+Thu Aug 16 16:56:12 1990  James Larus  (larus at primost)
+
+        * Released version 2.5 (no announcement).
+
+Fri Jul 27 14:36:50 1990  James Larus  (larus at primost)
+
+        * Makefile inst.c spim.c read-aout.c
+        Added code to read MIPS a.out files.
+
+        * pervasive
+        Changed printing of hexdecimal numbers to be fixed format.
+
+        * parser.y, inst.c
+        Allowed instructions in data segment and word data in instruction
+        segment.
+
+Wed Jul 25 13:47:11 1990  James Larus  (larus at primost)
+
+        * inst.c op.h run.c scanner.l
+        Added code to convert betwen MIPS binary format and internal
+        format for instructions.
+
+Mon Jul  2 09:43:24 1990  James Larus  (larus at primost)
+
+        * spim.c
+        -asm flag did not work properly.
+
+        * inst.h, inst.c, run.c
+        Improper sign-extension of constant in backward branches.
+
+        * parser.y, op.h
+        Added .alias and .noalias assembler directives (ignored).
+
+Thu May 24 09:57:30 1990  James Larus  (larus at primost)
+
+        * Version 2.3 released.
+
+        * inst.c op.h parser.y, spim.tex tt.?e.s
+        Implemented ROL/ROR instructions.  Fixed bug that caused S?LV
+        instructiosn to print fields in reverse order.
+
+Wed May 23 09:52:57 1990  James Larus  (larus at primost)
+
+        * scanner.l, spim.tex
+        For an unknown reason, v0 and v1 were called v2, v3.  Fixed this
+        bug. [beihl%cadillac.cad.mcc.com@mcc.com (Gary Beihl)]
+
+Mon May 21 15:34:12 1990  James Larus  (larus at primost)
+
+        * run.c, spim.c, spim.h, scanner.l
+        Recompiled on DECstation under T4.0.  That system has bug in atoi,
+        but other changes seem worthwhile. [whaley@dungeon.pa.dec.com]
+
+        * Version 2.2 released.
+
+Thu May 17 16:41:18 1990  James Larus  (larus at primost)
+
+        * run.c, inst.c, parser.y, tt.?e.s
+        Constants were not sign-extended in arithmetic immediate
+        instructions.  Now produce literal values with ORI, not ADDI.
+        [carl@aurora.com (Carl Stehle)]
+
+Mon May 14 13:35:27 1990  James Larus  (larus at primost)
+
+        * scanner.l
+        Remove typo in string.  Also, change call on strtol to sscanf
+        since the first function doesn't appear to be standard BSD. [From:
+        Brian R Murphy <hindmost@ATHENA.MIT.EDU>]
+
+

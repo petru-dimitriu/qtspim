@@ -1,0 +1,118 @@
+#!/bin/bash
+#
+# Shell script to create debian binary package for QtSpim.
+#
+# Steps copied from: http://tldp.org/HOWTO/html_single/Debian-Binary-Package-Building-HOWTO/
+#
+# Usage: release-debian
+#
+
+#Qt v.5:
+RELEASE_DIR=build-QtSpim-Desktop_Qt_*-Release
+QT_DIR=~/Qt/5.*/gcc*
+
+ARCH=`arch`
+case $ARCH in
+    i386 | i686) ARCH="i386";;
+    x86_64) ARCH=amd64;;
+esac
+
+rm -fr Setup/debian
+
+mkdir -p Setup/debian
+mkdir -p Setup/debian/DEBIAN
+
+mkdir -p Setup/debian/usr/bin
+
+mkdir -p Setup/debian/usr/lib/qtspim
+mkdir -p Setup/debian/usr/lib/qtspim/bin
+mkdir -p Setup/debian/usr/lib/qtspim/lib
+mkdir -p Setup/debian/usr/lib/qtspim/plugins
+mkdir -p Setup/debian/usr/lib/qtspim/plugins/imageformats
+mkdir -p Setup/debian/usr/lib/qtspim/plugins/platforms
+mkdir -p Setup/debian/usr/lib/qtspim/plugins/printsupport
+mkdir -p Setup/debian/usr/lib/qtspim/plugins/sqldrivers
+
+mkdir -p Setup/debian/usr/share/man/man1
+mkdir -p Setup/debian/usr/share/doc/qtspim
+mkdir -p Setup/debian/usr/share/applications
+mkdir -p Setup/debian/usr/share/qtspim
+
+mkdir -p Setup/debian/usr/lib/qtspim/help
+
+find Setup/debian -type d | xargs chmod 755   # this is necessary on Debian Woody, don't ask me why
+
+#qtspim
+install -s $RELEASE_DIR/QtSpim Setup/debian/usr/lib/qtspim/bin/qtspim
+chmod 0755 Setup/debian/usr/lib/qtspim/bin/qtspim
+chrpath -r /usr/lib/qtspim/lib Setup/debian/usr/lib/qtspim/bin/qtspim > /dev/null
+
+ln -s ../lib/qtspim/bin/qtspim Setup/debian/usr/bin/qtspim
+chmod 0755 Setup/debian/usr/bin/qtspim
+
+
+#assistant (helper)
+install -s $QT_DIR/bin/assistant Setup/debian/usr/lib/qtspim/bin/assistant
+chmod 0755 Setup/debian/usr/lib/qtspim/bin/assistant
+chrpath -r /usr/lib/qtspim/lib Setup/debian/usr/lib/qtspim/bin/assistant > /dev/null
+
+#qt.conf
+install Setup/qtspim_debian_deployment/qt.conf Setup/debian/usr/lib/qtspim/bin/qt.conf
+chmod 0644 Setup/debian/usr/lib/qtspim/bin/qt.conf
+
+#qtspim libraries
+install -s $QT_DIR/lib/{libQt5PrintSupport.so.5,libQt5Widgets.so.5,libQt5Gui.so.5,libQt5Core.so.5,libicui18n.so.54,libicuuc.so.54,libicudata.so.54} Setup/debian/usr/lib/qtspim/lib
+
+#assistant libraries
+install -s $QT_DIR/lib/{libQt5Help.so.5,libQt5WebKitWidgets.so.5,libQt5WebKit.so.5,libQt5Network.so.5,libQt5Sql.so.5,libQt5CLucene.so.5,libQt5Sensors.so.5,libQt5Positioning.so.5,libQt5OpenGL.so.5,libQt5Quick.so.5,libQt5Qml.so.5,libQt5WebChannel.so.5,libQt5MultimediaWidgets.so.5,libQt5XcbQpa.so.5,libQt5Svg.so.5,libQt5DBus.so.5} Setup/debian/usr/lib/qtspim/lib
+chmod 0644 Setup/debian/usr/lib/qtspim/lib/*
+
+
+#plugins
+install $QT_DIR/plugins/imageformats/{libqdds.so,libqgif.so,libqicns.so,libqico.so,libqjp2.so,libqjpeg.so,libqmng.so,libqsvg.so,libqtga.so,libqtiff.so,libqwbmp.so,libqwebp.so} Setup/debian/usr/lib/qtspim/plugins/imageformats
+install $QT_DIR/plugins/platforms/libqxcb.so Setup/debian/usr/lib/qtspim/plugins/platforms
+install $QT_DIR/plugins/printsupport/libcupsprintersupport.so Setup/debian/usr/lib/qtspim/plugins/printsupport
+install $QT_DIR/plugins/sqldrivers/libqsqlite.so Setup/debian/usr/lib/qtspim/plugins/sqldrivers
+
+
+#documentation
+cp -f Documentation/qtspim.man Setup/debian/usr/share/man/man1/qtspim.1
+chmod 0644 Setup/debian/usr/share/man/man1/qtspim.1
+gzip -f --best Setup/debian/usr/share/man/man1/qtspim.1
+
+
+#package files
+sed "s/<<ARCH>>/$ARCH/" < Setup/qtspim_debian_deployment/control.prototype > Setup/debian/DEBIAN/control
+
+cp -f Setup/qtspim_debian_deployment/copyright Setup/debian/usr/share/doc/qtspim
+chmod 0644 Setup/debian/usr/share/doc/qtspim/copyright
+
+cp -f Setup/qtspim_debian_deployment/changelog Setup/debian/usr/share/doc/qtspim/
+chmod 0644 Setup/debian/usr/share/doc/qtspim/changelog
+gzip -f --best Setup/debian/usr/share/doc/qtspim/changelog
+
+cp -f Setup/qtspim_debian_deployment/qtspim.desktop Setup/debian/usr/share/applications
+chmod 0644 Setup/debian/usr/share/applications/qtspim.desktop
+
+
+#help files
+cp -f $RELEASE_DIR/help/qtspim.qch Setup/debian/usr/lib/qtspim/help
+chmod 0644 Setup/debian/usr/lib/qtspim/help/qtspim.qch
+cp -f $RELEASE_DIR/help/qtspim.qhc Setup/debian/usr/lib/qtspim/help
+chmod 0644 Setup/debian/usr/lib/qtspim/help/qtspim.qhc
+
+
+#icon
+cp -f Setup/NewIcon48x48.png Setup/debian/usr/lib/qtspim/qtspim.png
+chmod 0644 Setup/debian/usr/lib/qtspim/qtspim.png
+
+
+#helloworld
+cp -f helloworld.s Setup/debian/usr/share/qtspim/helloworld.s
+chmod 0644 Setup/debian/usr/share/qtspim/helloworld.s
+
+
+#doit
+fakeroot dpkg-deb --build Setup/debian
+mv -f Setup/debian.deb qtspim.deb
+#lintian qtspim.deb

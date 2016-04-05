@@ -1,0 +1,14 @@
+Package: qtspim
+Version: 9.1.17
+Architecture: <<ARCH>>
+Section: devel
+Priority: extra
+Homepage: http://spimsimulator.sourceforge.net/
+Maintainer: James Larus <larus@larusstone.org>
+Installed-Size: 20000
+Depends: libc6
+Description: Simulator for MIPS32 programs. It reads and executes
+ assembly language programs written for the MIPS32 processor.
+ QtSpim also provides a simple debugger and minimal
+ set of operating system services.
+ QtSpim does not execute binary (compiled) programs.

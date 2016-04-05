@@ -1,0 +1,49 @@
+// MAKEHELP.BAT generated Help Map file.  Used by PCSPIM.HPJ. 
+ 
+// Commands (ID_* and IDM_*) 
+HID_INDICATOR_BARE                      0x10065
+HID_INDICATOR_DELAY_BR                  0x10066
+HID_INDICATOR_DELAY_LD                  0x10067
+HID_INDICATOR_REGS                      0x10068
+HID_FILE_SAVE_LOG                       0x18004
+HID_SIMULATOR_CLEAR_REGISTERS           0x18008
+HID_SIMULATOR_BREAK                     0x18011
+HID_SIMULATOR_BREAKPOINTS               0x18013
+HID_SIMULATOR_SETTINGS                  0x18014
+HID_SIMULATOR_SETVALUE                  0x18015
+HID_SIMULATOR_STEP                      0x18016
+HID_SIMULATOR_RELOAD                    0x18017
+HID_SIMULATOR_MULTISTEP                 0x18018
+HID_SIMULATOR_SHOWSYMBOLS               0x18019
+HID_SIMULATOR_DISPLAYSYMBOLS            0x1801A
+HID_WINDOW_NEXT                         0x1801C
+HID_WINDOW_PREVIOUS                     0x1801D
+HID_WINDOW_TILE                         0x1801F
+HID_SIMULATOR_REINITIALIZE              0x18021
+HID_WINDOW_CLEAR_CONSOLE                0x18022
+HID_WINDOW_SHOW_CONSOLE                 0x18023
+HID_SIMULATOR_GO                        0x18024
+HID_WINDOW_MESSAGES                     0x18025
+HID_WINDOW_TEXTSEG                      0x18026
+HID_WINDOW_DATASEG                      0x18027
+HID_WINDOW_REGISTERS                    0x18028
+HID_WINDOW_CONSOLE                      0x18029
+HID_WINDOW_ARRANGEICONS                 0x1802A
+HID_SIMULATOR_SETFONT                   0x1802F
+ 
+// Prompts (IDP_*) 
+ 
+// Resources (IDR_*) 
+HIDR_MAINFRAME                          0x20080
+HIDR_PCSPIMTYPE                         0x20081
+HIDR_MAINFRAME_ORIG                     0x20081
+ 
+// Dialogs (IDD_*) 
+HIDD_ABOUTBOX                           0x20064
+HIDD_BREAKPOINTS                        0x20082
+HIDD_RUN                                0x20083
+HIDD_SETTINGS                           0x20084
+HIDD_SETVALUE                           0x20089
+HIDD_MULTISTEP                          0x2008B
+ 
+// Frame Controls (IDW_*) 

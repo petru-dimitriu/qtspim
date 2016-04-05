@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Created from PDF via Acrobat SaveAsXML -->
+<!-- Mapping table version: 28-February-2003 -->
+<html>
+<head>
+<title>QtSpim MIPS Simulator</title>
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<style type="text/css">
+.style1 {
+	text-decoration: underline;
+}
+.style2 {
+	border-style: solid;
+	border-width: 1px;
+	padding: 1px 4px;
+}
+.style3 {
+	font-family: "Courier New", Courier, monospace;
+}
+</style>
+</head>
+
+<body>
+<h1><a name="qtspim">QtSpim</a></h1>
+<p><i>QtSpim</i> is a self-contained simulator that will run a MIPS32 
+assembly program and display the processor's registers 
+and memory.</p>
+
+<p><i>QtSpim</i> reads and executes programs written in <span class="style1">assembly</span> language for 
+a MIPS computer.
+<i>QtSpim</i> does <u>not</u> execute binary (compiled) programs. To simplify 
+programming, <i>QtSpim</i> provides a simple debugger and 
+small set of operating system services.</p>
+
+<p><i>QtSpim</i> implements most of the MIPS32 assembler-extended instruction 
+set. (It omits the floating point comparisons and rounding modes and the memory 
+system page tables.) The MIPS architecture has several variants that differ in various 
+ways (e.g., the MIPS64 architecture supports 64-bit integers and addresses), which 
+means that <i>QtSpim</i> will not run programs for all MIPS processors.</p>
+
+<h2><a name="getting">Getting Started with QtSpim</a></h2>
+<p>When <i>QtSpim</i> starts up, it opens a window containing that looks like 
+the one below. (The features in the window look slightly different on Microsoft 
+Windows than on Linux or Mac OSX, but all the menus and buttons are in the same place and work 
+the same way).</p>
+<p>
+</p>
+
+<p>
+<img alt="QtSpim Main Window" height="700" src="main_windows.jpg" class="style2"></p>
+
+<p><i>QtSpim</i>'s main window has three parts:</p>
+<ol>
+	<li>The narrow pane on the left can display integer or floating-point 
+	registers. Select the set of registers by clicking the tab at the 
+	top of the pane.</li>
+	<li>The wide pane on the right can display the text segment, which contains 
+	instructions, and the data segments. Choose between text and data by 
+	clicking the tab at the top of the pane.</li>
+	<li>The small pane on the bottom is where <i>QtSpim</i> writes its messages.</li>
+</ol>
+All of the panes are dockable, which means that you can grab a pane by its top bar and
+drag it out of <i>QtSpim</i>'s main window, to put on some other part of your 
+screen.
+
+<p><i>QtSpim</i> also opens another window called Console that displays output from your program.</p>
+
+<h2><a name="loading">Loading a Program</a></h2>
+
+<p>Your program should be stored in a file. Assembly code files usually have the extension ".s", as in 
+<span class="style3">file1.s</span>.
+To load a file, go to the <strong>File</strong> menu and select <strong>Load File</strong>. The 
+screen will change as the file is loaded, to show the
+instructions and data in your program.</p>
+
+<p>Another very useful command on the <strong>File</strong> men is <strong>Reinitialize and Load File</strong>. It first clears all changes made by a program,
+including deleting all of its instructions, and then reloads the last file. This command 
+works well when debugging a program, as
+you can change your program and quickly test it in a fresh computer without closing and restarting <i>QtSpim</i>.</p>
+
+<h2><a name="running">Running a Program</a></h2>
+
+<p>To start a program running after you have loaded it, go to the <strong>Simulator</strong> menu and click 
+<strong>Run/Continue</strong>. Your program will run
+until it finishes or until an error occurs. Either way, you will see the changes that your program 
+made to the MIPS registers and
+memory, and the output your program writes will appear in the Console window.</p>
+
+<p>If your program does not work correctly, there are several things you can do. The easiest is to single step between instructions,
+which lets you see the changes each instructions makes, one at a time. This command is also on the 
+<strong>Simulator</strong> menu and is named
+<strong>Single Step</strong>.</p>
+
+<p>Sometimes, however, you need to run your program for a while before something goes wrong, and single stepping would 
+be too slow.
+<i>QtSpim</i> lets you set a breakpoint at a specific instruction, which stops <i>QtSpim</i> before the instruction executes.
+So, if you think your problem is in a specific function in your program, set a breakpoint at the first instruction in the function,
+and <i>QtSpim</i> will stop everytime the function is invoked.</p>
+<p>You set a breakpoint by right-clicking on the instruction where you
+want to stop, and selecting <strong>Set Breakpoint</strong>. When you are done with the breakpoint, you can remove it by selecting 
+<strong>Clear Breakpoint</strong>
+instead.</p>
+<p>If you want to stop your program while it is running, go to the <strong>Simulator</strong> menu and click 
+<strong>Pause</strong>. This command stops your program, let you look around, and continue execution if you want. If you do not want to continue 
+running, click <strong>Stop</strong> instead.</p>
+<p>When <i>QtSpim</i> stops, either because of an error in your program, a breakpoint, after clicking 
+<strong>Pause</strong>, or after single stepping, you can continue the
+program running by clicking on <strong>Run/Continue</strong> (or you can continue single stepping by clicking 
+<strong>Single Step</strong>). If you click <strong>Stop</strong>,
+instead of <strong>Pause</strong>, then clicking <strong>Run/Continue</strong> will restart your program from the beginning, instead of continuing from where
+it stopped. (This is roughly the same way that a music player operates; you can 
+pause and restart a song, but if you stop the music, you need to start playing 
+at the beginning.)</p>
+
+<h2><a name="display">Display Options</a></h2>
+
+<p>The three other menus -- <strong>Registers</strong>, <strong>Text Segment</strong>, and 
+<strong>Data Segment</strong> -- control <i>QtSpim</i>'s displays. For example, the
+<strong>Register</strong> menu controls the way <i>QtSpim</i> displays the contents of registers, 
+either in binary, base 8 (octal), base 10 (decimal), or base 16 (hexadecimal).
+It is often quite convenient to flip between these representations to understand 
+your data.</p>
+
+<p>These menus also let you turn off the display of various parts of the machine, which can help reduce clutter on the screen and
+let you concentrate on the parts of the program or data that really matter.</p>
+
+<h2><a name="changing">Changing Registers and Memory</a></h2>
+<p>You can change the contents of either a register or memory location by 
+right-clicking on it and selecting <strong>Change Register Contents</strong> or
+<strong>Change Memory Contents</strong>, respectively.</p>
+<h2><a name="settings">Settings</a></h2>
+
+<p>The <strong>Simulator</strong> menu contains the <strong>Settings</strong> command, which brings up a dialog like this:</p>
+
+<p><img alt="QtSpim settings dialog" height="500" src="settings_dialog.jpg" class="style2" ></p>
+
+<p>The dialog has two tabs. The first, shown above, changes the visual aspects of <i>QtSpim</i>, such as the fonts. 
+The second looks like this:</p>
+<p>
+<img alt="QtSpim Settings Dialog" height="500" src="settings_dialog2.jpg" class="style2" ></p>
+<p>It changes the way that <i>QtSpim</i> operates:</p>
+<ul>
+	<li><strong>Bare machine</strong> make <i>QtSpim</i> simulate a bare MIPS 
+	processor.</li>
+	<li><strong>Accept pseudo instructions</strong> enables <i>QtSpim</i> to 
+	accept assembly instructions that MIPS does not actually execute, to make 
+	programming easier.</li>
+	<li><strong>Enable delayed branches</strong> causes <i>QtSpim</i> to execute 
+	the instruction immediateyafter a branch instruction before transfering 
+	control and to calculate the new PC 
+	from the address of this next instruction.</li>
+	<li><strong>Enable delayed loads</strong> causes <i>QtSpim</i> to delay the 
+	value loaded from memory for one instruction after the load 
+	instructions.</li>
+	<li><strong>Enable mapped IO</strong> turns on memory-mapped IO.</li>
+</ul>
+<p>The button marked <strong>Simple Machine</strong> enables the most common options (<strong>Accept 
+Pseudo Instructions</strong>) that are what most people use. The button marked 
+<strong>Bare 
+Machine</strong> turns on the instructions corresponding to a real MIPS processor (<strong>Bare 
+Machine</strong>, <strong>Delayed Branches</strong>, <strong>Delayed Loads</strong>).</p>
+</body>
+
+</html>

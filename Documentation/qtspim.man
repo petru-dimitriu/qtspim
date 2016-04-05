@@ -1,0 +1,25 @@
+.TH qtspim 1
+.SH NAME
+qtspim \- A MIPS32 Simulator
+
+.SH SYNTAX
+.B qtspim
+
+.SH DESCRIPTION
+SPIM is a simulator that runs programs written for MIPS32 computers. SPIM can read and
+immediately execute assembly language files.  SPIM is a self-contained system for running these
+programs and contains a debugger and interface to a few operating system services.
+
+.SH OPTIONS
+QtSpim currently has no command-line options. All parameters are set in the program.
+
+.SH "SEE ALSO"
+http://spimsimulator.sourceforge.net/
+.br
+The help documentation include with the program includes a brief description of the user
+interface and an extensive description of the MIPS instruction set and assembly language
+syntax.
+
+.SH AUTHOR
+James R. Larus <spim@larusstone.org>
+

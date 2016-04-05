@@ -1,0 +1,108 @@
+.TH spim 1
+.SH NAME
+spim \- A MIPS32 Simulator
+
+.SH SYNTAX
+.B spim
+[\|\fI-asm/-bare\fP
+	\fI-exception/-noexception\fP
+	\fI-quiet/-noquiet\fP
+	\fI-mapped_io/-nomapped_io\fP
+.br
+\fI-delayed_branches\fP
+	\fI-delayed_loads\fP
+.br
+\fI-stext size\fP
+	\fI-sdata size\fP
+	\fI-sstack size\fP
+	\fI-sktext size\fP
+	\fI-skdata size\fP
+	\fI-ldata size\fP
+	\fI-lstack size\fP
+	\fI-lkdata size\fP
+.br
+\fI-file file <args>\fP \fI-execute file <args>\fP \|]
+
+.SH DESCRIPTION
+SPIM is a simulator that runs programs written for MIPS32 computers. SPIM can read and
+immediately execute assembly language files.  SPIM is a self-contained system for running these
+programs and contains a debugger and interface to a few operating system services.
+.PP
+SPIM comes in two versions.  The plain version is called \fIspim\fP.  It runs on any type of
+terminal.  It operates like most programs of this type: you type a line of text, hit the
+\fIreturn\fP key, and \fIspim\fP executes your command.  The fancier version of SPIM, called
+\fIxspim\fP, \fIPCSpim\fP, or \fIQtSpim\fP depending on which operating system you are using.
+These programs are much easier to learn and use because the commands are always visible on the
+screen and the display continually shows the machine's registers and memory.
+
+.SH OPTIONS
+\fIspim\fP has many options:
+
+.IP \fB-asm\fP 10
+Simulate the virtual MIPS machine provided by the assembler.  This is the default.
+
+.IP \fB-bare\fP 10
+Simulate a bare MIPS machine without pseudo-instructions or the additional addressing modes
+provided by the assembler.  Implies \fI-quiet\fP.
+
+.IP \fB-exception\fP 10
+Load the standard exception handler and startup code.  This is the default.
+
+.IP \fB-noexception\fP 10
+Do not load the standard exception handler and startup code.  This exception handler handles
+exceptions.  When an exception occurs, SPIM jumps to location 0x80000080, which must contain
+code to service the exception.  In addition, this file contains startup code that invokes the
+routine \fImain\fP.  Without the startup routine, SPIM begins execution at the instruction
+labeled \fI__start\fP.
+
+.IP \fB-quiet\fP 10
+Print a message when an exception occurs.  This is the default.
+
+.IP \fB-noquiet\fP 10
+Do not print a message at exceptions.
+
+.IP \fB-mapped_io\fP 10
+Enable the memory-mapped IO facility.  Programs that use SPIM syscalls to read from the terminal
+\fBcannot\fP also use memory-mapped IO.
+
+.IP \fB-nomapped_io\fP 10
+Disable the memory-mapped IO facility.
+
+.IP \fB-delayed_branches\fP 10
+Simulate MIPS's delayed control transfers by executing the instruction after a branch, jump, or
+call before transferring control.  SPIM's default is to simulate non-delayed transfers, unless
+the -bare flag is set.
+
+.IP \fB-delayed_loads\fP 10
+Simulate MIPS's original, non-interlocked load instructions.  SPIM's default is to simulate
+non-delayed loads, unless the -bare flag is set.
+
+.IP "\fB-stext size\fP \fB-sdata size\fP \fB-sstack size\fP \fB-sktext size\fP \fB-skdata size\fP" 10
+Sets the initial size of memory segment \fPseg\fP to be \fIsize\fP bytes.  The memory segments
+are named: \fItext\fP, \fIdata\fP, \fIstack\fP, \fIktext\fP, and \fIkdata\fP.  The \fItext\fP
+segment contains instructions from a program.  The \fIdata\fP segment holds the program's data.
+The \fIstack\fP segment holds its runtime stack.  In addition to running a program, SPIM also
+executes system code that handles interrupts and exceptions.  This code resides in a separate
+part of the address space called the \fIkernel\fP.  The \fIktext\fP segment holds this code's
+instructions and \fIkdata\fP holds its data.  There is no \fIkstack\fP segment since the system
+code uses the same stack as the program.  For example, the pair of arguments \fI-sdata
+2000000\fP starts the user data segment at 2,000,000 bytes.
+
+.IP "\fB-ldata size\fP \fB-lstack size\fP \fB-lkdata size\fP" 10
+Sets the limit on how large memory segment \fIseg\fP can grow to be \fIsize\fP bytes.  The
+memory segments that can grow are \fIdata\fP, \fIstack\fP, and \fIkdata\fP.
+
+.IP "\fB-file file <args>\fP" 10
+Load and execute the assembly code in the file with arguments \fB<args>\fP.
+
+.IP "\fB-execute file <args>\fP" 10
+Load and execute the MIPS \fIexecutable\fP (a.out) file with arguments \fB<args>\fP. Only works
+on systems using a MIPS processors.
+
+.SH "SEE ALSO"
+xspim(1), qtspim(1)
+.br
+http://spimsimulator.sourceforge.net/
+
+.SH AUTHOR
+James R. Larus <spim@larusstone.org>

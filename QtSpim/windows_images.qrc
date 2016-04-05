@@ -1,0 +1,51 @@
+<!--
+   SPIM S20 MIPS simulator.
+   Terminal interface for SPIM simulator.
+
+   Copyright (c) 1990-2010, James R. Larus.
+   All rights reserved.
+
+   Redistribution and use in source and binary forms, with or without modification,
+   are permitted provided that the following conditions are met:
+
+   Redistributions of source code must retain the above copyright notice,
+   this list of conditions and the following disclaimer.
+
+   Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation and/or
+   other materials provided with the distribution.
+
+   Neither the name of the James R. Larus nor the names of its contributors may be
+   used to endorse or promote products derived from this software without specific
+   prior written permission.
+
+   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+   AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+   IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+   ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+   LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+   CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
+   GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+   HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+   LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+   OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+
+ <!DOCTYPE RCC><RCC version="1.0">
+ <qresource prefix="/icons">
+     <file alias="ClearRegs.png">windows_images/ClearRegs.png</file>
+     <file alias="Help.png">windows_images/Help.png</file>
+     <file alias="LoadFile.png">windows_images/LoadFile.png</file>
+     <file alias="Pause.png">windows_images/Pause.png</file>
+     <file alias="Print.png">windows_images/Print.png</file>
+     <file alias="Reinit.png">windows_images/Reinit.png</file>
+     <file alias="ReloadFile.png">windows_images/ReloadFile.png</file>
+     <file alias="Run.png">windows_images/Run.png</file>
+     <file alias="SaveLog.png">windows_images/SaveLog.png</file>
+     <file alias="Settings.png">windows_images/Settings.png</file>
+     <file alias="SingleStep.png">windows_images/SingleStep.png</file>
+     <file alias="Stop.png">windows_images/Stop.png</file>
+     <file alias="qtspim.png">windows_images/qtspim.png</file>
+ </qresource>
+ </RCC>

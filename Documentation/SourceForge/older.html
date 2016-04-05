@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Older Versions of SPIM</title>
+<style type="text/css">
+</style>
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+<h2><a name="older">Older Versions of SPIM</a></h2>
+<strong>The information describes the older versions of s<em>pim</em>. 
+Don&#39;t use them! Switch to </strong><i><strong>QtSpim</strong></i><strong> instead.<br />
+</strong><br />
+<br />
+Older versions of the various simulators are in the BoneYard directory of the 
+SourceForge repository:
+<a href="http://spimsimulator.svn.sourceforge.net/viewvc/spimsimulator/BoneYard/">
+http://spimsimulator.svn.sourceforge.net/viewvc/spimsimulator/BoneYard/</a>. 
+Some of the versions are ready to run, but many need to be compiled.
+<ul>
+	<li>
+	<p>To run <i>PCspim</i> for Microsoft Windows, download the PCSpim.zip file 
+	from the BoneYard directory, 
+	unzip it, and click on <i>setup.exe</i>. Source for the Microsoft Windows version (<i>PCspim</i>) 
+	is available in those directories. </p>
+	</li>
+	<li>
+	<p>To run <em>spim</em> or <i>xspim</i> on a Unix, Linux, or Mac OS X system, 
+	get the source code from the
+	<a href="http://spimsimulator.svn.sourceforge.net/viewvc/spimsimulator/">SourceForge 
+	repository</a> and compile it for your system.&nbsp;</p>
+	</li>
+	<li>
+	<p>There is no precompiled Mac version (but there is a <em>
+	QtSpim</em> version). However, <i>xspim</i> compiles and runs on Mac OS X if 
+	you can find a way to install the Xaw library.</p>
+	</li>
+</ul>
+<p>Versions of <em>Spim</em>
+
+ before 7.0 implemented the MIPS-I instruction 
+set used on the MIPS R2000/R3000 computers. This architecture is obsolete (though, 
+never surpassed for its simplicity and elegance). <em>Spim</em>
+
+ now supports the more 
+modern MIPS32 architecture, which is the MIPS-I instruction set augmented with a 
+large number of occasionally useful instructions. MIPS code from earlier versions 
+of SPIM should run without changes, <span class="style1">
+except</span>
+ code that handles exceptions and 
+interrupts. This part of the architecture changed over time (and was poorly implemented 
+in earlier versions of <em>Spim</em>). This type of code will need to be updated. 
+Examples of new exception handling are in the files: exceptions.s and Tests/tt.io.s.</p>
+<hr />
+<h2><a name="installing">Installing Older Versions of SPIM</a></h2>
+<h3>Microsoft Windows</h3>
+<ol>
+	<li>
+	<p>To run <i>PCspim</i> under Microsoft Windows, download the PCSpim.zip file 
+	from <a href="https://sourceforge.net/projects/spimsimulator/files/">https://sourceforge.net/projects/spimsimulator/files/</a>.</p>
+	</li>
+	<li>
+	<p>Unzip the file.</p>
+	</li>
+	<li>
+	<p>Click on the <i>setup.exe</i> program.</p>
+	</li>
+</ol>
+<h3>Unix, Linux, or Mac OS X</h3>
+<p>Installation is a bit more complex for these system, as you need to compile the 
+program for your particular computer and operating system.</p>
+<ol>
+	<li>
+	<p>Download the files from the
+	<a href="http://spimsimulator.svn.sourceforge.net/viewvc/spimsimulator/">SourceForge 
+	repository</a>. At the bottom of the list of files, there is a link to download 
+	a GNU tarball, which will get all the files in the latest version of the system. 
+	You don&#39;t need the Boneyard directory, which contains old versions, or QtSpim, 
+	but the other directories are useful.</p>
+	</li>
+	<li>
+	<p>The simple terminal interface is contained in the <i>spim</i> subdirectory 
+	and the X-windows interface is in the <i>xspim</i> subdirectory .<i> </i>The 
+	other directories are described in the README file.<i> </i></p>
+	</li>
+	<li>
+	<p>Next, you must set the directories in which <em>Spim</em> will be installed 
+	by editing the <i>Makefile</i> (the file that contains instructions on building
+	<em>Spim</em>). In general, if you are installing <em>Spim</em> and want the 
+	windowing version (<i>xspim</i>), edit the file <i>xspim/Imakefile</i> . If 
+	you don&#39;t want <i>xspim</i> or are running on a system without X-windows installed, 
+	use the file <i>spim/Makefile</i>.<br />
+	<br />
+	The programs are installed in standard locations, but you can change to other 
+	locations:</p>
+	<p>&nbsp;&nbsp;&nbsp; EXCEPTION_DIR -- The full pathname of the directory in 
+	which to install the <em>Spim</em> exception handler <i>(exceptions.s</i>)<i>.</i></p>
+	<p>&nbsp;&nbsp;&nbsp; BIN_DIR -- The full pathname of the directory in which
+	<em>spim</em> and <i>xspim</i> should be installed.</p>
+	<p>&nbsp;&nbsp;&nbsp; MAN_DIR -- The full pathname of the directory for the 
+	man pages for <em>spim</em> and <i>xspim</i>.<br />
+	<br />
+	In general, the remaining parameters in a <i>Makefile</i> need not be changed.
+	</p>
+	</li>
+	<li>
+	<p>If you are building <i>xspim</i>, change to the <i>xspim </i>subdirectory<i>
+	</i>and type:<br />
+	<br />
+&nbsp;&nbsp;&nbsp; <i>% xmkmf<br />
+&nbsp;&nbsp;&nbsp; % make<br />
+	<br />
+	</i>If your systems do not have <i>xmkmf</i> installed, you can use the <i>Makefile</i> 
+	in the <i>xspim</i> subdirectory, but beware that it may not work on your system 
+	because the paths to the X windows libraries could be different. </p>
+	</li>
+	<li>
+	<p>If you do not have X-windows, change to the<i> spim</i> subdirectory, edit
+	<i>Makefile,</i> and type: <br />
+	<br />
+	<i>&nbsp;&nbsp;&nbsp; % make&nbsp;&nbsp;&nbsp; </i></p>
+	</li>
+	<li>
+	<p>To run <em>spim</em> or <i>xspim</i>, the exception handler must be installed 
+	in the directory specified by EXCEPTION_DIR in the <i>Makefile</i>. If <i>exception.s</i> 
+	is not installed, <em>spim</em> and <i>xspim</i> fail before they start running. 
+	You can either install this file by hand or by typing: <br />
+	<br />
+	<i>&nbsp;&nbsp;&nbsp; % make install</i><br />
+	<br />
+	which also installs <em>spim</em> or <i>xspim</i>, and the man pages. You may 
+	need root permission to install these files, in which case type: <br />
+	<br />
+	<i>&nbsp;&nbsp;&nbsp; % sudo make install</i><br />
+	</p>
+	</li>
+	<li>
+	<p>To test that <em>Spim</em> is correctly built, change to the <i>spim </i>
+	subdirectory and type:<br />
+	<br />
+	<i>&nbsp;&nbsp;&nbsp; % make test</i><br />
+	<br />
+	and examine the output of the test. (Note: the exception handler must be installed 
+	before running the test.)</p>
+	</li>
+</ol>
+
+</body>
+
+</html>

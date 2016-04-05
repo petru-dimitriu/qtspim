@@ -1,0 +1,864 @@
+<html>
+
+<head>
+<title>SPIM MIPS Simulator</title>
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<style type="text/css">
+.leftNav {
+	border: 1px solid #00FF00;
+	background-color: #d4e8ee;
+	width: 20%;
+	float: left;
+	margin: 0px 10px 0px 0px;
+	padding: 5px;
+	height: 550px;
+}
+.leftNav ul {
+	margin-left: 0px;
+	padding-left: 20px;
+	list-style-type: square;
+	line-height: 150%;
+}
+.rightNav {
+	border: 1px solid #00FF00;
+	background-color: #d4e8ee;
+	width: 25%;
+	float: right;
+	margin: 0px 0px 0px 10px;
+	padding: 5px;
+	height: 550px;
+}
+.style1 {
+	text-decoration: underline;
+}
+.style2 {
+	text-align: left;
+}
+.style3 {
+	font-size: large;
+	color: #FF0000;
+}
+</style>
+</head>
+
+<body>
+
+<h1 align="center">SPIM A MIPS32 Simulator</h1>
+<center>
+<p><a href="http://www.cs.wisc.edu/~larus/larus.html">James Larus</a><br>
+<a href="mailto:spim@larusstone.org">spim@larusstone.org</a></p>
+<p>EPFL<br><i>Formerly:</i> Professor, Computer Sciences Department, 
+University of Wisconsin-Madison</p>
+</center>
+<p class="style2"><em><span class="style3"><strong>spim</strong></span></em><span class="style3"><strong> 
+has moved to </strong></span><a href="http://spimsimulator.sourceforge.net/">
+<span class="style3"><strong>SourceForge.org</strong></span></a><span class="style3"><strong>.
+</strong></span><a href="https://sourceforge.net/projects/spimsimulator/files/">
+<span class="style3"><strong>New versions of </strong></span><em>
+<span class="style3"><strong>spim</strong></span></em></a><span class="style3"><strong> 
+are at that site. This site only contains old versions of the simulator.</strong></span></p>
+<p class="style2">Why move? SourceForge offers a number of services, such as a 
+source code repository and collaborative tools, that make it easier to share 
+code with other developers. Now that <em>spim</em> has an open source license, 
+the time has come to move off a 20-year old web site and join the 21st century.</p>
+<p class="style2">&nbsp;</p>
+<div class="leftNav">
+	<h3>Table of Contents</h3>
+	<ul>
+		<li><a href="#qtspim">Downloading and Installing QtSpim</a></li>
+		<li><a href="#older">Older Versions of SPIM</a></li>
+		<li><a href="#installing">Installing Older Versions of SPIM</a></li>
+		<li><a href="#information">Further Information</a></li>
+		<li><a href="#changes">Changes in Latest Version</a></li>
+		<li><a href="#copyright">Copyright</a></li>
+	</ul>
+</div>
+<div class="rightNav">
+	<h3>What&#39;s New?</h3>
+	<p><i>QtSpim</i> is a new user interface for <i>spim</i> built on the
+	<a href="http://qt.nokia.com/">Qt UI framework</a>. Qt is cross-platform, so 
+	the same user iterface and same code will run on Windows, Linux, and Mac OS 
+	X (yeah!). Moreover, the interface is clean and up-to-date (unlike the archaic 
+	X windows interface).</p>
+	<p><em>Spim</em> has moved to
+	<a href="https://sourceforge.net/projects/spimsimulator/">SourceForge</a>! The 
+	source code for all version of <em>spim</em> are in an SVN repository and compiled 
+	version are available for download. There is also a bug tracker and discussion 
+	forum.</p>
+	<p>&nbsp;</p>
+</div>
+<p><i>spim</i> is a self-contained simulator that runs MIPS32 programs. It reads 
+and executes assembly language programs written for this processor. <i>spim</i> 
+also provides a simple debugger and minimal set of operating system services. <i>
+spim</i> does <u>not</u> execute binary (compiled) programs.</p>
+<p><i>spim</i> implements almost the entire MIPS32 assembler-extended instruction 
+set. (It omits most floating point comparisons and rounding modes and the memory 
+system page tables.) The MIPS architecture has several variants that differ in various 
+ways (e.g., the MIPS64 architecture supports 64-bit integers and addresses), which 
+means that <i>spim</i> will not run programs compiled for all MIPS processors. MIPS 
+compilers also generate a number of assembler directives that <i>spim</i> cannot 
+process. These directives usually can be safely ignored.</p>
+<p>Earlier versions of <i>spim</i> (before 7.0) implemented the MIPS-I instruction 
+set used on the MIPS R2000/R3000 computers. This architecture is obsolete (though, 
+never surpassed for its simplicity and elegance). <i>spim</i> now supports the more 
+modern MIPS32 architecture, which is the MIPS-I instruction set augmented with a 
+large number of occasionally useful instructions. MIPS code from earlier versions 
+of SPIM should run without changes, <u>except</u> code that handles exceptions and 
+interrupts. This part of the architecture changed over time (and was poorly implemented 
+in earlier versions of <i>spim</i>). This type of code will need to be updated. 
+Examples of new exception handling are in the files: exceptions.s and Tests/tt.io.s.</p>
+<p><i>spim</i> comes with complete source code and documentation. It also include 
+a torture test to verify a port to a new machine.</p>
+<p><i>spim</i> implements both a terminal and a window interface. On Microsoft Windows, 
+Linux, and Mac OS X, the <i>spim</i> program provides the simple terminal interface 
+and the <i>QtSpim</i> program provides the windowing interface.</p>
+<hr width="100%">
+<h2 align="center"><a name="birthday">Happy Birthday SPIM!</a></h2>
+<p><i>spim</i> turned 20 years old January 2010. I wrote the original version of
+<i>spim</i> as the target machine for my first compiler class at University of Wisconsin, 
+Madison in the spring semester 1990. <i>spim</i> is likely older than most of the 
+students currently using it!</p>
+<p>As a birthday present, the 8.0 version of <i>spim</i> has a simpler, less restrictive 
+license, namely the standard BSD license.</p>
+<hr width="100%">
+<h2 align="center"><a name="qtspim">QtSpim</a></h2>
+<p>The newest version of <i>spim</i> is called <i>QtSpim</i>, and unlike all of 
+the other version, it runs on Microsoft Windows, Mac OS X, <span class="style1">
+and</span> Linux&#8212;the same source code and the same user interface on all three platforms!
+<i>QtSpim</i> is the version of <i>spim</i> that currently being actively maintaned. 
+The other versions are still available, but please stop using them and move to
+<i>QtSpim</i>. It has a modern user interface, extensive help, and is consistent 
+across all three platforms. <i>QtSpim </i>makes my life far easier, and will likely 
+improve yours and your students&#39; experience as well.</p>
+<p>A compiled, immediately installable version of <i>QtSpim</i> is available for
+Microsoft Windows, Mac OS X, and
+Linux can be downloaded from:
+<a href="https://sourceforge.net/projects/spimsimulator/files/">
+https://sourceforge.net/projects/spimsimulator/files/</a>.
+<a href="http://spimsimulator.svn.sourceforge.net/viewvc/spimsimulator/">Full source 
+code</a> is also available (to compile <i>QtSpim</i>, you need
+<a href="http://qt.nokia.com/downloads/">Nokia&#39;s Qt framework</a>, a very nice 
+cross-platform UI framework that can be downloaded from
+<a href="http://qt.nokia.com/downloads/">here</a>).</p>
+<hr>
+<div style="background: #F3F3F3">
+	<h2 align="center"><a name="older">Older Versions of SPIM</a></h2>
+	<strong>The information in this shaded box describes the older versions of SPIM. 
+	Please use </strong><i><strong>QtSpim</strong></i><strong> 
+	instead.</strong><br>
+	<table align="center" border="1" width="732">
+		<tr>
+			<td align="middle" colspan="4"><strong>Most Recent Versions of SPIM</strong></td>
+		</tr>
+		<tr>
+			<td align="middle" width="451"><b>Platform</b></td>
+			<td align="middle" width="96"><b>Program</b></td>
+			<td align="middle" width="128"><b>Form</b></td>
+			<td align="middle" width="382"><b>File</b></td>
+		</tr>
+		<tr>
+			<td width="451">Unix or Linux system<br>Mac OS X</td>
+			<td align="center" width="96"><i>spim<br>xspim</i></td>
+			<td align="center" width="128">Source code</td>
+			<td width="382">
+			<a href="http://spimsimulator.svn.sourceforge.net/viewvc/spimsimulator/">
+			http://spimsimulator.svn.sourceforge.net/viewvc/spimsimulator/</a></td>
+		</tr>
+		<tr>
+			<td rowspan="2" width="451">Microsoft Windows<p>(spim 7.0 and later 
+			versions no longer run on Windows 95/98. Use version 6.5 or earlier.)</p>
+			</td>
+			<td align="center" rowspan="2" width="96"><i>PCSpim</i></td>
+			<td align="center" width="128">Executable</td>
+			<td width="382">
+			<a href="http://sourceforge.net/projects/spimsimulator/files/PCSpim_9.0.zip/download">
+			<span jquery1293925232087="85">http://sourceforge.net/projects/spimsimulator/files/PCSpim_9.0.zip/download</span>
+			</a></td>
+		</tr>
+		<tr>
+			<td align="center" width="128">Source code</td>
+			<td width="382">
+			<a href="http://spimsimulator.svn.sourceforge.net/viewvc/spimsimulator/">
+			http://spimsimulator.svn.sourceforge.net/viewvc/spimsimulator/</a></td>
+		</tr>
+	</table>
+	<ul>
+		<li>
+		<p>To run <i>spim</i> or <i>xspim</i> on a Unix, Linux, or Mac OS X system, 
+		get the source code from the
+		<a href="https://sourceforge.net/scm/?type=svn&amp;group_id=388698">SourceForge 
+		repository</a> and compile it for your system.</p>
+		</li>
+		<li>
+		<p>To run <i>PCspim</i> under Microsoft Windows, download the file
+		<a href="http://sourceforge.net/projects/spimsimulator/files/PCSpim_9.0.zip/download">
+		<span jquery1293925232087="85">http://sourceforge.net/projects/spimsimulator/files/PCSpim_9.0.zip/download</span>
+		</a>, unzip it, and click on <i>setup.exe</i>.</p>
+		</li>
+		<li>
+		<p>Source for the Microsoft Windows version (<i>PCspim</i>) is available
+		<a href="https://sourceforge.net/scm/?type=svn&amp;group_id=388698">SourceForge 
+		repository</a>. </p>
+		</li>
+		<li>
+		<p>There is no native Macintosh version of <i>spim</i> (but there is a
+		<em>QtSpim</em> version). However, <i>xspim</i> compiles and runs on Mac 
+		OS X, if you can find a way to install the Xaw library.</p>
+		</li>
+	</ul>
+	<hr width="100%">
+	<h2 align="center"><a name="installing">Installing Older Versions of SPIM</a></h2>
+	<h3>Microsoft Windows</h3>
+	<ol>
+		<li>
+		<p>To run <i>PCspim</i> under Microsoft Windows, download the file
+		<a href="http://sourceforge.net/projects/spimsimulator/files/PCSpim_9.0.zip/download">
+		<span jquery1293925232087="85">http://sourceforge.net/projects/spimsimulator/files/PCSpim_9.0.zip/download</span></a>.</p>
+		</li>
+		<li>
+		<p>Unzip the file.</p>
+		</li>
+		<li>
+		<p>Click on the <i>setup.exe</i> program.</p>
+		</li>
+	</ol>
+	<h3>Unix, Linux, or Mac OS X</h3>
+	<p>(Note: the directions changed slightly for version 7.2, to reflect a new 
+	directory structure. Please read carefully.)</p>
+	<p>Installation is a bit more complex for a Unix or Linux system, as you need 
+	to compile the program for your particular computer and operating system.</p>
+	<ol>
+		<li>
+		<p>Download the files from the
+		<a href="https://sourceforge.net/scm/?type=svn&amp;group_id=388698">SourceForge 
+		repository</a>. You don&#39;t need the Boneyard directory, which contains old 
+		versions, but the other directories are useful.<br>&nbsp;</p>
+		</li>
+		<li>
+		<p>The simple terminal interface is contained in the <i>spim-8.0/spim</i> 
+		directory and the X-windows interfaces is in the <i>spim-8.0/xspim</i> directory.<i>
+		</i>The other directories are described in the README file.<i><br>&nbsp;</i></p>
+		</li>
+		<li>
+		<p>Next, you must set the directories in which <i>spim</i> will be installed 
+		by editing the <i>Makefile</i> (the file that contains instructions on building
+		<i>spim</i>). In general, if you are installing <i>spim</i> and want the 
+		windowing version (<i>xspim</i>), edit the file <u><i>xspim/Imakefile</i></u>. 
+		If you don&#39;t want <i>xspim</i> or are running on a system without X-windows 
+		installed, you use the file <i>spim/Makefile</i>.<br><br>The programs are 
+		installed in standard locations, but you can change the pathnames to other 
+		locations:</p>
+		<p>&nbsp;&nbsp;&nbsp; EXCEPTION_DIR -- The full pathname of the directory 
+		in which to install the <i>spim</i> exception handler <i>(exceptions.s</i>)<i>.</i></p>
+		<p>&nbsp;&nbsp;&nbsp; BIN_DIR -- The full pathname of the directory in which
+		<i>spim</i> and <i>xspim</i> should be installed.</p>
+		<p>&nbsp;&nbsp;&nbsp; MAN_DIR -- The full pathname of the directory in which 
+		the manual pages for <i>spim</i> and <i>xspim</i> should be installed.<br>
+		<br>In general, the remaining parameters in a <i>Makefile</i> need not be 
+		changed.<br>&nbsp;</p>
+		</li>
+		<li>
+		<p>Then, if you are building <i>xspim</i>, change to the <i>spim-8.0/xspim
+		</i>directory and type:<br><br>&nbsp;&nbsp;&nbsp; <i>% xmkmf<br>&nbsp;&nbsp;&nbsp; 
+		% make<br></i>If you do not have a copy of <i>xmkmf</i>, you can use the
+		<i>Makefile</i> in the <i>xspim</i> directory, but beware that it may not 
+		work on your system because the paths to the X windows libraries could be 
+		different.<br>&nbsp;</p>
+		</li>
+		<li>
+		<p>If you do not have X-windows, change to the<i>spim-8.0/spim</i> directory, 
+		edit <i>Makefile,</i> and type: <br><br><i>&nbsp;&nbsp;&nbsp; % make<br>&nbsp;&nbsp;&nbsp;
+		</i></p>
+		</li>
+		<li>
+		<p>To run <i>spim</i> or <i>xspim</i>, the exception handler must be installed 
+		in the directory specified by the variable EXCEPTION_DIR in the <i>Makefile</i>. 
+		If the file <i>exception.s</i> is not installed, <i>spim</i> and <i>xspim</i> 
+		fail before they start running. You can either install this file by hand 
+		or by typing: <br><br><i>&nbsp;&nbsp;&nbsp; % make install</i><br><br>which 
+		also installs <i>spim</i> or <i>xspim</i>, and the manual pages in the directories 
+		that you set (above). You may need root permission to install these files, 
+		in which case type: <br><br><i>&nbsp;&nbsp;&nbsp; % sudo make install</i><br>
+		<br></p>
+		</li>
+		<li>
+		<p>To test that <i>spim</i> is correctly built, change to the <i>spim-8.0/spim
+		</i>directory and type:<br><br><i>&nbsp;&nbsp;&nbsp; % make test</i><br>
+		<br>and examine the output of the test. (Note: the exception handler must 
+		be installed before running the test.)</p>
+		</li>
+	</ol>
+</div>
+<hr>
+<h2 align="center"><a name="information">Further Information</a></h2>
+<ul>
+	<li>
+	<p>Elsevier (aka Morgan Kaufmann) has generously provided the <i>spim</i> documentation 
+	(Appendix A) from the third edition of Hennessy &amp; Patterson, <i>
+	<a href="http://books.elsevier.com/us/mk/us/subindex.asp?isbn=1558606041&amp;country=United+States&amp;community=mk&amp;mscssid=T3GQV69C1T2T8NHKQJH2H7ANRW84FXW3">
+	Computer Organization and Design: The Hardware/Software Interface</a></i>. This 
+	documentation is far more complete and up-to-date than the documentation included 
+	in the <i>spim</i> distribution. The COD documentation includes:</p>
+	<ul>
+		<li>
+		<p><i>Appendix A: Assemblers, Linkers, and the SPIM Simulator</i> (<a href="HP_AppA.pdf">PDF</a>). 
+		An overview and reference manual for <i>spim</i> and the MIPS32 instruction 
+		set.</p>
+		</li>
+		<li>
+		<p><i>Getting Started with spim</i> (<a href="spim.pdf">PDF</a>). Overview 
+		of the console version of <i>spim</i> (both Unix and Windows).</p>
+		</li>
+		<li>
+		<p><i>Getting Started with xspim</i> (<a href="xspim.pdf">PDF</a>). Overview 
+		of the X-windows version of <i>spim</i>.</p>
+		</li>
+		<li>
+		<p><i>Getting Starting with PCSpim</i> (<a href="PCSpim.pdf">PDF</a>). Overview 
+		of the Microsoft Windows version of <i>spim</i>.</p>
+		</li>
+		<li>
+		<p><i>SPIM Command-Line Options</i> (<a href="SPIM_command-line.pdf">PDF</a>). 
+		Overview of the command line options of <i>spim</i> (all versions).</p>
+		</li>
+	</ul>
+	</li>
+	<li>
+	<p>The documentation included with <i>spim</i> is also online (as a
+	<a href="http://www.cs.wisc.edu/~larus/SPIM/spim_documentation.ps">postscript</a> 
+	or <a href="http://www.cs.wisc.edu/~larus/SPIM/spim_documentation.pdf">Adobe 
+	PDF file</a>). This document is for the original <i>spim</i> (pre-version 7.0), 
+	which simulated the MIPS-I architecture rather than MIPS32, and so differs in 
+	many minor aspects from the current version of <i>spim</i> Appendix A of Hennessy 
+	&amp; Patterson, <i>
+	<a href="http://books.elsevier.com/us/mk/us/subindex.asp?isbn=1558606041&amp;country=United+States&amp;community=mk&amp;mscssid=T3GQV69C1T2T8NHKQJH2H7ANRW84FXW3">
+	Computer Organization and Design: The Hardware/Software Interface</a></i> (above), 
+	is more up-to-date and correct.</p>
+	</li>
+	<li>
+	<p>The best book I have seen on MIPS programming is: Dominic Sweetman, <i>
+	<a href="http://books.elsevier.com/us/mk/us/subindex.asp?isbn=1558604103&amp;country=United+States&amp;community=mk&amp;mscssid=T3GQV69C1T2T8NHKQJH2H7ANRW84FXW3">
+	See MIPS Run,</a></i> Morgan Kaufmann, San Francisco, CA, 1999, ISBN 1-55860-410-3.</p>
+	</li>
+	<li>
+	<p>MIPS, Inc. has excellent free documentation on the MIPS32 architecture on 
+	their website
+	<a href="http://www.mips.com/products/product-materials/processor/mips-architecture/">
+	http://www.mips.com/products/product-materials/processor/mips-architecture/</a>:
+	</p>
+	<ul style="margin-top: 12">
+		<li>
+		<p>
+		<a href="http://www.mips.com/secure-download/index.cfm?filename=mips-architecture/MD00082-2B-MIPS32INT-AFP-02_60.pdf">
+		MIPS32® Architecture for Programmers Volume I: Introduction to the MIPS32® 
+		Architecture (.pdf)</a> </p>
+		</li>
+		<li>
+		<p>
+		<a href="http://www.mips.com/secure-download/index.cfm?filename=mips-architecture/MD00086-2B-MIPS32BIS-AFP-02_62.pdf">
+		MIPS32® Architecture for Programmers Volume II: The MIPS32® Instruction 
+		Set (.pdf)</a> </p>
+		</li>
+		<li>
+		<p>
+		<a href="http://www.mips.com/secure-download/index.cfm?filename=mips-architecture/MD00090-2B-MIPS32PRA-AFP-02.80.pdf">
+		MIPS32® Architecture for Programmers Volume III: The MIPS32® Privileged 
+		Resource Architecture (.pdf)</a> </p>
+		</li>
+	</ul>
+	</li>
+	<li>
+	<p>An old reference manual for the MIPS architecture (including processors subsequent 
+	to the R2000/R3000) is: Gerry Kane and Joe Heinrich, <i>MIPS RISC Architecture</i>, 
+	Prentice Hall, Englewood Cliffs, N.J. 07632 ISBN 0-13-1059254. </p>
+	</li>
+	<li>
+	<p>Another good book for the MIPS R2000 and R3000 is: Erin Farquhar and Philip 
+	Bunce, <i>
+	<a href="http://books.elsevier.com/us/mk/us/subindex.asp?isbn=1558602976&amp;country=United+States&amp;community=mk&amp;mscssid=T3GQV69C1T2T8NHKQJH2H7ANRW84FXW3">
+	The MIPS Programmer&#39;s Handbook,</a></i> Morgan Kaufmann, San Francisco, CA, 
+	1994, ISBN 1-55860-297-6.</p>
+	</li>
+	<li>
+	<p>The GNU C compiler can generate code for the MIPS R3000 and can be used as 
+	a cross compiler. A retargeted port of gcc is available on the
+	<a href="http://www.cs.unibo.it/mps/">MPS Resource Page</a>. I have not used 
+	this compiler.</p>
+	</li>
+	<li>
+	<p>Downcast Systems offers a very nice text editor for MIPS assembly code called
+	<a href="http://www.downcastsystems.com/mipster/">MIPSter</a>. It has syntax 
+	highlight, MIPS-specific help, good integration with SPIM, and a number of other 
+	features to make it easier to write assembly code. MIPSter is an inexpensive 
+	commercial product, and it offers a limited time trial version.</p>
+	</li>
+	<li>
+	<p>Andrea Grandi ported SPIM to the <a href="http://www.nokiausa.com/770">Nokia 
+	770/800 Internet Tablet</a>, so you never need to be without the ability to 
+	run MIPS programs. The port of SPIM is available at:
+	<a href="http://www.ptlug.org/wiki/SPIM_N770">http://www.ptlug.org/wiki/SPIM_N770</a>.
+	</p>
+	</li>
+</ul>
+<hr width="100%">
+<h2 align="center"><a name="changes">Changes in Latest Version</a></h2>
+<p>The current version of <em>spim</em> is 9.0 (January 2011), which is a major 
+release that introduces <em>QtSpim</em> and fixes some bugs in all versions:</p>
+<ul>
+	<li>
+	<p>Add Debian package and Linux desktop metadata.</p>
+	</li>
+	<li>
+	<p>Moved SVN repository to SourceForge.</p>
+	</li>
+	<li>
+	<p>Fit and finish bugs in PCSpim and error parsing quoted command line arguments.</p>
+	</li>
+	<li>
+	<p>QtSpim!!!</p>
+	</li>
+	<li>
+	<p>Single stepping hung at breakpoint.</p>
+	</li>
+	<li>
+	<p>Did not display first 4K of the stack.</p>
+	</li>
+	<li>
+	<p>Ported PCSpim to VisualStudio 2010.</p>
+	</li>
+	<li>
+	<p>Fixed type errors so code compiles under Linux and on x64 systems.</p>
+	</li>
+	<li>
+	<p>Moved version information into CPU/version.h and eliminated old, ad-hoc Configure 
+	file for spim and xpsim.</p>
+	</li>
+</ul>
+<p>The current version of <i>spim</i> is 8.0 (January 2010), which is a minor release 
+that cleans up bugs in 7.5 and moves to a BSD license:</p>
+<ul>
+	<li>
+	<p>Changed install path from /usr to /usr/local and removed -D option to install 
+	command (which doesn&#39;t exists on Mac OS X).</p>
+	</li>
+	<li>
+	<p>Change license to a BSD license, update copyright notices, and eliminated 
+	references to my old email address.</p>
+	</li>
+	<li>
+	<p>Simplify alignment of data on stack to ensure enough room is left for environment 
+	and args at top of stack.</p>
+	</li>
+	<li>
+	<p>Initialize stack with arguments when running program from run dialog.</p>
+	</li>
+	<li>
+	<p>read_input filled buffer with last character of file not terminated by newline.</p>
+	</li>
+	<li>
+	<p>Links to MIPS documentation were broken.</p>
+	</li>
+	<li>
+	<p>Did not return value from exit syscall.</p>
+	</li>
+</ul>
+<p>The current version of <i>spim</i> is 7.5 (August 2009), which is a minor release 
+that cleans up bugs in 7.4:</p>
+<ul>
+	<li>
+	<p>Correct problem with installer script that did not install appropriate versions 
+	of msvcrt and mfc dlls for Visual Studio 9.0.</p>
+	</li>
+	<li>
+	<p>Fix install scripts to put exceptions.s at /usr/lib/spim on Linux.</p>
+	</li>
+	<li>
+	<p>Fixed major memory leak caused by overwritten instructions not being freed.</p>
+	</li>
+	<li>
+	<p>Force redisplay of data segment in situations when register values (such 
+	as $sp) have changed.</p>
+	</li>
+	<li>
+	<p>Properly initialize PC at first invocation of step operation on PCSPim.</p>
+	</li>
+	<li>
+	<p>Fixed bug in Xxpim that caused the step commend to reinitialize the stack.</p>
+	</li>
+</ul>
+<p>The current version of <i>spim</i> is 7.4 (January 2009), which is a minor release 
+that cleans up bugs in 7.3:</p>
+<p>1/14/09: Released new version of pcspim.zip to correct problem with installer 
+script that did not install appropriate versions of msvcrt and mfc dlls.<br>1/21/09: 
+Released new version of spim.tar.Z and spim.tar.gz to correct problem with install 
+command for spim program (but not xspim).</p>
+<ul>
+	<li>
+	<p>Fixed install directories for Linux systems.</p>
+	</li>
+	<li>
+	<p>Retained command line arguments in second and subsequent runs.</p>
+	</li>
+	<li>
+	<p>Bug in overflow from low-order word in MADD, MSUB.</p>
+	</li>
+	<li>
+	<p>Bug in decoding SPECIAL2 instructions (e.g. madd).</p>
+	</li>
+</ul>
+<p>The previous version of <i>spim</i> is 7.3 (August 2006), which is a minor release 
+that cleans up a number of bugs in 7.2:</p>
+<ul>
+	<li>
+	<p>Fix for flex 2.5.33 (internal change broke spim&#39;s scanner).</p>
+	</li>
+	<li>
+	<p>Exception handler can be a semicolon-separated list of files that will be 
+	loaded in order. On Unix, SPIM_EXCEPTION_HANDLER environment variable is consulted 
+	before command line arguments.</p>
+	</li>
+	<li>
+	<p>Memory corruption caused spim to crash when label was defined twice in succession.</p>
+	</li>
+	<li>
+	<p>PCSpim updates register and memory display after a parse error while reading 
+	a file.</p>
+	</li>
+	<li>
+	<p>Eliminated unnecessary null char between strings in list of strings produced 
+	by .asciiz.</p>
+	</li>
+	<li>
+	<p>Makefiles (in spim/ and xspim/) now contain clearly defined paths for installing 
+	executables, exception handler, and man pages. The man pages are no longer installed 
+	by the &quot;make install&quot; command.</p>
+	</li>
+	<li>
+	<p>Change psfig to epsfig in spim.tex (does anyone still use this obsolete documentation?).</p>
+	</li>
+</ul>
+<p>The previous version of <i>spim</i> is 7.2.1 (August 2005), which is a minor 
+release that cleans up a number of bugs in 7.1:</p>
+<ul>
+	<li>
+	<p>Fixed multiple problems in memory mapped IO in xspim and spim.
+	<span style="background-color: #FFFF00">(Note: to make programming uniform across 
+	all three platforms, memory mapped IO now follows&quot;Unix&quot; handling of carriage 
+	return (CR) and new line (NL) characters . On input, a CR is translated to a 
+	NL, and on output, a CR is printed after a NL. This was previously true for 
+	PCSpim and xspim, but not spim.)</span></p>
+	</li>
+	<li>
+	<p>Fixed bug in indexed address computation in LW and SW instructions.</p>
+	</li>
+	<li>
+	<p>Eliminated non-POSIX flags IUCLC and IXANY to facilitate port to Mac OS X.</p>
+	</li>
+	<li>
+	<p>Use termios(3) library calls instead of IOCTLs to fix bug introduced in port 
+	from termio to termios struct.</p>
+	</li>
+	<li>
+	<p>Test default case for jalr, without default $rd (=31).</p>
+	</li>
+	<li>
+	<p>Trap handler in test extracted wrong bits from ExcCode field of Cause register.</p>
+	</li>
+	<li>
+	<p>Pervasive restructuring of files to put 3 UIs (spim, xspim, PCSpim) in separate 
+	directories and cleanup organization and Makefiles.</p>
+	</li>
+	<li>
+	<p>Use correct help file in install process.</p>
+	</li>
+	<li>
+	<p>Added work-around for bug in flex 2.5.31 that left yytext_ptr undefined.</p>
+	</li>
+	<li>
+	<p>Epilogue code restored $at register, then used a pseduo instructions that 
+	smashed it.</p>
+	</li>
+	<li>
+	<p>Cleared filename when reinitializing PCSpim, which broke next reload command.</p>
+	</li>
+</ul>
+<p>The previous version of <i>spim</i> is 7.1 (January 2005), which is a minor release 
+that cleans up a number of bugs in 7.0:</p>
+<ul>
+	<li>
+	<p>Minor cleanup.</p>
+	</li>
+	<li>
+	<p>Switched Windows installer to Microsoft .msi installer, from InstallShield.</p>
+	</li>
+	<li>
+	<p>exceptions.s used wrong mask for exception cause field.</p>
+	</li>
+	<li>
+	<p>Clearing the transmitter or receiver interrupt enable bits also clear interrupt 
+	pending bits in Cause register.</p>
+	</li>
+	<li>
+	<p>Code to poll for a console input character in X windows blocked and prevented 
+	any output until input occured.</p>
+	</li>
+	<li>
+	<p>Type of &quot;mul&quot; instruction was wrong, which lead to it being printed without 
+	destination register.</p>
+	</li>
+	<li>
+	<p>Print underlying instruction, not breakpoint.</p>
+	</li>
+	<li>
+	<p>Unparing error that unparsed beq as beql.</p>
+	</li>
+	<li>
+	<p>Eliminated dependence on obsolete termio.h in favor of POSIX termios.h since 
+	Mac OS X doesn&#39;t have termio.h any more.</p>
+	</li>
+	<li>
+	<p>Fix null pointer problem if no entries in registry.</p>
+	</li>
+	<li>
+	<p>Turn off EXL bit after break instruction, since break is handled by spim, 
+	not MIPS, code and the bit was never cleared.</p>
+	</li>
+	<li>
+	<p>Set default path for exceptions.s to C:\Program Files\PCSpim, the default 
+	installation directory.</p>
+	</li>
+	<li>
+	<p>Test for SQRT.S used double constant, which failed on SPARC (but not x86).</p>
+	</li>
+</ul>
+<p>The previous version of <i>spim</i> is 7.0 (August 2004), which is a major release 
+that contains a significant number of changes from version 6.5:</p>
+<ul>
+	<li>
+	<p>Upgraded simulator to MIPS32, Version 1 architecture (except details of FPU 
+	and memory).</p>
+	</li>
+	<li>
+	<p>Exceptions and interrupts reimplemented, to make them closer to the actual 
+	hardware.</p>
+	</li>
+	<li>
+	<p>Memory mapped IO console reimplemented to make it work properly.</p>
+	</li>
+	<li>
+	<p>Implemented timer in CPU.</p>
+	</li>
+	<li>
+	<p>Renamed &quot;trap&quot; to &quot;exception&quot; to correspond to MIPS terminology.</p>
+	</li>
+	<li>
+	<p>Introduced short forms of command line arguments and dropped need for &quot;-file&quot; 
+	argument.</p>
+	</li>
+	<li>
+	<p>Major internal cleanup and reorganization of code to eliminate unused code 
+	and simplify implementation.</p>
+	</li>
+	<li>
+	<p>PCSpim prompts about reinitialization when file reloaded.</p>
+	</li>
+	<li>
+	<p>PCSpim lets user set font.</p>
+	</li>
+	<li>
+	<p>Word align all segment boundaries and ensure sbrk returns word-aligned addresses.</p>
+	</li>
+	<li>
+	<p>Added new syscall (EXIT2_SYSCALL) that returns value from SPIM.</p>
+	</li>
+	<li>
+	<p>Improved implementation of delayed load instructions.</p>
+	</li>
+	<li>
+	<p>Refactored the test cases, so that endian-independent code is in tt.core.s</p>
+	</li>
+	<li>
+	<p>Many small bug fixes.</p>
+	</li>
+</ul>
+<p>Outstanding bugs in 7.0:</p>
+<ul>
+	<li>
+	<p>The trap handler (exceptions.s) fails when the trapping instruction is in 
+	the delay slot of a branch or jump. The trap handler returns by simplemindedly 
+	adding 4 to the EPC (which is the branch&#39;s address in this case), so it does 
+	not return to the instruction executed after the trapping instruction.</p>
+	</li>
+	<li>
+	<p>Handling of newlines and carriage returns is inconsistent between platforms. 
+	When a program prints a newline, PCSpim also prints a carriage return, spim 
+	and xspim don&#39;t. Or, is this consistent with the underlying platform?</p>
+	</li>
+</ul>
+<p>The previous version of <i>spim</i> is 6.5 (January 2003), which contains the 
+following changes from version 6.4:</p>
+<ul>
+	<li>
+	<p>If started program is started with only one argument, assume it is a file 
+	name.</p>
+	</li>
+	<li>
+	<p>Added Alt-F4 shortcut to PCSpim.</p>
+	</li>
+	<li>
+	<p>Fixed trap.handler to return to instruction at EPC on interrupt. </p>
+	</li>
+	<li>
+	<p>Fixed (real!) hardware exception on integer overflow in division.</p>
+	</li>
+	<li>
+	<p>-trap_file did not properly parse argument in xspim.</p>
+	</li>
+	<li>
+	<p>Fixed printing of error on last line without a carriage return.</p>
+	</li>
+	<li>
+	<p>Print proper registers when printing hex FP numbers.</p>
+	</li>
+	<li>
+	<p>Properly zero newly allocated memory.</p>
+	</li>
+	<li>
+	<p>Added nops (addu $0, $0, 0) to trap handler, so that it works properly in 
+	bare mode!</p>
+	</li>
+	<li>
+	<p>PCSPIM.HLP file was corrupted.</p>
+	</li>
+</ul>
+<p>The previous version of <i>spim</i> is 6.4 (January 2002), which contains the 
+following changes from version 6.3:</p>
+<ul>
+	<li>
+	<p>PCSpim no longer shifts the focus of the register and data segments when 
+	values change.</p>
+	</li>
+	<li>
+	<p>Fixed bug in the expansion of USH pseudo-op.</p>
+	</li>
+	<li>
+	<p>Add system calls for open, close, read, and write.</p>
+	</li>
+	<li>
+	<p>Fixed the Configure file to work with Mac OSX.</p>
+	</li>
+	<li>
+	<p>Made the REM pseudo-op require 3 arguments.</p>
+	</li>
+	<li>
+	<p>Fixed PCSpim dumping code to dump contents of console window.</p>
+	</li>
+	<li>
+	<p>Treat LUI&#39;s immediate value as unsigned, as it is not sign extended.</p>
+	</li>
+	<li>
+	<p>More error checking for malformed programs.</p>
+	</li>
+	<li>
+	<p>Make symbol &quot;main&quot; as global.</p>
+	</li>
+	<li>
+	<p>Avoid clearing last few bytes of data segments when they expand.</p>
+	</li>
+	<li>
+	<p>Check that high-order 4 bits in jump instruction&#39;s PC match bits in target 
+	PC.</p>
+	</li>
+</ul>
+<p>The previous version of <i>spim</i> is 6.3 (January 2001), which contains the 
+following changes from version 6.2:</p>
+<ul>
+	<li>
+	<p>PCSpim interface simplified to 4 fixed panes, similar to xspim, which permit 
+	cut and paste. </p>
+	</li>
+	<li>
+	<p>PCSpim console stays on the screen after assembly program&nbsp; terminates.
+	</p>
+	</li>
+	<li>
+	<p>Comments in assembly source displayed in text segment. </p>
+	</li>
+	<li>
+	<p>NOP is standardized to sll $0 $0 0 (= 0x00000000) </p>
+	</li>
+	<li>
+	<p>Fixed several bugs and missed optimization in computing immediate values 
+	in lw/sw instruction sequences. </p>
+	</li>
+	<li>
+	<p>High 2 bits in negative branch offsets were incorrect. </p>
+	</li>
+	<li>
+	<p>Display floating point registers with up to 18 digits of precision. </p>
+	</li>
+	<li>
+	<p>New spim command (print_all_regs) prints all registers. </p>
+	</li>
+	<li>
+	<p>Minor changes to compile spim under cygwin for Windows. </p>
+	</li>
+	<li>
+	<p>Validate the range of immediate values in MIPS (but not pseudo) instructions.
+	</p>
+	</li>
+	<li>
+	<p>Fixed display of stack with non-word aligned $sp. </p>
+	</li>
+	<li>
+	<p>New flags: </p>
+	<ul>
+		<li>
+		<p>-delayed-branches&nbsp; Simulate MIPS delayed control transfers for branches, 
+		jumps, and calls </p>
+		</li>
+		<li>
+		<p>-delayed-loads Simulate MIPS non-interlocked loads. </p>
+		</li>
+	</ul>
+	</li>
+</ul>
+<hr width="100%">
+<h2 align="center"><a name="copyright">Copyright</a></h2>
+<p><i>spim</i> is copyrighted by James Larus and distributed under a BSD license.</p>
+<p>Copyright (c) 1990-2010, James R. Larus. All rights reserved.</p>
+<p>Redistribution and use in source and binary forms, with or without modification, 
+are permitted provided that the following conditions are met:</p>
+<ul>
+	<li>Redistributions of source code must retain the above copyright notice, this 
+	list of conditions and the following disclaimer.</li>
+	<li>Redistributions in binary form must reproduce the above copyright notice, 
+	this list of conditions and the following disclaimer in the documentation and/or 
+	other materials provided with the distribution.</li>
+</ul>
+<p>Neither the name of the James R. Larus nor the names of its contributors may 
+be used to endorse or promote products derived from this software without specific 
+prior written permission.</p>
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND 
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES 
+OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT 
+SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT 
+OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) 
+HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, 
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF 
+THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+<p>&nbsp;The DOS and Windows ports were done by David A. Carley and are copyrighted 
+y Morgan Kaufmann Publishers.</p>
+<hr width="100%">
+<h2 align="center">SPIMSAL Note</h2>
+<p><i>spimsal</i> is an old version of <i>spim</i> that ran on
+<a href="ftp://ftp.cs.wisc.edu/pub/spimsal/spimsal.zip">PCs running Windows 3.1</a> 
+and <a href="ftp://ftp.cs.wisc.edu/pub/spimsal/SPIMSAL.macintosh.bin">Macintoshes</a>.
+<i>spimsal</i> implements an extended version of the MIPS instruction set and is 
+based on an old version of <i>spim</i>. It also does NOT run under Windows 95 or 
+Windows NT.</p>
+
+</body>
+
+</html>

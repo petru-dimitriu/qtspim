@@ -1,0 +1,20 @@
+#!/bin/bash -v
+#
+# Shell script to create Mac Release Files
+#
+# Usage: release-MacOSX
+#
+
+#Qt v.5:
+RELEASE_DIR="build_Release"
+QT_BIN_DIR="/usr/local/opt/qt5/bin"
+
+#Fix QtSpim
+$QT_BIN_DIR/macdeployqt $RELEASE_DIR/QtSpim.app -verbose=2 -no-strip
+
+#Fix Qt Assistant
+cp -r $QT_BIN_DIR/../libexec/Assistant-qt5.app $RELEASE_DIR
+mv $RELEASE_DIR/Assistant-qt5.app $RELEASE_DIR/Assistant.app
+$QT_BIN_DIR/macdeployqt $RELEASE_DIR/Assistant.app -verbose=2 -no-strip
+
+

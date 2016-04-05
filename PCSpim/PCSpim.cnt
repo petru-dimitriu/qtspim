@@ -1,0 +1,8 @@
+:Base PCSpim.hlp
+1 Contents
+2 Contents page=main_index
+1 Menus
+2 File menu=menu_file
+2 Simulator menu=menu_simulator
+2 Window menu=menu_window
+2 Help menu=menu_help

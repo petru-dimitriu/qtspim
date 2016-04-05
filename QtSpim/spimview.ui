@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SpimView</class>
+ <widget class="QMainWindow" name="SpimView">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1172</width>
+    <height>770</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>QtSpim</string>
+  </property>
+  <property name="dockOptions">
+   <set>QMainWindow::AnimatedDocks|QMainWindow::ForceTabbedDocks|QMainWindow::VerticalTabs</set>
+  </property>
+  <widget class="QTextEdit" name="centralWidget">
+   <property name="undoRedoEnabled">
+    <bool>false</bool>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1172</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu_File">
+    <property name="title">
+     <string>&amp;File</string>
+    </property>
+    <widget class="QMenu" name="menuRecent_Files">
+     <property name="title">
+      <string>Recent Files</string>
+     </property>
+    </widget>
+    <addaction name="action_File_Load"/>
+    <addaction name="menuRecent_Files"/>
+    <addaction name="action_File_Reload"/>
+    <addaction name="separator"/>
+    <addaction name="action_File_SaveLog"/>
+    <addaction name="separator"/>
+    <addaction name="action_File_Print"/>
+    <addaction name="separator"/>
+    <addaction name="action_File_Exit"/>
+   </widget>
+   <widget class="QMenu" name="menu_Simulator">
+    <property name="title">
+     <string>&amp;Simulator</string>
+    </property>
+    <addaction name="action_Sim_ClearRegisters"/>
+    <addaction name="action_Sim_Reinitialize"/>
+    <addaction name="separator"/>
+    <addaction name="action_Sim_SetRunParameters"/>
+    <addaction name="action_Sim_Run"/>
+    <addaction name="action_Sim_Pause"/>
+    <addaction name="action_Sim_Stop"/>
+    <addaction name="action_Sim_SingleStep"/>
+    <addaction name="separator"/>
+    <addaction name="action_Sim_DisplaySymbols"/>
+    <addaction name="separator"/>
+    <addaction name="action_Sim_Settings"/>
+   </widget>
+   <widget class="QMenu" name="menu_Registers">
+    <property name="title">
+     <string>&amp;Registers</string>
+    </property>
+    <addaction name="action_Reg_DisplayBinary"/>
+    <addaction name="action_Reg_DisplayHex"/>
+    <addaction name="action_Reg_DisplayDecimal"/>
+   </widget>
+   <widget class="QMenu" name="menu_Text_Segment">
+    <property name="title">
+     <string>&amp;Text Segment</string>
+    </property>
+    <addaction name="action_Text_DisplayUserText"/>
+    <addaction name="action_Text_DisplayKernelText"/>
+    <addaction name="separator"/>
+    <addaction name="action_Text_DisplayComments"/>
+    <addaction name="action_Text_DisplayInstructionValue"/>
+   </widget>
+   <widget class="QMenu" name="menu_Data_Segment">
+    <property name="title">
+     <string>&amp;Data Segment</string>
+    </property>
+    <addaction name="action_Data_DisplayUserData"/>
+    <addaction name="action_Data_DisplayUserStack"/>
+    <addaction name="action_Data_DisplayKernelData"/>
+    <addaction name="separator"/>
+    <addaction name="separator"/>
+    <addaction name="action_Data_DisplayBinary"/>
+    <addaction name="action_Data_DisplayHex"/>
+    <addaction name="action_Data_DisplayDecimal"/>
+   </widget>
+   <widget class="QMenu" name="menu_Window">
+    <property name="title">
+     <string>&amp;Window</string>
+    </property>
+    <addaction name="action_Win_IntRegisters"/>
+    <addaction name="action_Win_FPRegisters"/>
+    <addaction name="action_Win_TextSegment"/>
+    <addaction name="action_Win_DataSegment"/>
+    <addaction name="action_Win_Console"/>
+    <addaction name="separator"/>
+    <addaction name="action_Win_Tile"/>
+    <addaction name="action_Win_Restore"/>
+   </widget>
+   <widget class="QMenu" name="menu_Help">
+    <property name="title">
+     <string>&amp;Help</string>
+    </property>
+    <addaction name="action_Help_ViewHelp"/>
+    <addaction name="action_Help_AboutSPIM"/>
+   </widget>
+   <addaction name="menu_File"/>
+   <addaction name="menu_Simulator"/>
+   <addaction name="menu_Registers"/>
+   <addaction name="menu_Text_Segment"/>
+   <addaction name="menu_Data_Segment"/>
+   <addaction name="menu_Window"/>
+   <addaction name="menu_Help"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QDockWidget" name="IntRegDockWidget">
+   <property name="allowedAreas">
+    <set>Qt::TopDockWidgetArea</set>
+   </property>
+   <property name="windowTitle">
+    <string>Int Regs</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>4</number>
+   </attribute>
+   <widget class="regTextEdit" name="IntRegTextEdit">
+    <property name="minimumSize">
+     <size>
+      <width>200</width>
+      <height>600</height>
+     </size>
+    </property>
+    <property name="undoRedoEnabled" stdset="0">
+     <bool>false</bool>
+    </property>
+    <property name="readOnly" stdset="0">
+     <bool>true</bool>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="FPRegDockWidget">
+   <property name="allowedAreas">
+    <set>Qt::TopDockWidgetArea</set>
+   </property>
+   <property name="windowTitle">
+    <string>FP Regs</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>4</number>
+   </attribute>
+   <widget class="regTextEdit" name="FPRegTextEdit">
+    <property name="undoRedoEnabled" stdset="0">
+     <bool>false</bool>
+    </property>
+    <property name="readOnly" stdset="0">
+     <bool>true</bool>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="TextSegDockWidget">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="allowedAreas">
+    <set>Qt::BottomDockWidgetArea|Qt::TopDockWidgetArea</set>
+   </property>
+   <property name="windowTitle">
+    <string>Text</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>4</number>
+   </attribute>
+   <widget class="textTextEdit" name="TextSegmentTextEdit">
+    <property name="minimumSize">
+     <size>
+      <width>800</width>
+      <height>600</height>
+     </size>
+    </property>
+    <property name="undoRedoEnabled" stdset="0">
+     <bool>false</bool>
+    </property>
+    <property name="readOnly" stdset="0">
+     <bool>true</bool>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="DataSegDockWidget">
+   <property name="allowedAreas">
+    <set>Qt::TopDockWidgetArea</set>
+   </property>
+   <property name="windowTitle">
+    <string>Data</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>4</number>
+   </attribute>
+   <widget class="dataTextEdit" name="DataSegmentTextEdit">
+    <property name="undoRedoEnabled" stdset="0">
+     <bool>false</bool>
+    </property>
+    <property name="readOnly" stdset="0">
+     <bool>true</bool>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="action_File_Load"/>
+   <addaction name="action_File_Reload"/>
+   <addaction name="separator"/>
+   <addaction name="action_File_SaveLog"/>
+   <addaction name="action_File_Print"/>
+   <addaction name="separator"/>
+   <addaction name="action_Sim_ClearRegisters"/>
+   <addaction name="action_Sim_Reinitialize"/>
+   <addaction name="separator"/>
+   <addaction name="action_Sim_Run"/>
+   <addaction name="action_Sim_Pause"/>
+   <addaction name="action_Sim_Stop"/>
+   <addaction name="action_Sim_SingleStep"/>
+   <addaction name="separator"/>
+   <addaction name="action_Help_ViewHelp"/>
+  </widget>
+  <action name="action_File_Load">
+   <property name="icon">
+    <iconset resource="windows_images.qrc">
+     <normaloff>:/icons/LoadFile.png</normaloff>:/icons/LoadFile.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Load File</string>
+   </property>
+  </action>
+  <action name="action_File_SaveLog">
+   <property name="icon">
+    <iconset resource="windows_images.qrc">
+     <normaloff>:/icons/SaveLog.png</normaloff>:/icons/SaveLog.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Save Log File</string>
+   </property>
+  </action>
+  <action name="action_File_Exit">
+   <property name="text">
+    <string>&amp;Exit</string>
+   </property>
+  </action>
+  <action name="action_Sim_ClearRegisters">
+   <property name="icon">
+    <iconset resource="windows_images.qrc">
+     <normaloff>:/icons/ClearRegs.png</normaloff>:/icons/ClearRegs.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Clear Registers</string>
+   </property>
+  </action>
+  <action name="action_Sim_Reinitialize">
+   <property name="icon">
+    <iconset resource="windows_images.qrc">
+     <normaloff>:/icons/Reinit.png</normaloff>:/icons/Reinit.png</iconset>
+   </property>
+   <property name="text">
+    <string>Re&amp;initialize Simulator</string>
+   </property>
+  </action>
+  <action name="action_File_Reload">
+   <property name="icon">
+    <iconset resource="windows_images.qrc">
+     <normaloff>:/icons/ReloadFile.png</normaloff>:/icons/ReloadFile.png</iconset>
+   </property>
+   <property name="text">
+    <string>Re&amp;initialize and Load File</string>
+   </property>
+  </action>
+  <action name="action_Sim_SetRunParameters">
+   <property name="text">
+    <string>Run &amp;Parmeters</string>
+   </property>
+  </action>
+  <action name="action_Sim_Run">
+   <property name="icon">
+    <iconset resource="windows_images.qrc">
+     <normaloff>:/icons/Run.png</normaloff>:/icons/Run.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Run/Continue</string>
+   </property>
+   <property name="shortcut">
+    <string>F5</string>
+   </property>
+  </action>
+  <action name="action_Sim_Pause">
+   <property name="icon">
+    <iconset resource="windows_images.qrc">
+     <normaloff>:/icons/Pause.png</normaloff>:/icons/Pause.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Pause</string>
+   </property>
+  </action>
+  <action name="action_Sim_Stop">
+   <property name="icon">
+    <iconset resource="windows_images.qrc">
+     <normaloff>:/icons/Stop.png</normaloff>:/icons/Stop.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Stop</string>
+   </property>
+   <property name="shortcut">
+    <string/>
+   </property>
+  </action>
+  <action name="action_Sim_SingleStep">
+   <property name="icon">
+    <iconset resource="windows_images.qrc">
+     <normaloff>:/icons/SingleStep.png</normaloff>:/icons/SingleStep.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Single Step</string>
+   </property>
+   <property name="shortcut">
+    <string>F10</string>
+   </property>
+  </action>
+  <action name="action_Sim_DisplaySymbols">
+   <property name="text">
+    <string>&amp;Display Symbols</string>
+   </property>
+  </action>
+  <action name="action_Sim_Settings">
+   <property name="icon">
+    <iconset resource="windows_images.qrc">
+     <normaloff>:/icons/Settings.png</normaloff>:/icons/Settings.png</iconset>
+   </property>
+   <property name="text">
+    <string>Settings</string>
+   </property>
+  </action>
+  <action name="action_Reg_DisplayBinary">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Binary</string>
+   </property>
+  </action>
+  <action name="action_Reg_DisplayHex">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Hex</string>
+   </property>
+  </action>
+  <action name="action_Reg_DisplayDecimal">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Decimal</string>
+   </property>
+  </action>
+  <action name="action_Text_DisplayUserText">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>User Text</string>
+   </property>
+  </action>
+  <action name="action_Text_DisplayKernelText">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Kernel Text</string>
+   </property>
+  </action>
+  <action name="action_Text_DisplayComments">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Comments</string>
+   </property>
+  </action>
+  <action name="action_Text_DisplayInstructionValue">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Instruction Value</string>
+   </property>
+  </action>
+  <action name="action_Data_DisplayUserData">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>User Data</string>
+   </property>
+  </action>
+  <action name="action_Data_DisplayUserStack">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>User Stack</string>
+   </property>
+  </action>
+  <action name="action_Data_DisplayKernelData">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Kernel Data</string>
+   </property>
+  </action>
+  <action name="action_Data_DisplayBinary">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Binary</string>
+   </property>
+  </action>
+  <action name="action_Data_DisplayHex">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Hex</string>
+   </property>
+  </action>
+  <action name="action_Data_DisplayDecimal">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Decimal</string>
+   </property>
+  </action>
+  <action name="action_Win_IntRegisters">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Integer Registers</string>
+   </property>
+  </action>
+  <action name="action_Win_FPRegisters">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>FP Registers</string>
+   </property>
+  </action>
+  <action name="action_Win_TextSegment">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Text Segment</string>
+   </property>
+  </action>
+  <action name="action_Win_DataSegment">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Data Segment</string>
+   </property>
+  </action>
+  <action name="action_Win_Console">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Console</string>
+   </property>
+  </action>
+  <action name="action_Win_Tile">
+   <property name="text">
+    <string>Tile</string>
+   </property>
+  </action>
+  <action name="action_Win_Restore">
+   <property name="text">
+    <string>Restore to default</string>
+   </property>
+  </action>
+  <action name="action_Help_ViewHelp">
+   <property name="icon">
+    <iconset resource="windows_images.qrc">
+     <normaloff>:/icons/Help.png</normaloff>:/icons/Help.png</iconset>
+   </property>
+   <property name="text">
+    <string>View Help</string>
+   </property>
+  </action>
+  <action name="action_Help_AboutSPIM">
+   <property name="text">
+    <string>About QtSpim</string>
+   </property>
+  </action>
+  <action name="action_File_Print">
+   <property name="icon">
+    <iconset resource="windows_images.qrc">
+     <normaloff>:/icons/Print.png</normaloff>:/icons/Print.png</iconset>
+   </property>
+   <property name="text">
+    <string>Print</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>textTextEdit</class>
+   <extends>QWidget</extends>
+   <header>texttextedit.h</header>
+  </customwidget>
+  <customwidget>
+   <class>dataTextEdit</class>
+   <extends>QWidget</extends>
+   <header>datatextedit.h</header>
+  </customwidget>
+  <customwidget>
+   <class>regTextEdit</class>
+   <extends>QWidget</extends>
+   <header>regtextedit.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="windows_images.qrc"/>
+ </resources>
+ <connections/>
+</ui>

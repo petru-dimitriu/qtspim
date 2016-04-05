@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head>
+<title>SPIM MIPS Simulator</title>
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<style type="text/css">
+.style2 {
+	text-align: center;
+	font-size: x-large;
+	background-color: #00FF00;
+	color: #000000;
+	width: 65%;
+}
+</style>
+</head>
+
+<body>
+
+<h1>SPIM: A MIPS32 Simulator</h1>
+<center>
+<p>James Larus<br/>
+<a href="mailto:spim@larusstone.org">spim@larusstone.org</a></p>
+<p>&nbsp;</p>
+</center>
+<div class="leftNav">
+	<h3>Contents</h3>
+	<ul>
+		<li><a href="older.html">Older Versions of SPIM</a></li>
+		<li><a href="further.html">Further Information</a></li>
+		<li><a href="changes.html">Changes to SPIM</a></li>
+		<li><a href="#copyright">Copyright</a></li>
+	</ul>
+</div>
+<div class="rightNav">
+	<h3>What&#39;s New?</h3>
+	<p><i>QtSpim</i> is a new user interface for <em>Spim</em>
+
+ built on the
+	<a href="http://qt-project.org/">Qt UI framework</a>. Qt is cross-platform, so 
+	the same user iterface and same code will run on Windows, Linux, and Mac OS 
+	X (yeah!). Moreover, the interface is clean and up-to-date (unlike the archaic 
+	X windows interface).</p>
+	<p><em>Spim</em>
+ has moved to
+	<a href="https://sourceforge.net/projects/spimsimulator/">SourceForge</a>! The 
+	source code for all version of <em>Spim</em>
+ are in an SVN repository and compiled 
+	version are available for download. There is also a bug tracker and discussion 
+	forum. <em>Spim</em> is an open source project, so please join in and 
+	contribute.&nbsp;</p>
+</div>
+<div class="middle">
+<p><em>Spim</em>
+
+ is a self-contained simulator that runs MIPS32 programs. It reads 
+and executes assembly language programs written for this processor. <em>Spim</em>
+
+ 
+also provides a simple debugger and minimal set of operating system services. S<i>pim</i> does <span class="style1">
+not</span>
+ execute binary (compiled) programs.</p>
+<p><em>Spim</em>
+
+ implements almost the entire MIPS32 assembler-extended instruction 
+set. (It omits most floating point comparisons and rounding modes and the memory 
+system page tables.) The MIPS architecture has several variants that differ in various 
+ways (e.g., the MIPS64 architecture supports 64-bit integers and addresses), which 
+means that <em>Spim</em>
+
+ will not run programs for all MIPS processors.</p>
+	<p><em>Spim</em>
+
+    comes with complete source code and documentation.</p>
+<p><em>Spim</em>
+
+ implements both a terminal and windows interfaces. On Microsoft Windows, 
+Linux, and Mac OS X, the s<em>pim</em>
+
+ program offers a simple terminal interface 
+and the <i>QtSpim</i> program provides the windowing interface. The 
+<a href="older.html">older 
+programs <em>xspim</em> and <em>PCSpim</em></a> provide window interfaces for these 
+systems as well.</p>
+	<p class="style2">
+	<a href="https://sourceforge.net/projects/spimsimulator/files">
+	<strong>Download SPIM</strong></a></p>
+</div>
+<hr />
+<h2><a name="qtspim">QtSpim</a></h2>
+<p>The newest version of <em>Spim</em>
+
+ is called <i>QtSpim</i>, and unlike all of 
+the other version, it runs on Microsoft Windows, Mac OS X, <span class="style1">and</span> Linux&#8212;the same source code and the same user interface on all three platforms!
+<i>QtSpim</i> is the version of <em>Spim</em>
+
+ that currently being actively maintaned. 
+The other versions are still available, but please stop using them and move to
+<i>QtSpim</i>. It has a modern user interface, extensive help, and is consistent 
+across all three platforms. <i>QtSpim </i>makes my life far easier, and will likely 
+improve yours and your students&#39; experience as well.</p>
+<p>A compiled, immediately installable version of <i>QtSpim</i> is available for
+Microsoft Windows, Mac OS X, and
+Linux can be downloaded from:
+<a href="https://sourceforge.net/projects/spimsimulator/files/">
+https://sourceforge.net/projects/spimsimulator/files/</a>.
+<a href="http://spimsimulator.svn.sourceforge.net/viewvc/spimsimulator/">Full source 
+code</a> is also available (to compile <i>QtSpim</i>, you need
+<a href="http://qt-project.org/downloads">the Qt framework</a>, a very nice 
+cross-platform UI framework that can be downloaded from
+<a href="http://qt-project.org/downloads">http://qt-project.org/downloads</a>).</p>
+<p><a href="older.html">Older versions of <em>Spim</em></a>, namely <em>PCSpim</em> 
+and <em>xspim</em>, are still available and are updated with bug fixes, though 
+active development on them is done.</p>
+<hr /><h2><a name="copyright">Copyright</a></h2>
+<p><em>Spim</em>
+
+ is copyrighted by James Larus and distributed under a BSD license.</p>
+<p>Copyright (c) 1990-2011, James R. Larus. All rights reserved.</p>
+<p>Redistribution and use in source and binary forms, with or without modification, 
+are permitted provided that the following conditions are met:</p>
+<ul>
+	<li>Redistributions of source code must retain the above copyright notice, this 
+	list of conditions and the following disclaimer.</li>
+	<li>Redistributions in binary form must reproduce the above copyright notice, 
+	this list of conditions and the following disclaimer in the documentation and/or 
+	other materials provided with the distribution.</li>
+	<li>Neither the name of the James R. Larus nor the names of its contributors may 
+be used to endorse or promote products derived from this software without specific 
+prior written permission.</li>
+</ul>
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND 
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES 
+OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT 
+SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT 
+OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) 
+HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, 
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF 
+THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+<p>&nbsp;The DOS and Windows ports were done by David A. Carley and are copyrighted 
+in part by Morgan Kaufmann Publishers.</p>
+
+<hr /><h2><a name="birthday">Happy Birthday SPIM!</a></h2>
+<p><em>Spim</em>
+
+ turned 20 years old January 2010. I wrote the original version of
+<em>Spim</em>
+
+ as the target machine for my first compiler class at University of Wisconsin, 
+Madison in the spring semester 1990. <em>Spim</em>
+
+ is likely older than most of the 
+students currently using it!</p>
+<p>As a birthday present, the 8.0 version of <em>Spim</em>
+
+ has a simpler, less restrictive 
+license, namely the standard BSD license.</p>
+
+</body>
+
+</html>

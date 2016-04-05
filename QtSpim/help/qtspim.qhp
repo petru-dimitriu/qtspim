@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <QtHelpProject version="1.0">
+     <namespace>org.larusstone.qtspim.1.0</namespace>
+     <virtualFolder>doc</virtualFolder>
+     <filterSection>
+         <filterAttribute>qtspim</filterAttribute>
+         <toc>
+             <section title="QtSpim Manual" ref="qtspim_help.html#qtspim/">
+               <section title="Getting Started with QtSpim" ref="qtspim_help.html#getting/" />
+               <section title="Loading a Program" ref="qtspim_help.html#loading/" />
+               <section title="Running a Program" ref="qtspim_help.html#running/" />
+               <section title="Display Options" ref="qtspim_help.html#display/" />
+               <section title="Changing Registers and Memory" ref="qtspim_help.html#changing/" />
+               <section title="Settings" ref="qtspim_help.html#settings/" />
+             </section>
+             <section title="Assemblers, Linkers, and the SPIM Simulator" ref="HP_AppA.html#book/">
+               <section title="Introduction" ref="HP_AppA.html#intro/" >
+                  <section title="When to Use Assembly Language" ref="HP_AppA.html#when/" />
+                  <section title="Drawbacks of Assembly Language" ref="HP_AppA.html#drawbacks/" />
+                </section>
+                <section title="Assemblers" ref="HP_AppA.html#assemblers/" >
+                  <section title="Object File Format" ref="HP_AppA.html#object/" />
+                  <section title="Additional Facilities" ref="HP_AppA.html#additional/" />
+                </section>
+                <section title="Linkers" ref="HP_AppA.html#linkers/" />
+                <section title="Loading" ref="HP_AppA.html#loading/" />
+                <section title="Memory Usage" ref="HP_AppA.html#memory/" />
+                <section title="Procedure Call Conventions" ref="HP_AppA.html#procedure/" >
+                  <section title="Procedure Calls" ref="HP_AppA.html#procedure/" />
+                  <section title="Procedure Call Example" ref="HP_AppA.html#procedure/" />
+                  <section title="Another Procedure Call Example" ref="HP_AppA.html#another/" />
+                </section>
+                <section title="Exceptions and Interrupts" ref="HP_AppA.html#exceptions/" >
+                  <section title="Exception Handler" ref="HP_AppA.html#exception/" />
+                </section>
+                <section title="Input and Output" ref="HP_AppA.html#input/" />
+                <section title="SPIM" ref="HP_AppA.html#spim/" >
+                  <section title="Simulation of a Virtual Machine" ref="HP_AppA.html#simulation/" />
+                  <section title="Getting Started with SPIM" ref="HP_AppA.html#getting/" />
+                  <section title="Surprising Features" ref="HP_AppA.html#surprising/" />
+                  <section title="Byte Order" ref="HP_AppA.html#byte/" />
+                  <section title="System Calls" ref="HP_AppA.html#system/" />
+                </section>
+                <section title="MIPS R2000 Assembly Language" ref="HP_AppA.html#mips/" >
+                  <section title="Addressing Modes" ref="HP_AppA.html#addressing/" />
+                  <section title="Assembler Syntax" ref="HP_AppA.html#assembler/" />
+                  <section title="Encoding MIPS Instructions" ref="HP_AppA.html#encoding/" />
+                  <section title="Instruction Format" ref="HP_AppA.html#instruction/" />
+                  <section title="Arithmetic and Logical Instructions" ref="HP_AppA.html#arithmetic/" />
+                  <section title="Constant-Manipulating Instructions" ref="HP_AppA.html#constant/" />
+                  <section title="Comparison Instructions" ref="HP_AppA.html#comparison/" />
+                  <section title="Branch Instructions" ref="HP_AppA.html#branch/" />
+                  <section title="Jump Instructions" ref="HP_AppA.html#jump/" />
+                  <section title="Trap Instructions" ref="HP_AppA.html#trap/" />
+                  <section title="Load Instructions" ref="HP_AppA.html#load/" />
+                  <section title="Store Instructions" ref="HP_AppA.html#store/" />
+                  <section title="Data Movement Instructions" ref="HP_AppA.html#data/" />
+                  <section title="Floating-Point Instructions" ref="HP_AppA.html#floating/" />
+                  <section title="Exception and Interrupt Instructions" ref="HP_AppA.html#exception/" />
+                </section>
+                <section title="Concluding Remarks" ref="HP_AppA.html#concluding/" />
+                <section title="Exercises" ref="HP_AppA.html#exercises/" />
+               </section>
+         </toc>
+         <keywords>
+         </keywords>
+         <files>
+             <file>*.html</file>
+             <file>*.jpg</file>
+         </files>
+     </filterSection>
+ </QtHelpProject>

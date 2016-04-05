@@ -1,0 +1,47 @@
+#!/bin/bash -v
+#
+# Shell script to create clean tar file under Cygwin.
+#
+# Usage: release-qtspim
+#
+
+VERSION=0_9
+DIRS="CPU QtSpim Tests"
+TGT=qtspim-$VERSION
+
+rm -f */*~
+rm -f Tests/tt.endian.s
+
+rm -fr $TGT
+mkdir $TGT
+
+for f in $DIRS ; do 
+  cp -R $f $TGT
+done
+
+cp ChangeLog README $TGT
+
+
+pushd $TGT
+rm -fr .svn
+for f in * ; do
+  rm -fr */.svn */*/.svn
+  if test -f $f ; then
+    cat $f | tr -d "\r" > $f.xxx;
+    mv $f.xxx $f;
+  else
+    for fs in $f/* ; do
+      if test -f $fs ; then
+        cat $fs | tr -d "\r" > $fs.xxx;
+        mv $fs.xxx $fs;
+      fi;
+    done;
+  fi;
+done
+popd
+
+#sleep 65
+
+rm -f qtspim-$VERSION.tar qtspim-$VERSION.tar.gz
+tar cvf qtspim-$VERSION.tar qtspim-$VERSION
+gzip qtspim-$VERSION.tar

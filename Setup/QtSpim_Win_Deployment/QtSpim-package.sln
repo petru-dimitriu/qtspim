@@ -1,0 +1,18 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "QtSpim-VS2010-Release", "QtSpim-msvc\QtSpim.vdproj", "{1DCB53AA-A215-48C0-A09C-7BD9FC122B37}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1DCB53AA-A215-48C0-A09C-7BD9FC122B37}.Debug|Default.ActiveCfg = Debug
+		{1DCB53AA-A215-48C0-A09C-7BD9FC122B37}.Release|Default.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
