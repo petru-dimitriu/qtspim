@@ -65,8 +65,8 @@ SOURCES += main.cpp\
         ../CPU/spim-utils.c\
         ../CPU/string-stream.c\
         ../CPU/sym-tbl.c\
-        ../CPU/syscall.c\
-        spim_support.c
+        ../CPU/syscall.c \
+    spim_support.c
 
 
 HEADERS  += spimview.h\

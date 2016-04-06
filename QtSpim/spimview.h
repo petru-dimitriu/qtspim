@@ -141,7 +141,7 @@ Q_OBJECT
     bool st_showUserStackSegment;
     bool st_showKernelDataSegment;
     int st_dataSegmentDisplayBase;
-    int st_numberOfWordsPerLine;
+    unsigned int st_numberOfWordsPerLine;
 
     //
     // End of state

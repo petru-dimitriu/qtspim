@@ -58,7 +58,7 @@ int main(int argc, char *argv[])
     message_out.i = 1;
     console_out.i = 2;
 
-    win.SpimConsole->show();
+    //win.SpimConsole->show();
     win.show();
 
     QStringList fileNames = parseCommandLine(a.arguments());

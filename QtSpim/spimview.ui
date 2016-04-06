@@ -278,7 +278,10 @@
      <normaloff>:/icons/ClearRegs.png</normaloff>:/icons/ClearRegs.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Clear Registers</string>
+    <string>&amp;Reinitialize Registers</string>
+   </property>
+   <property name="shortcut">
+    <string>F7</string>
    </property>
   </action>
   <action name="action_Sim_Reinitialize">

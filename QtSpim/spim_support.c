@@ -124,7 +124,9 @@ char get_console_char()
 void put_console_char(char c)
 {
     Window->SpimConsole->WriteOutput(QString(c));
-    Window->SpimConsole->raise();
+    if (!Window->SpimConsole->isVisible())
+        write_output(message_out,QObject::tr("Writing to console. To view the console, go to Window > Console.").toStdString().c_str());
+    //Window->SpimConsole->raise();
 }
 
 
@@ -151,7 +153,7 @@ void read_input(char *str, int str_size)
 }
 
 
-void write_output (port fp, char *fmt, ...)
+void write_output (port fp, const char *fmt, ...)
 {
     va_list args;
     va_start (args, fmt);
@@ -167,6 +169,8 @@ void write_output (port fp, char *fmt, ...)
     else if (fp.i == console_out.i)
     {
         Window->SpimConsole->WriteOutput(QString(buf));
-        Window->SpimConsole->raise();
+        if (!Window->SpimConsole->isVisible())
+            write_output(message_out,QObject::tr("Writing to console. To view the console, go to Window > Console.").toStdString().c_str());
+        //Window->SpimConsole->raise();
     }
 }

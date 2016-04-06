@@ -51,7 +51,7 @@ SpimView::SpimView(QWidget *parent) :
     // Open windows
     //
     ui->setupUi(this);
-    SpimConsole = new Console(0);
+    SpimConsole = new Console(this);
 
     stdExceptionHandler = QString("<<SPIM Exception Handler>>");
 
@@ -76,7 +76,7 @@ SpimView::SpimView(QWidget *parent) :
 
     // Create a console
     //
-    ui->action_Win_Console->setChecked(true);
+    ui->action_Win_Console->setChecked(0);
 
     programStatus = IDLE;
 }

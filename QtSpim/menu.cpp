@@ -74,9 +74,9 @@ void SpimView::file_LoadFile()
     else
     {
         file = QFileDialog::getOpenFileName(this,
-                                            "Open Assembly Code",
+                                            tr("Open Assembly Code"),
                                             st_recentFiles[0],
-                                            "Assembly (*.a *.s *.asm);;Text files (*.txt)");
+                                            tr("Assembly (*.a *.s *.asm);;Text files (*.txt)"));
     }
     if (!file.isNull())
     {
@@ -125,9 +125,9 @@ void SpimView::file_SaveLogFile()
         slf->setupUi(saveLogFileDialog);
 
         QFileDialog* fb = new QFileDialog(0,
-                                          "Save To Log File",
+                                          tr("Save To Log File"),
                                           "",
-                                          "Text files (*.txt);; All (*)");
+                                          tr("Text files (*.txt);; All (*)"));
         QObject::connect(slf->saveFileToolButton, SIGNAL(clicked()), fb, SLOT(exec()));
         QObject::connect(fb, SIGNAL(fileSelected(QString)), slf->SaveLineEdit, SLOT(setText(QString)));
     }
@@ -182,7 +182,7 @@ void SpimView::file_Print()
     {
         QPrinter printer;
         QPrintDialog printDialog(&printer, this);
-        printDialog.setWindowTitle("Print Windows");
+        printDialog.setWindowTitle(tr("Print Windows"));
 
         if (printDialog.exec() == QDialog::Accepted)
         {
@@ -229,6 +229,7 @@ void SpimView::file_Exit()
 void SpimView::sim_ClearRegisters()
 {
     initialize_registers();
+    PC = TEXT_BOT; // !
 
     DisplayIntRegisters();
     DisplayFPRegisters();
@@ -237,7 +238,7 @@ void SpimView::sim_ClearRegisters()
 
 void SpimView::sim_ReinitializeSimulator()
 {
-    write_output(message_out, "<hr>Memory and registers cleared\n\n");
+    write_output(message_out, tr("<hr>Memory and registers cleared\n\n").toStdString().c_str());
     InitializeWorld();
     SpimConsole->Clear();
     initStack();
@@ -245,7 +246,7 @@ void SpimView::sim_ReinitializeSimulator()
     SetOutputColor("green");
     write_startup_message();
     write_output(message_out, 
-                 "QtSPIM is linked to the Qt library, which is distributed under the GNU Lesser General Public License version 3 and version 2.1.\n");
+                 tr("QtSPIM is linked to the Qt library, which is distributed under the GNU Lesser General Public License version 3 and version 2.1.\n").toStdString().c_str());
     SetOutputColor("black");
 
     CaptureIntRegisters();
@@ -369,19 +370,19 @@ void SpimView::updateStatus(PROGSTATE status)
         break;
 
     case STOPPED:
-        Window->statusBar()->showMessage("Stopped");
+        Window->statusBar()->showMessage(tr("Stopped"));
         break;
 
     case PAUSED:
-        Window->statusBar()->showMessage("Paused");
+        Window->statusBar()->showMessage(tr("Paused"));
         break;
 
     case RUNNING:
-        Window->statusBar()->showMessage("Running");
+        Window->statusBar()->showMessage(tr("Running"));
         break;
 
     case SINGLESTEP:
-        Window->statusBar()->showMessage("Single Step");
+        Window->statusBar()->showMessage(tr("Single Step"));
         break;
 
     default:
@@ -413,7 +414,7 @@ void SpimView::executeProgram(mem_addr pc, int steps, bool display, bool contBkp
             connect(bpd->singleStepPushButton, SIGNAL(clicked()), this, SLOT(singleStepBreakpoint()));
             connect(bpd->abortPushButton, SIGNAL(clicked()), this, SLOT(abortBreakpoint()));
         }
-        bpd->label->setText("Execution stopped at breakpoint at " + QString("0x") + formatAddress(PC));
+        bpd->label->setText(tr("Execution stopped at breakpoint at ") + QString("0x") + formatAddress(PC));
         breakpointDialog->show();
     }
     else if (!continuable)
@@ -480,9 +481,9 @@ void SpimView::sim_Settings()
     sd.loadExceptionHandlerCheckBox->setChecked(st_loadExceptionHandler);
     sd.exceptionHandlerLineEdit->setText(st_exceptionHandlerFileName);
     QFileDialog exceptionFileDialog(0,
-                                    "Open Exception File",
+                                    tr("Open Exception File"),
                                     st_exceptionHandlerFileName,
-                                    "Assembly (*.a *.s *.asm);;Text files (*.txt)");
+                                    tr("Assembly (*.a *.s *.asm);;Text files (*.txt)"));
     QObject::connect(sd.exceptionHandlerToolButton, SIGNAL(clicked()), &exceptionFileDialog, SLOT(exec()));
     QObject::connect(&exceptionFileDialog, SIGNAL(fileSelected(QString)),
                      sd.exceptionHandlerLineEdit, SLOT(setText(QString)));
@@ -851,12 +852,12 @@ void SpimView::help_AboutSPIM()
 {
     QMessageBox box(QMessageBox::NoIcon,
                     tr("About QtSpim"),
-                    QString("<span style='font-size: 16pt;'>"
+                    QString(tr("<span style='font-size: 16pt;'>"
                             "<center><strong>QtSpim</strong></center>"
                             "<center><img src=':/icons/qtspim.png'>"
-                            "<span style='font-size: 10pt;'>")
+                            "<span style='font-size: 10pt;'>"))
                     + QString("<p>") + QString(SPIM_VERSION) + QString("</p>")
-                    + QString ("<p>SPIM is a simulator of the MIPS R3000 processor.</p>"
+                    + QString (tr("<p>SPIM is a simulator of the MIPS R3000 processor.</p>"
                                "<p>Copyright (c) 1990-2015, James R. Larus (larus@larusstone.org).</p>"
                                "<p>SPIM is distributed under a BSD license.</p>"
                                "<p>For more information, source code, and binaries:</p>"
@@ -864,7 +865,7 @@ void SpimView::help_AboutSPIM()
                                "<p>QtSPIM is linked to the Qt library, which is distributed under the GNU Lesser General Public License version 3 and GNU Lesser General Public License version 2.1.</p>"
 "<p><a href='http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html'>GNU Lesser General Public License, version 2.1</a></p>"
 "<p><a href='http://www.gnu.org/licenses/lgpl-3.0.html'>GNU Lesser General Public License, version 3</a></p>"
-"</span>"),
+"</span>")),
                     QMessageBox::Ok);
     box.exec();
 }

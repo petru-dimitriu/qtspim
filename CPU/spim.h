@@ -233,7 +233,7 @@ char get_console_char ();
 void put_console_char (char c);
 void read_input (char *str, int n);
 void run_error (char *fmt, ...);
-void write_output (port, char *fmt, ...);
+void write_output (port, const char *fmt, ...);
 
 
 /* Exported variables: */

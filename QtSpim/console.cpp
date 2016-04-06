@@ -37,7 +37,8 @@ Console::Console(QWidget *parent)
     : QPlainTextEdit(parent)
 {
     setWindowTitle(tr("Console"));
-    resize(800, 600);
+    setWindowFlags(Qt::Tool);
+    resize(400, 300);
 
     setUndoRedoEnabled(false);
     appendPlainText(QString(""));
