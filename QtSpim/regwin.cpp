@@ -294,14 +294,14 @@ QString SpimView::formatReg(QString name, QString value, bool changed)
 QString SpimView::registerBefore(bool changed)
 {
     return QString(changed && st_colorChangedRegisters
-                   ? QString("<font color='") % QString(st_changedRegisterColor) % QString("'>")
+                   ? QString("<span style='background-color:") % QString(st_changedRegisterBgColor) % QString("'>")
                    : QString(""));
 }
 
 
 QString SpimView::registerAfter(bool changed)
 {
-    return QString(changed && st_colorChangedRegisters ? "</font>" : "");
+    return QString(changed && st_colorChangedRegisters ? "</span>" : "");
 }
 
 

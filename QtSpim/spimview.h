@@ -119,7 +119,7 @@ Q_OBJECT
     // Register window
     //
     bool st_colorChangedRegisters;
-    QString st_changedRegisterColor;
+    QString st_changedRegisterBgColor;
     int st_regDisplayBase;
     QFont st_regWinFont;
     QColor st_regWinFontColor;

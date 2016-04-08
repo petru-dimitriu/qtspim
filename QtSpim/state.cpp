@@ -62,7 +62,7 @@ void SpimView::readSettings()
 
     settings.beginGroup("RegWin");
     st_colorChangedRegisters = settings.value("ColorChangedRegs", true).toBool();
-    st_changedRegisterColor = settings.value("ChangedRegColor", "red").toString();
+    st_changedRegisterBgColor = settings.value("ChangedRegColor", "lightgreen").toString();
     st_regDisplayBase = settings.value("RegisterDisplayBase", 16).toInt();
     st_regDisplayBase = setCheckedRegBase(st_regDisplayBase);
 
@@ -149,7 +149,7 @@ void SpimView::writeSettings()
 
     settings.beginGroup("RegWin");
     settings.setValue("ColorChangedRegs", st_colorChangedRegisters);
-    settings.setValue("ChangedRegColor", st_changedRegisterColor);
+    settings.setValue("ChangedRegColor", st_changedRegisterBgColor);
     settings.setValue("RegisterDisplayBase", st_regDisplayBase);
 
     settings.setValue("Font", st_regWinFont);
