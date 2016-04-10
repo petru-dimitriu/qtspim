@@ -415,7 +415,9 @@ void SpimView::executeProgram(mem_addr pc, int steps, bool display, bool contBkp
             connect(bpd->abortPushButton, SIGNAL(clicked()), this, SLOT(abortBreakpoint()));
         }
         bpd->label->setText(tr("Execution stopped at breakpoint at ") + QString("0x") + formatAddress(PC));
+        breakpointDialog->setWindowModality(Qt::ApplicationModal);
         breakpointDialog->show();
+
     }
     else if (!continuable)
     {
